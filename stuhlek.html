@@ -30,7 +30,7 @@ var $panel = $("#panel-links");
 $panel.attr("id", "main-panel");
 $panel.css("max-height", "85vh");
 
-$.get("https://crossorigin.me/http://www.stuhleck.at/html/D/lifte.asp", function (data) {
+$.get("http://cors-anywhere.herokuapp.com/www.stuhleck.at/html/D/lifte.asp", function (data) {
     var $t1 = $("<table class='table table-striped'><thead><tr><th>Lift</th><th>Name</th><th>Status</th></tr></thead></table>")
     var $lifts = $t1.append("<tbody></tbody>");
     var doc = new DOMParser().parseFromString(data, "text/html");
@@ -38,7 +38,7 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/lifte.asp", function
     for (var i = 0; i < rows.length; ++i) {
         var src  = $(rows[i]).find("td:nth(0) img").attr("src");
         var lift = $(rows[i]).find("td:nth(1)").text();
-        var name = $(rows[i]).find("td:nth(2)").text();
+        var name = $(rows[i]).find("td:nth(2)").text();s
         if (!lift || !name)
             continue;
         
@@ -58,7 +58,7 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/lifte.asp", function
 });
 
 
-$.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", function (data) {
+$.get("http://cors-anywhere.herokuapp.com/www.stuhleck.at/html/D/schneebericht.asp", function (data) {
     var $t2 = $("<table class='table table-striped'><thead><tr><th>Piste</th><th>Name</th><th>Status</th></tr></thead></table>")
     var $piste = $t2.append("<tbody></tbody>");
     var doc = new DOMParser().parseFromString(data, "text/html");
