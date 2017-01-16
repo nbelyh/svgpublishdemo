@@ -37,13 +37,13 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/lifte.asp", function
         var ja = src && src.indexOf("ja") >= 0;
         if (ja) {
             d3.selectAll(".lift-"+lift).classed("lift-on", true);
-            $lifts.append($("<tr><td>" + lift + "</td><td>"+name+"</td><td>ON</td></tr>"));
+            $lifts.append($("<tr class='on'><td>" + lift + "</td><td>"+name+"</td><td>ON</td></tr>"));
         }
         
         var nein = src && src.indexOf("nein") >= 0;
         if (nein) {
             d3.selectAll(".lift-" + lift).classed("lift-off", true);
-            $lifts.append($("<tr><td>" + lift + "</td><td>"+name+"</td><td>OFF</td></tr>"));
+            $lifts.append($("<tr class='off'><td>" + lift + "</td><td>"+name+"</td><td>OFF</td></tr>"));
         }
     }
 });
@@ -62,13 +62,13 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
         var ja = src && src.indexOf("ja") >= 0;
         if (ja) {
             d3.selectAll(".piste-"+piste).classed("lift-on", true);
-            $piste.append($("<tr><td>" + piste + "</td><td>"+name+"</td><td>ON</td></tr>"));
+            $piste.append($("<tr class='on'><td>" + piste + "</td><td>"+name+"</td><td>ON</td></tr>"));
         }
         
         var nein = src && src.indexOf("nein") >= 0;
         if (nein) {
             d3.selectAll(".piste-"+piste).classed("lift-off", true);
-            $piste.append($("<tr><td>" + piste + "</td><td>"+name+"</td><td>OFF</td></tr>"));
+            $piste.append($("<tr class='off'><td>" + piste + "</td><td>"+name+"</td><td>OFF</td></tr>"));
         }
     }
 });
@@ -81,8 +81,8 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 .lift-on {
     stroke-dasharray: 7 1;
     stroke-dashoffset: 8;
+    stroke-width: 4px;
     animation: marquee 0.5s linear infinite;
-    -ms-animation: marquee 0.5s linear infinite;
 }
 
 @keyframes marquee {
@@ -95,9 +95,19 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
     opacity: .3;
 }
 
+tr.on td:nth-child(3) {
+    color: green;
+    font-weight: bold;
+}
+
+tr.off td:nth-child(3) {
+    color: red;
+    font-weight: bold;
+}
+
 </style>
 
-<div style="position: absolute; top:0; left:0; overflow-y:auto; height: 95vh">
+<div style="position: absolute; top:0; left:0; overflow-y:auto; height: 95vh; min-width: 20vw">
     <table class="table table-striped">
         <thead><tr><th>Lift</th><th>Name</th><th>Status</th></tr></thead>
         <tbody id="lifts">
@@ -213,21 +223,21 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 	.st1 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;}
 	.st2 {fill:none;}
 	.st3 {stroke:#e21617;stroke-linecap:butt;stroke-width:1.5;}
-	.st4 {fill:none;stroke:#ffffff;stroke-linecap:butt;stroke-width:1.5;}
-	.st5 {stroke:#1e171b;stroke-linecap:butt;stroke-width:1.5;}
-	.st6 {stroke:#2169b2;stroke-linecap:butt;stroke-width:1.5;}
-	.st7 {fill:#000000;font-family:Calibri;font-size:0.833336em;font-weight:bold;}
-	.st8 {font-size:1em;}
-	.st9 {fill:#000000;font-family:Calibri;font-size:1.00001em;font-weight:bold;}
-	.st10 {fill:#006600;font-family:Calibri;font-size:1.00001em;}
-	.st11 {font-size:1em;font-weight:bold;}
-	.st12 {fill:#006600;font-family:Calibri;font-size:1.00001em;font-weight:bold;}
-	.st13 {font-size:1em;font-weight:normal;}
-	.st14 {fill:#000000;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;}
-	.st15 {fill:#006600;font-family:Calibri;font-size:1.00001em;font-stretch:semi-condensed;}
-	.st16 {fill:#2169b2;stroke:none;stroke-linecap:butt;stroke-width:0.75;}
-	.st17 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:0.75;}
-	.st18 {fill:#e21617;stroke:none;stroke-linecap:butt;stroke-width:0.75;}
+	.st4 {stroke:#1e171b;stroke-linecap:butt;stroke-width:1.5;}
+	.st5 {stroke:#2169b2;stroke-linecap:butt;stroke-width:1.5;}
+	.st6 {fill:#000000;font-family:Calibri;font-size:0.833336em;font-weight:bold;}
+	.st7 {font-size:1em;}
+	.st8 {fill:#000000;font-family:Calibri;font-size:1.00001em;font-weight:bold;}
+	.st9 {fill:#006600;font-family:Calibri;font-size:1.00001em;}
+	.st10 {font-size:1em;font-weight:bold;}
+	.st11 {fill:#006600;font-family:Calibri;font-size:1.00001em;font-weight:bold;}
+	.st12 {font-size:1em;font-weight:normal;}
+	.st13 {fill:#000000;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;}
+	.st14 {fill:#006600;font-family:Calibri;font-size:1.00001em;font-stretch:semi-condensed;}
+	.st15 {fill:#2169b2;stroke:none;stroke-linecap:butt;stroke-width:0.75;}
+	.st16 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:0.75;}
+	.st17 {fill:#e21617;stroke:none;stroke-linecap:butt;stroke-width:0.75;}
+	.st18 {fill:#000000;font-family:Calibri;font-size:1.00001em;}
 	.st19 {fill:none;fill-rule:evenodd;font-size:12px;overflow:hidden;stroke-linecap:square;stroke-miterlimit:3;}
 </style>
 
@@ -291,21 +301,17 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			<path d="M0 503.89 C6.3 507.86 14.18 511.84 31.05 512.14 C48.38 512.44 41.03 522.94 66.07 522.71 C92.03 522.41 87.07        536.66 106.65 536.96 C127.12 537.26 128.1 542.96 140.47 549.11 C150.07 553.99 166.28 549.11 175.65 559.61        C186.37 571.69 195.97 566.89 207.9 571.16 C222.38 576.41 219.45 586.09 232.13 585.49 C245.4 584.89 246.6        586.69 251.93 586.69 L0 503.89 Z" class="st2" />
 			<path d="M0 503.89 C6.3 507.86 14.18 511.84 31.05 512.14 C48.38 512.44 41.03 522.94 66.07 522.71 C92.03 522.41 87.07        536.66 106.65 536.96 C127.12 537.26 128.1 542.96 140.47 549.11 C150.07 553.99 166.28 549.11 175.65 559.61        C186.37 571.69 195.97 566.89 207.9 571.16 C222.38 576.41 219.45 586.09 232.13 585.49 C245.4 584.89 246.6        586.69 251.93 586.69" class="st3" />
 		</g>
-		<g id="shape136" transform="translate(606.882,-213.79)">
-			
-			<path d="M3.15 582.79 L6.08 582.86 L4.65 578.96 L3.15 582.79 ZM7.05 585.41 L6.6 584.29 L2.55 584.21 L2.1 585.41 C1.87        585.86 1.72 586.16 1.57 586.31 C1.5 586.46 1.27 586.54 0.98 586.54 C0.68 586.54 0.45 586.46 0.3 586.31 C0.08        586.09 -0 585.94 0 585.71 C-0 585.56 0.08 585.41 0.08 585.26 C0.15 585.19 0.23 584.96 0.3 584.74 L3 578.74        C3.08 578.51 3.15 578.29 3.22 578.06 C3.38 577.84 3.45 577.61 3.6 577.46 C3.67 577.31 3.83 577.16 4.05 577.09        C4.2 577.01 4.42 576.94 4.72 576.94 C5.02 576.94 5.25 577.01 5.4 577.09 C5.62 577.24 5.78 577.39 5.85 577.54        C6 577.69 6.08 577.84 6.15 577.99 C6.22 578.21 6.3 578.44 6.45 578.74 L8.92 584.81 C9.07 585.26 9.22 585.64        9.22 585.79 C9.22 586.01 9.07 586.24 8.92 586.39 C8.7 586.61 8.47 586.69 8.17 586.69 C8.02 586.69 7.87 586.61        7.8 586.61 C7.72 586.54 7.57 586.46 7.5 586.39 C7.42 586.24 7.35 586.16 7.27 585.94 C7.2 585.71 7.12 585.56        7.05 585.41 Z" class="st4" />
-		</g>
 		<g id="shape451" transform="translate(573.657,-34.2401)" class="lift-L">
 			
 			
 			<path d="M0 586.16 C0.3 586.69 16.57 570.71 16.8 571.24 L0 586.16 Z" class="st2" />
-			<path d="M0 586.16 C0.3 586.69 16.57 570.71 16.8 571.24" class="st5" />
+			<path d="M0 586.16 C0.3 586.69 16.57 570.71 16.8 571.24" class="st4" />
 		</g>
 		<g id="shape1235" transform="translate(572.232,-35.0651)" class="lift-L">
 			
 			
 			<path d="M17.63 572.29 C17.63 572.29 9.83 569.14 3.67 574.76 C-0 578.06 0.6 583.24 2.02 586.69 L17.63 572.29 Z" class="st2" />
-			<path d="M17.63 572.29 C17.63 572.29 9.83 569.14 3.67 574.76 C-0 578.06 0.6 583.24 2.02 586.69" class="st6" />
+			<path d="M17.63 572.29 C17.63 572.29 9.83 569.14 3.67 574.76 C-0 578.06 0.6 583.24 2.02 586.69" class="st5" />
 		</g>
 		<g id="shape7" transform="translate(841.5,-449.25)">
 			
@@ -313,7 +319,7 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			
 			<rect x="0" y="567.938" width="72" height="18.75" class="st1" />
-			<text x="7.78" y="574.31" class="st7">Steinbachalm <tspan x="21.8" dy="1.2em" class="st8">1355</tspan>m</text>		</g>
+			<text x="7.78" y="574.31" class="st6">Steinbachalm <tspan x="21.8" dy="1.2em" class="st7">1355</tspan>m</text>		</g>
 		<g id="shape23" transform="translate(321.582,-190.749)" class="piste-3">
 			
 			
@@ -323,12 +329,12 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			
 			<path d="M96.07 241.01 C113.17 247.91 155.1 268.31 154.73 278.06 C154.95 288.94 99.3 310.91 97.88 326.96 C96.75 346.09        276.23 367.91 254.63 386.14 C222.3 414.11 111.97 433.01 115.2 455.81 C115.5 462.86 156.75 468.49 154.5 481.99        C153.6 490.39 112.05 495.79 111 504.19 C110.63 518.21 151.05 522.11 151.95 530.81 C152.85 546.19 93.23 573.86        65.63 581.14 C45.45 586.69 -0 585.41 0 585.41 L96.07 241.01 Z" class="st2" />
-			<path d="M96.07 241.01 C113.17 247.91 155.1 268.31 154.73 278.06 C154.95 288.94 99.3 310.91 97.88 326.96 C96.75 346.09        276.23 367.91 254.63 386.14 C222.3 414.11 111.97 433.01 115.2 455.81 C115.5 462.86 156.75 468.49 154.5 481.99        C153.6 490.39 112.05 495.79 111 504.19 C110.63 518.21 151.05 522.11 151.95 530.81 C152.85 546.19 93.23 573.86        65.63 581.14 C45.45 586.69 -0 585.41 0 585.41" class="st6" />
+			<path d="M96.07 241.01 C113.17 247.91 155.1 268.31 154.73 278.06 C154.95 288.94 99.3 310.91 97.88 326.96 C96.75 346.09        276.23 367.91 254.63 386.14 C222.3 414.11 111.97 433.01 115.2 455.81 C115.5 462.86 156.75 468.49 154.5 481.99        C153.6 490.39 112.05 495.79 111 504.19 C110.63 518.21 151.05 522.11 151.95 530.81 C152.85 546.19 93.23 573.86        65.63 581.14 C45.45 586.69 -0 585.41 0 585.41" class="st5" />
 		</g>
 		<g id="shape1258" transform="translate(603.433,-44.3651)" class="lift-H">
 			
 			
-			<path d="M0 586.69 C7.8 581.89 34.2 567.49 55.27 558.49" class="st5" />
+			<path d="M0 586.69 C7.8 581.89 34.2 567.49 55.27 558.49" class="st4" />
 		</g>
 		<g id="shape3" transform="translate(553.5,-535.5)">
 			
@@ -337,7 +343,7 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			
 			<rect x="0" y="568.688" width="99" height="18" class="st1" />
-			<text x="20.7" y="581.29" class="st9">Bergstation</text>		</g>
+			<text x="20.7" y="581.29" class="st8">Bergstation</text>		</g>
 		<g id="shape51" transform="translate(347.108,26.9801) rotate(-26)" class="lift-H">
 			
 			<desc>Minilift H</desc>
@@ -345,7 +351,7 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			
 			<rect x="0" y="574.642" width="73.868" height="12.0451" class="st1" />
-			<text x="14.16" y="584.27" class="st10">Minilift <tspan class="st11">H</tspan></text>		</g>
+			<text x="14.16" y="584.27" class="st9">Minilift <tspan class="st10">H</tspan></text>		</g>
 		<g id="shape2" transform="translate(129.508,-179.953) rotate(-24.1)" class="lift-B">
 			
 			<desc>Promibahn B</desc>
@@ -353,20 +359,20 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			
 			<rect x="0" y="574.642" width="73.868" height="12.0451" class="st1" />
-			<text x="5.36" y="584.27" class="st10">Promibahn <tspan class="st11">B</tspan></text>		</g>
+			<text x="5.36" y="584.27" class="st9">Promibahn <tspan class="st10">B</tspan></text>		</g>
 		<g id="lift-B" transform="translate(262.482,-191.74)" class="lift-B">
 			
 			
-			<path d="M0 586.69 C248.25 501.41 243.98 470.06 362.03 374.51" class="st5" />
+			<path d="M0 586.69 C248.25 501.41 243.98 470.06 362.03 374.51" class="st4" />
 		</g>
-		<g id="shape10" transform="translate(150.579,-17.2959) rotate(-48.6)" class="lift-A">
+		<g id="shape10" transform="translate(33.0695,117.891) rotate(-48.6)" class="lift-A">
 			
 			<desc>A Stuhlecklift</desc>
 			
 			
 			
 			<rect x="0" y="574.642" width="73.868" height="12.0451" class="st1" />
-			<text x="4.65" y="584.27" class="st12">A <tspan class="st13">Stuhleck</tspan><tspan class="st13">lift</tspan></text>		</g>
+			<text x="4.65" y="584.27" class="st11">A <tspan class="st12">Stuhleck</tspan><tspan class="st12">lift</tspan></text>		</g>
 		<g id="shape8" transform="translate(904.51,-475.478) rotate(20)" class="lift-C">
 			
 			<desc>C Steinbachalm</desc>
@@ -374,7 +380,7 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			
 			<rect x="0" y="574.642" width="99" height="12.0451" class="st1" />
-			<text x="11.93" y="584.27" class="st12">C <tspan class="st13">Steinbachalm</tspan></text>		</g>
+			<text x="11.93" y="584.27" class="st11">C <tspan class="st12">Steinbachalm</tspan></text>		</g>
 		<g id="shape9" transform="translate(1199.84,-137.48) rotate(64)" class="lift-D">
 			
 			<desc>D Weißenelf</desc>
@@ -382,11 +388,11 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			
 			<rect x="0" y="574.642" width="99" height="12.0451" class="st1" />
-			<text x="19.17" y="584.27" class="st12">D <tspan class="st13">Weißenelf</tspan></text>		</g>
+			<text x="19.17" y="584.27" class="st11">D <tspan class="st12">Weißenelf</tspan></text>		</g>
 		<g id="shape1253" transform="translate(652.933,-35.8901)" class="lift-G">
 			
 			
-			<path d="M0 586.69 C27.6 567.79 100.88 535.31 105.22 534.86" class="st5" />
+			<path d="M0 586.69 C27.6 567.79 100.88 535.31 105.22 534.86" class="st4" />
 		</g>
 		<g id="shape54" transform="translate(421.302,7.50026) rotate(-25.1)" class="lift-G">
 			
@@ -395,16 +401,16 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			
 			<rect x="0" y="574.642" width="73.868" height="12.0451" class="st1" />
-			<text x="4.47" y="584.27" class="st12">G <tspan class="st13">Familienlift</tspan></text>		</g>
+			<text x="4.47" y="584.27" class="st11">G <tspan class="st12">Familienlift</tspan></text>		</g>
 		<g id="shape1255" transform="translate(576.357,-124.39)" class="lift-F">
 			
 			
-			<path d="M0 586.69 C101.18 526.99 136.8 489.64 155.92 472.61" class="st5" />
+			<path d="M0 586.69 C101.18 526.99 136.8 489.64 155.92 472.61" class="st4" />
 		</g>
 		<g id="shape63" transform="translate(730.125,-236.531)" class="lift-F">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape192" transform="translate(270.174,-36.7895) rotate(-34.3)" class="lift-F">
 			
@@ -413,11 +419,11 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			
 			<rect x="0" y="574.642" width="87.368" height="12.0451" class="st1" />
-			<text x="4.31" y="584.27" class="st15">Schieferwiesen <tspan class="st11">FI</tspan></text>		</g>
+			<text x="4.31" y="584.27" class="st14">Schieferwiesen <tspan class="st10">FI</tspan></text>		</g>
 		<g id="shape1256" transform="translate(236.379,0.701166) rotate(-36.5128)" class="lift-F">
 			
 			
-			<path d="M0 581.6 C110.57 592.84 161.61 582.57 192.16 581.6" class="st5" />
+			<path d="M0 581.6 C110.57 592.84 161.61 582.57 192.16 581.6" class="st4" />
 		</g>
 		<g id="shape137" transform="translate(271.971,-12.5677) rotate(-34.9)" class="lift-F">
 			
@@ -426,16 +432,16 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			
 			<rect x="0" y="574.642" width="106.684" height="12.0451" class="st1" />
-			<text x="12.48" y="584.27" class="st15">Schieferwiesen<tspan class="st8">&#xa0;</tspan><tspan class="st11">FII</tspan></text>		</g>
+			<text x="12.48" y="584.27" class="st14">Schieferwiesen<tspan class="st7">&#xa0;</tspan><tspan class="st10">FII</tspan></text>		</g>
 		<g id="shape62" transform="translate(580.781,-116.719)" class="lift-F">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape64" transform="translate(734.344,-230.344)" class="lift-F">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape4" transform="translate(143.548,-54.3154) rotate(-26.6)" class="lift-E">
 			
@@ -444,31 +450,31 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			
 			<rect x="0" y="574.642" width="73.868" height="12.0451" class="st1" />
-			<text x="7.69" y="584.27" class="st10">Sonnenlift <tspan class="st11">E</tspan></text>		</g>
+			<text x="7.69" y="584.27" class="st9">Sonnenlift <tspan class="st10">E</tspan></text>		</g>
 		<g id="shape27" transform="translate(635.532,-367.99)" class="piste-3">
 			
 			
-			<path d="M0 564.86 C5.92 571.09 23.33 573.34 36.98 576.04 C52.88 579.26 50.7 584.14 71.47 585.79 C77.64 585.79 80.62        586.2 81.9 586.47 C82.5 586.59 82.72 586.69 82.72 586.69 L81.9 586.47" class="st6" />
+			<path d="M0 564.86 C5.92 571.09 23.33 573.34 36.98 576.04 C52.88 579.26 50.7 584.14 71.47 585.79 C77.64 585.79 80.62        586.2 81.9 586.47 C82.5 586.59 82.72 586.69 82.72 586.69 L81.9 586.47" class="st5" />
 		</g>
 		<g id="shape29" transform="translate(583.482,-45.1151)" class="piste-9">
 			
 			
-			<path d="M0 514.16 C0 514.16 33.68 540.34 17.4 561.56 C16.37 562.96 15.59 564.33 15.02 565.68 C10.54 576.29 19.15 585.09        21.15 586.69" class="st6" />
+			<path d="M0 514.16 C0 514.16 33.68 540.34 17.4 561.56 C16.37 562.96 15.59 564.33 15.02 565.68 C10.54 576.29 19.15 585.09        21.15 586.69" class="st5" />
 		</g>
 		<g id="shape50" transform="translate(652.332,-35.2901)" class="piste-5">
 			
 			
-			<path d="M105.07 532.24 C110.55 536.96 106.73 546.94 102.23 550.31 C90.9 557.06 79.13 554.81 68.78 560.36 C58.13 566.14        59.4 570.56 47.4 577.39 C37.13 583.09 12.53 579.71 0 586.69" class="st6" />
+			<path d="M105.07 532.24 C110.55 536.96 106.73 546.94 102.23 550.31 C90.9 557.06 79.13 554.81 68.78 560.36 C58.13 566.14        59.4 570.56 47.4 577.39 C37.13 583.09 12.53 579.71 0 586.69" class="st5" />
 		</g>
 		<g id="shape16" transform="translate(582.882,-89.7401)" class="piste-7">
 			
 			
-			<path d="M0 558.79 C19.72 570.56 40.35 577.09 54.9 574.84 C93 568.84 95.7 578.44 140.03 578.29 C161.77 578.66 170.33        582.04 174.52 586.69" class="st6" />
+			<path d="M0 558.79 C19.72 570.56 40.35 577.09 54.9 574.84 C93 568.84 95.7 578.44 140.03 578.29 C161.77 578.66 170.33        582.04 174.52 586.69" class="st5" />
 		</g>
 		<g id="shape59" transform="translate(520.6,962.049) rotate(-171.052)" class="piste-8">
 			
 			
-			<path d="M0 586.54 C40.24 573.98 118.43 588.85 119.58 586.54" class="st6" />
+			<path d="M0 586.54 C40.24 573.98 118.43 588.85 119.58 586.54" class="st5" />
 		</g>
 		<g id="shape40" transform="translate(449.832,-60.9401)" class="piste-1b">
 			
@@ -478,97 +484,97 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 		<g id="shape14" transform="translate(602.297,-43.5938)" class="lift-H">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape15" transform="translate(588.234,-47.6719)" class="lift-L">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape22" transform="translate(572.625,-33.0469)" class="lift-L">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape26" transform="translate(650.672,-33.4688)" class="lift-G">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape28" transform="translate(657,-70.1719)" class="lift-H">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape33" transform="translate(447.75,-59.3438)" class="lift-A">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape30" transform="translate(387,-27)" class="lift-A">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape36" transform="translate(371.25,-98.7188)" class="lift-E">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape37" transform="translate(650.531,-498.375)" class="lift-D">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape38" transform="translate(717.188,-366.469)" class="lift-D">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape45" transform="translate(746.297,-377.719)" class="lift-A">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape31" transform="translate(843.75,-446.625)" class="lift-C">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape32" transform="translate(591.047,-528.75)" class="lift-C">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape43" transform="translate(622.547,-402.75)" class="lift-B">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape44" transform="translate(261,-189.844)" class="lift-B">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape46" transform="translate(756.422,-85.9219)" class="lift-G">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape47" transform="translate(844.257,-199.165)" class="piste-1c">
 			
 			
 			<g id="shape429">
 				
-				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.07 569.59 C14.02 569.59 18.07 573.41 18.07 578.14 C18.07 582.86 14.02         586.69 9.07 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.07 569.59 C14.02 569.59 18.07 573.41 18.07 578.14 C18.07 582.86 14.02         586.69 9.07 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape430" transform="translate(3.225,-4.125)">
 				
-				<path d="M4.2 578.06 L2.7 578.06 C2.63 578.66 2.33 579.11 1.8 579.41 C1.28 579.64 0.68 579.79 0 579.71 L0 581.06         L2.32 581.06 L2.32 586.69 L4.2 586.69 L4.2 578.06 Z" class="st17" />
+				<path d="M4.2 578.06 L2.7 578.06 C2.63 578.66 2.33 579.11 1.8 579.41 C1.28 579.64 0.68 579.79 0 579.71 L0 581.06         L2.32 581.06 L2.32 586.69 L4.2 586.69 L4.2 578.06 Z" class="st16" />
 			</g>
 			<g id="shape431" transform="translate(8.775,-3.975)">
 				
-				<path d="M6.68 582.41 C6.6 581.81 6.45 581.36 6.15 581.06 C5.85 580.69 5.48 580.39 4.95 580.24 C4.5 580.09 3.98 579.94         3.45 579.94 C2.33 580.01 1.5 580.31 0.9 580.99 C0.3 581.59 -0 582.41 0 583.46 C-0 584.44 0.3 585.19         0.98 585.79 C1.57 586.39 2.4 586.69 3.45 586.69 C4.35 586.69 5.02 586.46 5.62 586.01 C6.22 585.56 6.53         584.96 6.68 584.06 L4.88 584.06 C4.8 584.51 4.65 584.81 4.43 585.04 C4.2 585.26 3.83 585.41 3.37 585.41         C3 585.41 2.7 585.26 2.48 585.04 C2.25 584.89 2.1 584.59 2.03 584.29 C1.88 583.99 1.88 583.69 1.88 583.39         C1.88 583.01 1.88 582.71 2.03 582.41 C2.1 582.11 2.25 581.81 2.48 581.59 C2.78 581.44 3.08 581.29 3.45         581.29 C3.82 581.29 4.13 581.36 4.35 581.59 C4.65 581.74 4.73 582.04 4.8 582.41 L6.68 582.41 Z" class="st17" />
+				<path d="M6.68 582.41 C6.6 581.81 6.45 581.36 6.15 581.06 C5.85 580.69 5.48 580.39 4.95 580.24 C4.5 580.09 3.98 579.94         3.45 579.94 C2.33 580.01 1.5 580.31 0.9 580.99 C0.3 581.59 -0 582.41 0 583.46 C-0 584.44 0.3 585.19         0.98 585.79 C1.57 586.39 2.4 586.69 3.45 586.69 C4.35 586.69 5.02 586.46 5.62 586.01 C6.22 585.56 6.53         584.96 6.68 584.06 L4.88 584.06 C4.8 584.51 4.65 584.81 4.43 585.04 C4.2 585.26 3.83 585.41 3.37 585.41         C3 585.41 2.7 585.26 2.48 585.04 C2.25 584.89 2.1 584.59 2.03 584.29 C1.88 583.99 1.88 583.69 1.88 583.39         C1.88 583.01 1.88 582.71 2.03 582.41 C2.1 582.11 2.25 581.81 2.48 581.59 C2.78 581.44 3.08 581.29 3.45         581.29 C3.82 581.29 4.13 581.36 4.35 581.59 C4.65 581.74 4.73 582.04 4.8 582.41 L6.68 582.41 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape49" transform="translate(773.85,-310.5)" class="piste-1c">
@@ -576,15 +582,15 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape426">
 				
-				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape427" transform="translate(3.3,-4.125)">
 				
-				<path d="M4.12 578.06 L2.7 578.06 C2.55 578.66 2.25 579.11 1.72 579.41 C1.27 579.64 0.67 579.79 0 579.79 L0 581.06         L2.32 581.06 L2.32 586.69 L4.12 586.69 L4.12 578.06 Z" class="st17" />
+				<path d="M4.12 578.06 L2.7 578.06 C2.55 578.66 2.25 579.11 1.72 579.41 C1.27 579.64 0.67 579.79 0 579.79 L0 581.06         L2.32 581.06 L2.32 586.69 L4.12 586.69 L4.12 578.06 Z" class="st16" />
 			</g>
 			<g id="shape428" transform="translate(8.85,-3.975)">
 				
-				<path d="M6.6 582.41 C6.6 581.89 6.38 581.44 6.07 581.06 C5.77 580.69 5.4 580.39 4.95 580.24 C4.5 580.09 3.97 580.01         3.45 580.01 C2.32 580.01 1.5 580.31 0.9 580.99 C0.3 581.59 -0 582.41 0 583.46 C-0 584.44 0.3 585.19         0.9 585.79 C1.5 586.39 2.32 586.69 3.37 586.69 C4.27 586.69 5.02 586.46 5.62 586.01 C6.15 585.56 6.52         584.96 6.67 584.06 L4.87 584.06 C4.8 584.51 4.65 584.81 4.42 585.04 C4.12 585.26 3.82 585.41 3.37 585.41         C3 585.41 2.7 585.26 2.47 585.04 C2.25 584.89 2.1 584.59 1.95 584.29 C1.87 583.99 1.8 583.69 1.8 583.39         C1.8 583.09 1.87 582.71 1.95 582.41 C2.1 582.11 2.25 581.81 2.47 581.66 C2.7 581.44 3 581.29 3.37 581.29         C3.82 581.29 4.12 581.36 4.35 581.59 C4.57 581.74 4.72 582.04 4.8 582.41 L6.6 582.41 Z" class="st17" />
+				<path d="M6.6 582.41 C6.6 581.89 6.38 581.44 6.07 581.06 C5.77 580.69 5.4 580.39 4.95 580.24 C4.5 580.09 3.97 580.01         3.45 580.01 C2.32 580.01 1.5 580.31 0.9 580.99 C0.3 581.59 -0 582.41 0 583.46 C-0 584.44 0.3 585.19         0.9 585.79 C1.5 586.39 2.32 586.69 3.37 586.69 C4.27 586.69 5.02 586.46 5.62 586.01 C6.15 585.56 6.52         584.96 6.67 584.06 L4.87 584.06 C4.8 584.51 4.65 584.81 4.42 585.04 C4.12 585.26 3.82 585.41 3.37 585.41         C3 585.41 2.7 585.26 2.47 585.04 C2.25 584.89 2.1 584.59 1.95 584.29 C1.87 583.99 1.8 583.69 1.8 583.39         C1.8 583.09 1.87 582.71 1.95 582.41 C2.1 582.11 2.25 581.81 2.47 581.66 C2.7 581.44 3 581.29 3.37 581.29         C3.82 581.29 4.12 581.36 4.35 581.59 C4.57 581.74 4.72 582.04 4.8 582.41 L6.6 582.41 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape57" transform="translate(766.182,-54.4151)" class="piste-1c">
@@ -592,15 +598,15 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape432">
 				
-				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.08 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03         586.69 9.08 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.08 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03         586.69 9.08 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape433" transform="translate(3.225,-4.125)">
 				
-				<path d="M4.2 578.06 L2.7 578.06 C2.63 578.66 2.33 579.11 1.8 579.41 C1.28 579.64 0.68 579.79 0 579.79 L0 581.06         L2.33 581.06 L2.33 586.69 L4.2 586.69 L4.2 578.06 Z" class="st17" />
+				<path d="M4.2 578.06 L2.7 578.06 C2.63 578.66 2.33 579.11 1.8 579.41 C1.28 579.64 0.68 579.79 0 579.79 L0 581.06         L2.33 581.06 L2.33 586.69 L4.2 586.69 L4.2 578.06 Z" class="st16" />
 			</g>
 			<g id="shape434" transform="translate(8.775,-3.975)">
 				
-				<path d="M6.68 582.41 C6.6 581.89 6.45 581.44 6.15 581.06 C5.85 580.69 5.48 580.39 4.95 580.24 C4.5 580.09 3.97 580.01         3.45 580.01 C2.32 580.01 1.5 580.31 0.9 580.99 C0.3 581.59 -0 582.41 0 583.46 C0 584.44 0.3 585.19 0.97         585.79 C1.57 586.39 2.4 586.69 3.45 586.69 C4.35 586.69 5.1 586.46 5.62 586.01 C6.22 585.56 6.6 584.96         6.67 584.06 L4.87 584.06 C4.8 584.51 4.65 584.81 4.42 585.04 C4.2 585.26 3.82 585.41 3.37 585.41 C3         585.41 2.7 585.26 2.47 585.04 C2.25 584.89 2.1 584.59 2.02 584.29 C1.87 583.99 1.87 583.69 1.87 583.39         C1.87 583.09 1.95 582.71 2.02 582.41 C2.1 582.11 2.25 581.81 2.47 581.66 C2.77 581.44 3.07 581.29 3.45         581.29 C3.82 581.29 4.12 581.36 4.35 581.59 C4.65 581.74 4.8 582.04 4.8 582.41 L6.68 582.41 Z" class="st17" />
+				<path d="M6.68 582.41 C6.6 581.89 6.45 581.44 6.15 581.06 C5.85 580.69 5.48 580.39 4.95 580.24 C4.5 580.09 3.97 580.01         3.45 580.01 C2.32 580.01 1.5 580.31 0.9 580.99 C0.3 581.59 -0 582.41 0 583.46 C0 584.44 0.3 585.19 0.97         585.79 C1.57 586.39 2.4 586.69 3.45 586.69 C4.35 586.69 5.1 586.46 5.62 586.01 C6.22 585.56 6.6 584.96         6.67 584.06 L4.87 584.06 C4.8 584.51 4.65 584.81 4.42 585.04 C4.2 585.26 3.82 585.41 3.37 585.41 C3         585.41 2.7 585.26 2.47 585.04 C2.25 584.89 2.1 584.59 2.02 584.29 C1.87 583.99 1.87 583.69 1.87 583.39         C1.87 583.09 1.95 582.71 2.02 582.41 C2.1 582.11 2.25 581.81 2.47 581.66 C2.77 581.44 3.07 581.29 3.45         581.29 C3.82 581.29 4.12 581.36 4.35 581.59 C4.65 581.74 4.8 582.04 4.8 582.41 L6.68 582.41 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape58" transform="translate(723.582,-56.8901)" class="piste-5">
@@ -608,11 +614,11 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape417">
 				
-				<path d="M0 578.14 C-0 573.41 4.13 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.13 586.69 -0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C-0 573.41 4.13 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.13 586.69 -0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape418" transform="translate(5.7,-4.125)">
 				
-				<path d="M6.3 577.84 L1.2 577.84 L0.3 582.64 L1.95 582.64 C2.1 582.41 2.33 582.26 2.55 582.11 C2.77 582.04 3 581.96         3.37 581.96 C3.82 581.96 4.28 582.11 4.5 582.41 C4.8 582.71 4.95 583.09 4.95 583.54 C4.95 583.99 4.8         584.44 4.5 584.74 C4.2 585.04 3.82 585.19 3.37 585.26 C2.93 585.26 2.63 585.11 2.33 584.89 C2.03 584.66         1.87 584.36 1.87 583.91 L0 583.91 C0 584.51 0.15 585.04 0.45 585.49 C0.83 585.86 1.2 586.16 1.73 586.39         C2.25 586.61 2.78 586.69 3.38 586.69 C4.05 586.69 4.58 586.54 5.1 586.31 C5.63 586.01 6 585.64 6.3 585.19         C6.6 584.74 6.82 584.14 6.82 583.54 C6.82 583.01 6.68 582.56 6.45 582.11 C6.23 581.66 5.93 581.29 5.48         581.06 C5.1 580.76 4.58 580.61 3.98 580.61 C3.6 580.61 3.3 580.69 3 580.76 C2.7 580.91 2.4 581.06 2.18         581.29 L2.55 579.34 L6.3 579.34 L6.3 577.84 Z" class="st17" />
+				<path d="M6.3 577.84 L1.2 577.84 L0.3 582.64 L1.95 582.64 C2.1 582.41 2.33 582.26 2.55 582.11 C2.77 582.04 3 581.96         3.37 581.96 C3.82 581.96 4.28 582.11 4.5 582.41 C4.8 582.71 4.95 583.09 4.95 583.54 C4.95 583.99 4.8         584.44 4.5 584.74 C4.2 585.04 3.82 585.19 3.37 585.26 C2.93 585.26 2.63 585.11 2.33 584.89 C2.03 584.66         1.87 584.36 1.87 583.91 L0 583.91 C0 584.51 0.15 585.04 0.45 585.49 C0.83 585.86 1.2 586.16 1.73 586.39         C2.25 586.61 2.78 586.69 3.38 586.69 C4.05 586.69 4.58 586.54 5.1 586.31 C5.63 586.01 6 585.64 6.3 585.19         C6.6 584.74 6.82 584.14 6.82 583.54 C6.82 583.01 6.68 582.56 6.45 582.11 C6.23 581.66 5.93 581.29 5.48         581.06 C5.1 580.76 4.58 580.61 3.98 580.61 C3.6 580.61 3.3 580.69 3 580.76 C2.7 580.91 2.4 581.06 2.18         581.29 L2.55 579.34 L6.3 579.34 L6.3 577.84 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape60" transform="translate(697.332,-90.4151)" class="piste-7">
@@ -620,11 +626,11 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape415">
 				
-				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape416" transform="translate(5.925,-4.2)">
 				
-				<path d="M6.3 577.99 L0 577.99 L0 579.64 L4.35 579.64 C3.52 580.61 2.78 581.74 2.25 582.94 C1.72 584.14 1.42 585.34         1.28 586.69 L3.3 586.69 C3.3 585.86 3.38 585.04 3.68 584.14 C3.9 583.24 4.2 582.34 4.65 581.59 C5.1         580.76 5.62 580.09 6.3 579.49 L6.3 577.99 Z" class="st17" />
+				<path d="M6.3 577.99 L0 577.99 L0 579.64 L4.35 579.64 C3.52 580.61 2.78 581.74 2.25 582.94 C1.72 584.14 1.42 585.34         1.28 586.69 L3.3 586.69 C3.3 585.86 3.38 585.04 3.68 584.14 C3.9 583.24 4.2 582.34 4.65 581.59 C5.1         580.76 5.62 580.09 6.3 579.49 L6.3 577.99 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape70" transform="translate(594,-83.25)" class="piste-9">
@@ -632,50 +638,50 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape421">
 				
-				<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.02 569.59 18.07 573.41 18.07 578.14 C18.07 582.86 14.02 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.02 569.59 18.07 573.41 18.07 578.14 C18.07 582.86 14.02 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape422" transform="translate(5.625,-4.05)">
 				
-				<path d="M3.3 582.34 C2.85 582.34 2.48 582.11 2.25 581.81 C2.03 581.51 1.88 581.14 1.88 580.69 C1.88 580.31 2.03         579.94 2.25 579.64 C2.48 579.26 2.85 579.11 3.3 579.11 C3.75 579.11 4.13 579.26 4.43 579.64 C4.65 579.94         4.8 580.31 4.8 580.69 C4.8 581.14 4.65 581.51 4.43 581.81 C4.2 582.19 3.83 582.34 3.3 582.34 ZM0.23         584.29 C0.3 585.04 0.6 585.64 1.2 586.01 C1.73 586.46 2.4 586.69 3.15 586.69 C4.05 586.69 4.73 586.39         5.25 585.94 C5.77 585.49 6.15 584.96 6.45 584.29 C6.67 583.54 6.75 582.86 6.75 582.11 C6.75 581.44 6.67         580.69 6.45 580.01 C6.3 579.34 5.93 578.81 5.4 578.36 C4.87 577.91 4.2 577.69 3.23 577.69 C2.63 577.69         2.03 577.84 1.57 578.06 C1.13 578.36 0.75 578.74 0.45 579.26 C0.15 579.71 0.07 580.24 0.07 580.84 C0         581.21 0.07 581.51 0.23 581.89 C0.3 582.19 0.53 582.49 0.75 582.79 C1.05 583.01 1.35 583.24 1.73 583.39         C2.1 583.54 2.48 583.61 2.85 583.61 C3.3 583.69 3.68 583.61 4.05 583.46 C4.35 583.24 4.65 583.01 4.95         582.71 C4.95 583.09 4.88 583.39 4.8 583.84 C4.65 584.21 4.5 584.59 4.28 584.89 C3.98 585.19 3.68 585.34         3.23 585.34 C2.85 585.34 2.63 585.26 2.4 585.04 C2.18 584.81 2.02 584.59 1.95 584.29 L0.23 584.29 Z" class="st17" />
+				<path d="M3.3 582.34 C2.85 582.34 2.48 582.11 2.25 581.81 C2.03 581.51 1.88 581.14 1.88 580.69 C1.88 580.31 2.03         579.94 2.25 579.64 C2.48 579.26 2.85 579.11 3.3 579.11 C3.75 579.11 4.13 579.26 4.43 579.64 C4.65 579.94         4.8 580.31 4.8 580.69 C4.8 581.14 4.65 581.51 4.43 581.81 C4.2 582.19 3.83 582.34 3.3 582.34 ZM0.23         584.29 C0.3 585.04 0.6 585.64 1.2 586.01 C1.73 586.46 2.4 586.69 3.15 586.69 C4.05 586.69 4.73 586.39         5.25 585.94 C5.77 585.49 6.15 584.96 6.45 584.29 C6.67 583.54 6.75 582.86 6.75 582.11 C6.75 581.44 6.67         580.69 6.45 580.01 C6.3 579.34 5.93 578.81 5.4 578.36 C4.87 577.91 4.2 577.69 3.23 577.69 C2.63 577.69         2.03 577.84 1.57 578.06 C1.13 578.36 0.75 578.74 0.45 579.26 C0.15 579.71 0.07 580.24 0.07 580.84 C0         581.21 0.07 581.51 0.23 581.89 C0.3 582.19 0.53 582.49 0.75 582.79 C1.05 583.01 1.35 583.24 1.73 583.39         C2.1 583.54 2.48 583.61 2.85 583.61 C3.3 583.69 3.68 583.61 4.05 583.46 C4.35 583.24 4.65 583.01 4.95         582.71 C4.95 583.09 4.88 583.39 4.8 583.84 C4.65 584.21 4.5 584.59 4.28 584.89 C3.98 585.19 3.68 585.34         3.23 585.34 C2.85 585.34 2.63 585.26 2.4 585.04 C2.18 584.81 2.02 584.59 1.95 584.29 L0.23 584.29 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape68" transform="translate(575.907,-124.54)" class="piste-2">
 			
 			
-			<path d="M150 466.46 C146.63 470.66 136.05 469.84 131.63 477.71 C131.63 477.71 123.3 494.66 108 500.29 C108 500.29 75.3        509.96 61.65 532.76 C52.11 545.19 34.28 543.02 23.51 551.96 C20.05 554.83 17.32 558.85 15.82 564.86 C12.68        577.69 -0 586.69 0 586.69" class="st6" />
+			<path d="M150 466.46 C146.63 470.66 136.05 469.84 131.63 477.71 C131.63 477.71 123.3 494.66 108 500.29 C108 500.29 75.3        509.96 61.65 532.76 C52.11 545.19 34.28 543.02 23.51 551.96 C20.05 554.83 17.32 558.85 15.82 564.86 C12.68        577.69 -0 586.69 0 586.69" class="st5" />
 		</g>
 		<g id="shape1262" transform="translate(665.85,-200.25)" class="piste-2">
 			
 			
 			<g id="shape395">
 				
-				<path d="M0 578.14 C0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape396" transform="translate(5.7,-4.125)">
 				
-				<path d="M2.02 581.36 C2.02 581.06 2.02 580.69 2.1 580.39 C2.25 580.09 2.4 579.86 2.55 579.64 C2.77 579.49 3.08 579.34         3.45 579.34 C3.82 579.34 4.2 579.49 4.42 579.71 C4.72 579.94 4.8 580.24 4.8 580.69 C4.8 581.06 4.72         581.36 4.5 581.59 C4.27 581.81 4.05 582.04 3.75 582.26 C3.45 582.41 3.15 582.64 2.92 582.79 C2.4 583.16         1.87 583.46 1.42 583.84 C1.05 584.14 0.67 584.51 0.37 585.04 C0.15 585.49 0 586.01 0 586.69 L6.75 586.69         L6.75 585.19 L2.4 585.19 C2.78 584.74 3.15 584.36 3.67 584.06 C4.13 583.76 4.58 583.46 5.03 583.16 C5.55         582.86 5.93 582.56 6.22 582.11 C6.52 581.74 6.68 581.21 6.68 580.54 C6.68 580.01 6.52 579.49 6.22 579.11         C5.93 578.66 5.55 578.36 5.1 578.14 C4.65 577.99 4.13 577.84 3.52 577.84 C2.78 577.84 2.18 577.99 1.65         578.29 C1.2 578.59 0.82 579.04 0.53 579.56 C0.3 580.09 0.23 580.69 0.23 581.36 L2.02 581.36 Z" class="st17" />
+				<path d="M2.02 581.36 C2.02 581.06 2.02 580.69 2.1 580.39 C2.25 580.09 2.4 579.86 2.55 579.64 C2.77 579.49 3.08 579.34         3.45 579.34 C3.82 579.34 4.2 579.49 4.42 579.71 C4.72 579.94 4.8 580.24 4.8 580.69 C4.8 581.06 4.72         581.36 4.5 581.59 C4.27 581.81 4.05 582.04 3.75 582.26 C3.45 582.41 3.15 582.64 2.92 582.79 C2.4 583.16         1.87 583.46 1.42 583.84 C1.05 584.14 0.67 584.51 0.37 585.04 C0.15 585.49 0 586.01 0 586.69 L6.75 586.69         L6.75 585.19 L2.4 585.19 C2.78 584.74 3.15 584.36 3.67 584.06 C4.13 583.76 4.58 583.46 5.03 583.16 C5.55         582.86 5.93 582.56 6.22 582.11 C6.52 581.74 6.68 581.21 6.68 580.54 C6.68 580.01 6.52 579.49 6.22 579.11         C5.93 578.66 5.55 578.36 5.1 578.14 C4.65 577.99 4.13 577.84 3.52 577.84 C2.78 577.84 2.18 577.99 1.65         578.29 C1.2 578.59 0.82 579.04 0.53 579.56 C0.3 580.09 0.23 580.69 0.23 581.36 L2.02 581.36 Z" class="st16" />
 			</g>
 		</g>
 		<g id="lift-C" transform="translate(592.897,-449.515)" class="lift-C">
 			
 			
-			<path d="M252.04 586.69 C151.28 538.78 85.59 516.43 0 505.78" class="st5" />
+			<path d="M252.04 586.69 C151.28 538.78 85.59 516.43 0 505.78" class="st4" />
 		</g>
 		<g id="lift-A" transform="translate(389.082,-29.4401)" class="lift-A">
 			
 			
-			<path d="M59.62 554.78 C53.59 557.02 28.57 560.23 0 586.69" class="st5" />
-			<path d="M59.25 554.81 C75.22 547.34 121.97 493.71 175.2 432.11 C242.74 353.96 320.69 262.98 359.4 237.19" class="st5" />
+			<path d="M59.62 554.78 C53.59 557.02 28.57 560.23 0 586.69" class="st4" />
+			<path d="M59.25 554.81 C75.22 547.34 121.97 493.71 175.2 432.11 C242.74 353.96 320.69 262.98 359.4 237.19" class="st4" />
 		</g>
 		<g id="lift-E" transform="translate(373.708,-101.14)" class="lift-E">
 			
 			
-			<path d="M0 586.69 L187.12 492.49 L187.12 492.49" class="st5" />
+			<path d="M0 586.69 L187.12 492.49 L187.12 492.49" class="st4" />
 		</g>
 		<g id="lift-D" transform="translate(652.707,-368.965)" class="lift-D">
 			
 			
-			<path d="M66 586.69 C66 586.91 -0 455.74 0 455.66" class="st5" />
+			<path d="M66 586.69 C66 586.91 -0 455.74 0 455.66" class="st4" />
 		</g>
 		<g id="shape25" transform="translate(520.633,-30.7049)" class="lift-L">
 			
@@ -684,52 +690,52 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			
 			<rect x="0" y="574.642" width="57.6169" height="12.0451" class="st1" />
-			<text x="7.28" y="584.27" class="st10">Minilift <tspan class="st11">L</tspan></text>		</g>
+			<text x="7.28" y="584.27" class="st9">Minilift <tspan class="st10">L</tspan></text>		</g>
 		<g id="shape76" transform="translate(621,-414)" class="piste-1">
 			
 			
 			<g id="shape374">
 				
-				<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st15" />
 			</g>
 		</g>
 		<g id="shape13" transform="translate(582.657,-117.624)" class="piste-2">
 			
 			
-			<path d="M176.04 518.22 C169.41 540.06 123.18 539.03 111.97 539.87 C82.05 543.25 92.62 557.2 76.8 568.3 C51.67 587.95        0 586.67 0 586.67" class="st6" />
+			<path d="M176.04 518.22 C169.41 540.06 123.18 539.03 111.97 539.87 C82.05 543.25 92.62 557.2 76.8 568.3 C51.67 587.95        0 586.67 0 586.67" class="st5" />
 		</g>
 		<g id="shape1261" transform="translate(667.107,-147.79)" class="piste-2">
 			
 			
 			<g id="shape397">
 				
-				<path d="M0 578.14 C0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape398" transform="translate(5.7,-4.125)">
 				
-				<path d="M1.95 581.29 C1.95 580.99 2.02 580.69 2.1 580.39 C2.25 580.09 2.32 579.86 2.55 579.64 C2.78 579.41 3.08         579.34 3.45 579.34 C3.83 579.34 4.2 579.49 4.43 579.71 C4.65 579.94 4.8 580.24 4.8 580.69 C4.8 580.99         4.73 581.29 4.5 581.59 C4.28 581.81 4.05 582.04 3.75 582.26 C3.45 582.41 3.15 582.64 2.93 582.79 C2.33         583.09 1.88 583.46 1.42 583.76 C0.98 584.14 0.67 584.51 0.38 584.96 C0.15 585.41 0 586.01 0 586.69 L6.75         586.69 L6.75 585.11 L2.4 585.11 C2.78 584.74 3.15 584.36 3.6 584.06 C4.13 583.76 4.58 583.46 5.03 583.16         C5.48 582.86 5.93 582.49 6.23 582.11 C6.53 581.66 6.68 581.14 6.68 580.54 C6.68 579.94 6.53 579.49 6.23         579.11 C5.93 578.66 5.55 578.36 5.1 578.14 C4.65 577.91 4.13 577.84 3.53 577.84 C2.78 577.84 2.18 577.99         1.65 578.29 C1.2 578.59 0.82 579.04 0.53 579.56 C0.3 580.09 0.15 580.69 0.23 581.29 L1.95 581.29 Z" class="st17" />
+				<path d="M1.95 581.29 C1.95 580.99 2.02 580.69 2.1 580.39 C2.25 580.09 2.32 579.86 2.55 579.64 C2.78 579.41 3.08         579.34 3.45 579.34 C3.83 579.34 4.2 579.49 4.43 579.71 C4.65 579.94 4.8 580.24 4.8 580.69 C4.8 580.99         4.73 581.29 4.5 581.59 C4.28 581.81 4.05 582.04 3.75 582.26 C3.45 582.41 3.15 582.64 2.93 582.79 C2.33         583.09 1.88 583.46 1.42 583.76 C0.98 584.14 0.67 584.51 0.38 584.96 C0.15 585.41 0 586.01 0 586.69 L6.75         586.69 L6.75 585.11 L2.4 585.11 C2.78 584.74 3.15 584.36 3.6 584.06 C4.13 583.76 4.58 583.46 5.03 583.16         C5.48 582.86 5.93 582.49 6.23 582.11 C6.53 581.66 6.68 581.14 6.68 580.54 C6.68 579.94 6.53 579.49 6.23         579.11 C5.93 578.66 5.55 578.36 5.1 578.14 C4.65 577.91 4.13 577.84 3.53 577.84 C2.78 577.84 2.18 577.99         1.65 578.29 C1.2 578.59 0.82 579.04 0.53 579.56 C0.3 580.09 0.15 580.69 0.23 581.29 L1.95 581.29 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape19" transform="translate(707.321,-165.04)" class="piste-2">
 			
 			
-			<path d="M36.03 535 C31.8 549.79 17.18 542.48 12.51 560.36 C9.36 585.04 2.55 584.1 0 586.69" class="st6" />
+			<path d="M36.03 535 C31.8 549.79 17.18 542.48 12.51 560.36 C9.36 585.04 2.55 584.1 0 586.69" class="st5" />
 		</g>
 		<g id="shape67" transform="translate(373.557,-101.14)" class="piste-4">
 			
 			
-			<path d="M187.58 491.66 C147.15 488.06 156.3 501.56 127.8 504.49 C98.7 507.56 93.53 521.21 89.7 527.29 C78.68 543.11        56.25 538.39 39.53 552.71 C21.83 567.86 1.8 552.86 0 586.69" class="st3" />
+			<path d="M187.58 491.66 C147.15 488.06 156.3 501.56 127.8 504.49 C98.7 507.56 93.53 521.21 80.94 530.33 C65.19 543.83        56.25 538.39 35.94 552.83 C21.83 567.86 1.8 552.86 0 586.69" class="st3" />
 		</g>
 		<g id="shape72" transform="translate(460.332,-160.315)" class="piste-4">
 			
 			
 			<g id="shape408">
 				
-				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.08 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.08 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st18" />
+				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.08 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.08 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st17" />
 			</g>
 			<g id="shape409" transform="translate(5.625,-4.275)">
 				
-				<path d="M3.9 583.24 L1.5 583.24 L3.82 580.24 L3.9 580.24 L3.9 583.24 ZM3.9 586.69 L5.7 586.69 L5.7 584.74 L6.9 584.74         L6.9 583.24 L5.7 583.24 L5.7 578.06 L3.97 578.06 L0 583.09 L0 584.74 L3.9 584.74 L3.9 586.69 Z" class="st17" />
+				<path d="M3.9 583.24 L1.5 583.24 L3.82 580.24 L3.9 580.24 L3.9 583.24 ZM3.9 586.69 L5.7 586.69 L5.7 584.74 L6.9 584.74         L6.9 583.24 L5.7 583.24 L5.7 578.06 L3.97 578.06 L0 583.09 L0 584.74 L3.9 584.74 L3.9 586.69 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape11" transform="translate(503.682,-148.765)" class="piste-4">
@@ -743,41 +749,41 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 		</g>
 		<g id="shape91" transform="translate(220.302,633.494) rotate(-113.615)">
 			
-			<path d="M-0 586.68 C0.54 586.69 0.8 586.69 0.74 586.68" class="st6" />
+			<path d="M-0 586.68 C0.54 586.69 0.8 586.69 0.74 586.68" class="st5" />
 		</g>
 		<g id="shape93" transform="translate(1298.03,169.531) rotate(67.1034)">
 			
-			<path d="M0 586.69 C0.24 586.68 0.49 586.68 0.74 586.69" class="st6" />
+			<path d="M0 586.69 C0.24 586.68 0.49 586.68 0.74 586.69" class="st5" />
 		</g>
 		<g id="shape94" transform="translate(216.475,623.375) rotate(-119.616)">
 			
-			<path d="M0 586.69 C0.06 586.69 0.11 586.69 0.17 586.69" class="st6" />
+			<path d="M0 586.69 C0.06 586.69 0.11 586.69 0.17 586.69" class="st5" />
 		</g>
 		<g id="shape96" transform="translate(1216.4,715.118) rotate(126.883)">
 			
-			<path d="M0 586.69 C0.06 586.69 0.12 586.69 0.18 586.69" class="st6" />
+			<path d="M0 586.69 C0.06 586.69 0.12 586.69 0.18 586.69" class="st5" />
 		</g>
 		<g id="shape78" transform="translate(449.307,-48.9596)" class="piste-1a">
 			
 			
-			<path d="M275.1 332.68 C267.52 345.06 279.69 344.83 271.65 363.21 C270.13 368.46 272.94 376.9 277.19 382.41" class="st6" />
-			<path d="M277.21 382.4 C282.03 390.71 303.29 399.47 297.72 412.1 C285.81 428.05 302.23 433.03 308.26 446.75" class="st6" />
-			<path d="M308.55 447.43 C309.82 450.51 314.77 463.27 314.77 472.63 C313.12 493.18 294.3 490.11 272.4 494.68 C252.53 498.96        251.03 515.31 226.5 519.73 C180 528.06 197.48 550.93 167.85 558.51 C138.38 566.01 141.9 573.96 124.95 580.78        C96.68 592.11 76.95 584.53 58.72 581.83 C42.45 579.43 0 574.78 0 574.78" class="st6" />
+			<path d="M275.1 332.68 C267.52 345.06 279.69 344.83 271.65 363.21 C270.13 368.46 272.94 376.9 277.19 382.41" class="st5" />
+			<path d="M277.21 382.4 C282.03 390.71 303.29 399.47 297.72 412.1 C285.81 428.05 302.23 433.03 308.26 446.75" class="st5" />
+			<path d="M308.55 447.43 C309.82 450.51 314.77 463.27 314.77 472.63 C313.12 493.18 294.3 490.11 272.4 494.68 C252.53 498.96        251.03 515.31 226.5 519.73 C180 528.06 197.48 550.93 167.85 558.51 C138.38 566.01 141.9 573.96 124.95 580.78        C96.68 592.11 76.95 584.53 58.72 581.83 C42.45 579.43 0 574.78 0 574.78" class="st5" />
 		</g>
 		<g id="shape71" transform="translate(499.5,-45)" class="piste-1a">
 			
 			
 			<g id="shape423">
 				
-				<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.07 573.41 18.07 578.14 C18.07 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.07 573.41 18.07 578.14 C18.07 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape424" transform="translate(3,-4.35)">
 				
-				<path d="M4.2 578.06 L2.7 578.06 C2.55 578.74 2.25 579.19 1.72 579.41 C1.27 579.71 0.67 579.79 0 579.79 L0 581.14         L2.33 581.14 L2.33 586.69 L4.2 586.69 L4.2 578.06 Z" class="st17" />
+				<path d="M4.2 578.06 L2.7 578.06 C2.55 578.74 2.25 579.19 1.72 579.41 C1.27 579.71 0.67 579.79 0 579.79 L0 581.14         L2.33 581.14 L2.33 586.69 L4.2 586.69 L4.2 578.06 Z" class="st16" />
 			</g>
 			<g id="shape425" transform="translate(8.475,-4.125)">
 				
-				<path d="M2.02 582.04 C2.1 581.74 2.17 581.51 2.4 581.36 C2.62 581.21 2.93 581.14 3.3 581.14 C3.6 581.06 3.9 581.14         4.13 581.29 C4.35 581.36 4.5 581.59 4.5 581.96 C4.43 582.34 4.2 582.49 3.83 582.64 C3.37 582.71 2.85         582.79 2.25 582.79 C1.88 582.86 1.5 582.94 1.12 583.09 C0.83 583.16 0.53 583.39 0.3 583.61 C0.08 583.91         -0 584.29 0 584.74 C0 585.41 0.22 585.86 0.68 586.24 C1.05 586.54 1.65 586.69 2.25 586.69 C2.7 586.69         3.08 586.61 3.53 586.46 C3.9 586.39 4.28 586.16 4.58 585.86 C4.58 586.01 4.58 586.09 4.58 586.16 C4.65         586.31 4.65 586.39 4.65 586.46 L6.6 586.46 C6.53 586.39 6.45 586.16 6.38 585.94 C6.38 585.64 6.3 585.34         6.3 585.11 L6.3 581.74 C6.3 581.21 6.15 580.84 5.85 580.61 C5.55 580.31 5.18 580.16 4.73 580.09 C4.28         579.94 3.83 579.94 3.38 579.94 C2.85 579.94 2.33 580.01 1.88 580.09 C1.43 580.24 1.05 580.46 0.68 580.76         C0.38 581.06 0.23 581.51 0.15 582.04 L2.02 582.04 ZM4.5 583.99 C4.5 584.14 4.5 584.36 4.42 584.59 C4.35         584.81 4.2 585.04 3.97 585.19 C3.82 585.41 3.45 585.49 3 585.49 C2.62 585.49 2.4 585.41 2.17 585.34         C1.95 585.19 1.8 584.96 1.8 584.66 C1.8 584.36 1.95 584.14 2.17 583.99 C2.4 583.84 2.62 583.76 2.92         583.76 C3.22 583.69 3.52 583.69 3.83 583.61 C4.05 583.54 4.27 583.46 4.5 583.39 L4.5 583.99 Z" class="st17" />
+				<path d="M2.02 582.04 C2.1 581.74 2.17 581.51 2.4 581.36 C2.62 581.21 2.93 581.14 3.3 581.14 C3.6 581.06 3.9 581.14         4.13 581.29 C4.35 581.36 4.5 581.59 4.5 581.96 C4.43 582.34 4.2 582.49 3.83 582.64 C3.37 582.71 2.85         582.79 2.25 582.79 C1.88 582.86 1.5 582.94 1.12 583.09 C0.83 583.16 0.53 583.39 0.3 583.61 C0.08 583.91         -0 584.29 0 584.74 C0 585.41 0.22 585.86 0.68 586.24 C1.05 586.54 1.65 586.69 2.25 586.69 C2.7 586.69         3.08 586.61 3.53 586.46 C3.9 586.39 4.28 586.16 4.58 585.86 C4.58 586.01 4.58 586.09 4.58 586.16 C4.65         586.31 4.65 586.39 4.65 586.46 L6.6 586.46 C6.53 586.39 6.45 586.16 6.38 585.94 C6.38 585.64 6.3 585.34         6.3 585.11 L6.3 581.74 C6.3 581.21 6.15 580.84 5.85 580.61 C5.55 580.31 5.18 580.16 4.73 580.09 C4.28         579.94 3.83 579.94 3.38 579.94 C2.85 579.94 2.33 580.01 1.88 580.09 C1.43 580.24 1.05 580.46 0.68 580.76         C0.38 581.06 0.23 581.51 0.15 582.04 L2.02 582.04 ZM4.5 583.99 C4.5 584.14 4.5 584.36 4.42 584.59 C4.35         584.81 4.2 585.04 3.97 585.19 C3.82 585.41 3.45 585.49 3 585.49 C2.62 585.49 2.4 585.41 2.17 585.34         C1.95 585.19 1.8 584.96 1.8 584.66 C1.8 584.36 1.95 584.14 2.17 583.99 C2.4 583.84 2.62 583.76 2.92         583.76 C3.22 583.69 3.52 583.69 3.83 583.61 C4.05 583.54 4.27 583.46 4.5 583.39 L4.5 583.99 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape66" transform="translate(666.207,-109.09)" class="piste-1a">
@@ -785,15 +791,15 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape412">
 				
-				<path d="M0 578.14 C0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape413" transform="translate(3.075,-4.35)">
 				
-				<path d="M4.12 578.06 L2.7 578.06 C2.55 578.74 2.25 579.19 1.72 579.41 C1.27 579.71 0.68 579.79 0 579.79 L0 581.14         L2.33 581.14 L2.33 586.69 L4.12 586.69 L4.12 578.06 Z" class="st17" />
+				<path d="M4.12 578.06 L2.7 578.06 C2.55 578.74 2.25 579.19 1.72 579.41 C1.27 579.71 0.68 579.79 0 579.79 L0 581.14         L2.33 581.14 L2.33 586.69 L4.12 586.69 L4.12 578.06 Z" class="st16" />
 			</g>
 			<g id="shape414" transform="translate(8.475,-4.125)">
 				
-				<path d="M2.1 582.04 C2.1 581.74 2.25 581.51 2.47 581.36 C2.7 581.21 3 581.14 3.3 581.14 C3.67 581.06 3.97 581.14         4.2 581.29 C4.42 581.36 4.5 581.59 4.58 581.96 C4.5 582.34 4.28 582.49 3.9 582.64 C3.45 582.71 2.93         582.79 2.33 582.79 C1.95 582.86 1.57 582.94 1.2 583.09 C0.9 583.16 0.6 583.39 0.38 583.61 C0.15 583.91         0 584.29 0 584.74 C0.08 585.41 0.3 585.86 0.68 586.24 C1.12 586.54 1.65 586.69 2.33 586.69 C2.78 586.69         3.15 586.61 3.6 586.46 C3.98 586.39 4.35 586.16 4.65 585.86 C4.65 586.01 4.65 586.09 4.65 586.16 C4.73         586.31 4.73 586.39 4.73 586.46 L6.68 586.46 C6.53 586.39 6.53 586.16 6.45 585.94 C6.45 585.64 6.38 585.34         6.38 585.11 L6.38 581.74 C6.38 581.21 6.23 580.84 5.93 580.61 C5.63 580.31 5.25 580.16 4.8 580.09 C4.35         579.94 3.9 579.94 3.45 579.94 C2.93 579.94 2.4 580.01 1.95 580.09 C1.5 580.24 1.05 580.46 0.75 580.76         C0.45 581.06 0.3 581.51 0.23 582.04 L2.1 582.04 ZM4.57 584.06 C4.57 584.14 4.5 584.36 4.5 584.59 C4.42         584.81 4.27 585.04 4.05 585.19 C3.82 585.41 3.52 585.49 3 585.49 C2.7 585.49 2.47 585.41 2.25 585.34         C2.02 585.19 1.87 585.04 1.87 584.66 C1.87 584.36 2.02 584.14 2.25 583.99 C2.47 583.91 2.7 583.76 3         583.76 C3.3 583.69 3.6 583.69 3.9 583.61 C4.12 583.54 4.35 583.46 4.57 583.39 L4.57 584.06 Z" class="st17" />
+				<path d="M2.1 582.04 C2.1 581.74 2.25 581.51 2.47 581.36 C2.7 581.21 3 581.14 3.3 581.14 C3.67 581.06 3.97 581.14         4.2 581.29 C4.42 581.36 4.5 581.59 4.58 581.96 C4.5 582.34 4.28 582.49 3.9 582.64 C3.45 582.71 2.93         582.79 2.33 582.79 C1.95 582.86 1.57 582.94 1.2 583.09 C0.9 583.16 0.6 583.39 0.38 583.61 C0.15 583.91         0 584.29 0 584.74 C0.08 585.41 0.3 585.86 0.68 586.24 C1.12 586.54 1.65 586.69 2.33 586.69 C2.78 586.69         3.15 586.61 3.6 586.46 C3.98 586.39 4.35 586.16 4.65 585.86 C4.65 586.01 4.65 586.09 4.65 586.16 C4.73         586.31 4.73 586.39 4.73 586.46 L6.68 586.46 C6.53 586.39 6.53 586.16 6.45 585.94 C6.45 585.64 6.38 585.34         6.38 585.11 L6.38 581.74 C6.38 581.21 6.23 580.84 5.93 580.61 C5.63 580.31 5.25 580.16 4.8 580.09 C4.35         579.94 3.9 579.94 3.45 579.94 C2.93 579.94 2.4 580.01 1.95 580.09 C1.5 580.24 1.05 580.46 0.75 580.76         C0.45 581.06 0.3 581.51 0.23 582.04 L2.1 582.04 ZM4.57 584.06 C4.57 584.14 4.5 584.36 4.5 584.59 C4.42         584.81 4.27 585.04 4.05 585.19 C3.82 585.41 3.52 585.49 3 585.49 C2.7 585.49 2.47 585.41 2.25 585.34         C2.02 585.19 1.87 585.04 1.87 584.66 C1.87 584.36 2.02 584.14 2.25 583.99 C2.47 583.91 2.7 583.76 3         583.76 C3.3 583.69 3.6 583.69 3.9 583.61 C4.12 583.54 4.35 583.46 4.57 583.39 L4.57 584.06 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape48" transform="translate(740.832,-192.715)" class="piste-1a">
@@ -801,15 +807,15 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape386">
 				
-				<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape387" transform="translate(3,-4.275)">
 				
-				<path d="M4.2 577.99 L2.7 577.99 C2.55 578.66 2.25 579.11 1.72 579.41 C1.28 579.64 0.68 579.79 0 579.71 L0 581.06         L2.33 581.06 L2.33 586.69 L4.2 586.69 L4.2 577.99 Z" class="st17" />
+				<path d="M4.2 577.99 L2.7 577.99 C2.55 578.66 2.25 579.11 1.72 579.41 C1.28 579.64 0.68 579.79 0 579.71 L0 581.06         L2.33 581.06 L2.33 586.69 L4.2 586.69 L4.2 577.99 Z" class="st16" />
 			</g>
 			<g id="shape388" transform="translate(8.475,-4.125)">
 				
-				<path d="M2.02 582.11 C2.1 581.74 2.17 581.51 2.4 581.36 C2.62 581.21 2.92 581.14 3.3 581.14 C3.6 581.14 3.9 581.14         4.12 581.29 C4.35 581.36 4.5 581.66 4.5 581.96 C4.42 582.34 4.2 582.56 3.82 582.64 C3.37 582.71 2.85         582.79 2.25 582.86 C1.87 582.86 1.5 582.94 1.2 583.09 C0.83 583.24 0.53 583.39 0.3 583.69 C0.07 583.91         0 584.29 0 584.81 C0 585.41 0.22 585.94 0.67 586.24 C1.05 586.54 1.65 586.69 2.25 586.69 C2.7 586.69         3.07 586.61 3.52 586.54 C3.9 586.39 4.27 586.16 4.57 585.94 C4.57 586.01 4.57 586.09 4.57 586.24 C4.65         586.31 4.65 586.39 4.65 586.54 L6.6 586.54 C6.52 586.39 6.45 586.16 6.38 585.94 C6.38 585.64 6.38 585.41         6.38 585.11 L6.38 581.74 C6.3 581.29 6.15 580.91 5.85 580.61 C5.55 580.39 5.18 580.16 4.73 580.09 C4.27         580.01 3.82 579.94 3.37 579.94 C2.85 579.94 2.33 580.01 1.88 580.16 C1.42 580.24 1.05 580.46 0.75 580.84         C0.38 581.14 0.23 581.51 0.15 582.11 L2.02 582.11 ZM4.5 584.06 C4.5 584.21 4.5 584.36 4.42 584.59 C4.35         584.81 4.2 585.04 3.97 585.19 C3.82 585.41 3.45 585.49 3 585.49 C2.62 585.49 2.4 585.49 2.17 585.34         C1.95 585.26 1.87 585.04 1.8 584.74 C1.87 584.36 1.95 584.14 2.17 584.06 C2.4 583.91 2.62 583.84 2.92         583.76 C3.22 583.69 3.52 583.69 3.82 583.61 C4.05 583.61 4.35 583.54 4.5 583.39 L4.5 584.06 Z" class="st17" />
+				<path d="M2.02 582.11 C2.1 581.74 2.17 581.51 2.4 581.36 C2.62 581.21 2.92 581.14 3.3 581.14 C3.6 581.14 3.9 581.14         4.12 581.29 C4.35 581.36 4.5 581.66 4.5 581.96 C4.42 582.34 4.2 582.56 3.82 582.64 C3.37 582.71 2.85         582.79 2.25 582.86 C1.87 582.86 1.5 582.94 1.2 583.09 C0.83 583.24 0.53 583.39 0.3 583.69 C0.07 583.91         0 584.29 0 584.81 C0 585.41 0.22 585.94 0.67 586.24 C1.05 586.54 1.65 586.69 2.25 586.69 C2.7 586.69         3.07 586.61 3.52 586.54 C3.9 586.39 4.27 586.16 4.57 585.94 C4.57 586.01 4.57 586.09 4.57 586.24 C4.65         586.31 4.65 586.39 4.65 586.54 L6.6 586.54 C6.52 586.39 6.45 586.16 6.38 585.94 C6.38 585.64 6.38 585.41         6.38 585.11 L6.38 581.74 C6.3 581.29 6.15 580.91 5.85 580.61 C5.55 580.39 5.18 580.16 4.73 580.09 C4.27         580.01 3.82 579.94 3.37 579.94 C2.85 579.94 2.33 580.01 1.88 580.16 C1.42 580.24 1.05 580.46 0.75 580.84         C0.38 581.14 0.23 581.51 0.15 582.11 L2.02 582.11 ZM4.5 584.06 C4.5 584.21 4.5 584.36 4.42 584.59 C4.35         584.81 4.2 585.04 3.97 585.19 C3.82 585.41 3.45 585.49 3 585.49 C2.62 585.49 2.4 585.49 2.17 585.34         C1.95 585.26 1.87 585.04 1.8 584.74 C1.87 584.36 1.95 584.14 2.17 584.06 C2.4 583.91 2.62 583.84 2.92         583.76 C3.22 583.69 3.52 583.69 3.82 583.61 C4.05 583.61 4.35 583.54 4.5 583.39 L4.5 584.06 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape56" transform="translate(711.657,-258.79)" class="piste-1a">
@@ -817,34 +823,34 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape383">
 				
-				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape384" transform="translate(3.075,-4.275)">
 				
-				<path d="M4.12 577.99 L2.62 577.99 C2.55 578.66 2.25 579.11 1.72 579.41 C1.2 579.64 0.6 579.79 0 579.71 L0 581.06         L2.25 581.06 L2.25 586.69 L4.12 586.69 L4.12 577.99 Z" class="st17" />
+				<path d="M4.12 577.99 L2.62 577.99 C2.55 578.66 2.25 579.11 1.72 579.41 C1.2 579.64 0.6 579.79 0 579.71 L0 581.06         L2.25 581.06 L2.25 586.69 L4.12 586.69 L4.12 577.99 Z" class="st16" />
 			</g>
 			<g id="shape385" transform="translate(8.475,-4.125)">
 				
-				<path d="M2.1 582.11 C2.1 581.74 2.25 581.51 2.47 581.36 C2.7 581.21 2.93 581.14 3.3 581.14 C3.67 581.14 3.9 581.14         4.13 581.29 C4.43 581.36 4.5 581.66 4.5 581.96 C4.5 582.34 4.28 582.56 3.83 582.64 C3.45 582.71 2.93         582.79 2.33 582.86 C1.95 582.86 1.58 582.94 1.2 583.09 C0.83 583.24 0.6 583.39 0.38 583.69 C0.15 583.91         0 584.29 0 584.81 C-0 585.41 0.23 585.94 0.68 586.24 C1.12 586.54 1.65 586.69 2.33 586.69 C2.7 586.69         3.15 586.61 3.53 586.54 C3.98 586.39 4.28 586.16 4.58 585.94 C4.58 586.01 4.65 586.09 4.65 586.24 C4.65         586.31 4.73 586.46 4.73 586.54 L6.6 586.54 C6.53 586.39 6.45 586.16 6.45 585.94 C6.38 585.71 6.38 585.41         6.38 585.11 L6.38 581.81 C6.38 581.29 6.22 580.91 5.92 580.61 C5.62 580.39 5.25 580.16 4.8 580.09 C4.35         580.01 3.9 579.94 3.37 579.94 C2.93 579.94 2.4 580.01 1.95 580.16 C1.42 580.31 1.05 580.54 0.75 580.84         C0.45 581.14 0.3 581.59 0.23 582.11 L2.1 582.11 ZM4.5 584.06 C4.5 584.21 4.5 584.36 4.43 584.59 C4.43         584.81 4.27 585.04 4.05 585.26 C3.83 585.41 3.52 585.49 3 585.56 C2.7 585.56 2.4 585.49 2.25 585.34         C2.03 585.26 1.88 585.04 1.88 584.74 C1.88 584.36 2.03 584.14 2.18 584.06 C2.4 583.91 2.7 583.84 3 583.76         C3.3 583.69 3.6 583.69 3.83 583.61 C4.13 583.61 4.35 583.54 4.5 583.39 L4.5 584.06 Z" class="st17" />
+				<path d="M2.1 582.11 C2.1 581.74 2.25 581.51 2.47 581.36 C2.7 581.21 2.93 581.14 3.3 581.14 C3.67 581.14 3.9 581.14         4.13 581.29 C4.43 581.36 4.5 581.66 4.5 581.96 C4.5 582.34 4.28 582.56 3.83 582.64 C3.45 582.71 2.93         582.79 2.33 582.86 C1.95 582.86 1.58 582.94 1.2 583.09 C0.83 583.24 0.6 583.39 0.38 583.69 C0.15 583.91         0 584.29 0 584.81 C-0 585.41 0.23 585.94 0.68 586.24 C1.12 586.54 1.65 586.69 2.33 586.69 C2.7 586.69         3.15 586.61 3.53 586.54 C3.98 586.39 4.28 586.16 4.58 585.94 C4.58 586.01 4.65 586.09 4.65 586.24 C4.65         586.31 4.73 586.46 4.73 586.54 L6.6 586.54 C6.53 586.39 6.45 586.16 6.45 585.94 C6.38 585.71 6.38 585.41         6.38 585.11 L6.38 581.81 C6.38 581.29 6.22 580.91 5.92 580.61 C5.62 580.39 5.25 580.16 4.8 580.09 C4.35         580.01 3.9 579.94 3.37 579.94 C2.93 579.94 2.4 580.01 1.95 580.16 C1.42 580.31 1.05 580.54 0.75 580.84         C0.45 581.14 0.3 581.59 0.23 582.11 L2.1 582.11 ZM4.5 584.06 C4.5 584.21 4.5 584.36 4.43 584.59 C4.43         584.81 4.27 585.04 4.05 585.26 C3.83 585.41 3.52 585.49 3 585.56 C2.7 585.56 2.4 585.49 2.25 585.34         C2.03 585.26 1.88 585.04 1.88 584.74 C1.88 584.36 2.03 584.14 2.18 584.06 C2.4 583.91 2.7 583.84 3 583.76         C3.3 583.69 3.6 583.69 3.83 583.61 C4.13 583.61 4.35 583.54 4.5 583.39 L4.5 584.06 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape85" transform="translate(395.106,-433.515) rotate(-24.2492)">
 			
-			<path d="M0 586.69 C0.71 586.68 1.45 586.68 2.22 586.69" class="st6" />
+			<path d="M0 586.69 C0.71 586.68 1.45 586.68 2.22 586.69" class="st5" />
 		</g>
 		<g id="shape100" transform="translate(606.311,-302.965)" class="piste-1">
 			
 			
-			<path d="M29.75 404.36 C33.59 401.94 35.51 398.47 36.83 395.08 C39.13 389.16 39.56 383.49 45.2 384.11" class="st6" />
-			<path d="M46.7 384.56 C50.86 385.69 52.24 388.09 51.39 390.81 C50.77 392.79 48.96 394.93 46.17 396.86 C40.7 400.76 36.8        401.06 31.77 403.46" class="st6" />
-			<path d="M29.75 404.37 C4.56 415.96 23.37 417.19 2.67 434.74 C-6.4 443.96 10.1 450.04 15.72 452.59 C25.77 457.09 16.85        475.46 43.47 482.59 C80 492.34 59.67 506.74 116.22 496.46 C117.51 496.22 123.67 494.6 130.33 495.86 C138.38        497.39 148.56 502.65 149.13 521.22" class="st6" />
-			<path d="M143.37 510.64 C150.25 518.4 153.06 528.53 141.2 535.31 C128.15 545.06 145.17 560.14 136.02 569.59 C129.65 578.66        125.3 575.59 118.1 586.69" class="st6" />
+			<path d="M29.75 404.36 C33.59 401.94 35.51 398.47 36.83 395.08 C39.13 389.16 39.56 383.49 45.2 384.11" class="st5" />
+			<path d="M46.7 384.56 C50.86 385.69 52.24 388.09 51.39 390.81 C50.77 392.79 48.96 394.93 46.17 396.86 C40.7 400.76 36.8        401.06 31.77 403.46" class="st5" />
+			<path d="M29.75 404.37 C4.56 415.96 23.37 417.19 2.67 434.74 C-6.4 443.96 10.1 450.04 15.72 452.59 C25.77 457.09 16.85        475.46 43.47 482.59 C80 492.34 59.67 506.74 116.22 496.46 C117.51 496.22 123.67 494.6 130.33 495.86 C138.38        497.39 148.56 502.65 149.13 521.22" class="st5" />
+			<path d="M143.37 510.64 C150.25 518.4 153.06 528.53 141.2 535.31 C128.15 545.06 145.17 560.14 136.02 569.59 C129.65 578.66        125.3 575.59 118.1 586.69" class="st5" />
 		</g>
 		<g id="shape79" transform="translate(627.225,-417.975)">
 			
 			<g id="shape375">
 				
-				<path d="M4.12 577.99 L2.63 577.99 C2.55 578.66 2.25 579.11 1.72 579.34 C1.2 579.64 0.68 579.71 0 579.71 L0 581.06         L2.25 581.06 L2.25 586.69 L4.12 586.69 L4.12 577.99 Z" class="st17" />
+				<path d="M4.12 577.99 L2.63 577.99 C2.55 578.66 2.25 579.11 1.72 579.34 C1.2 579.64 0.68 579.71 0 579.71 L0 581.06         L2.25 581.06 L2.25 586.69 L4.12 586.69 L4.12 577.99 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape80" transform="translate(733.632,-312.715)" class="piste-1">
@@ -857,33 +863,33 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 				
 				<g id="shape376">
 					
-					<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03          586.69 9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st16" />
+					<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03          586.69 9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st15" />
 				</g>
 				<g id="shape377" transform="translate(6.225,-4.05)">
 					
-					<path d="M4.12 578.06 L2.7 578.06 C2.55 578.66 2.25 579.11 1.72 579.41 C1.2 579.64 0.68 579.79 0 579.79 L0 581.06          L2.33 581.06 L2.33 586.69 L4.12 586.69 L4.12 578.06 Z" class="st17" />
+					<path d="M4.12 578.06 L2.7 578.06 C2.55 578.66 2.25 579.11 1.72 579.41 C1.2 579.64 0.68 579.79 0 579.79 L0 581.06          L2.33 581.06 L2.33 586.69 L4.12 586.69 L4.12 578.06 Z" class="st16" />
 				</g>
 			</g>
 		</g>
 		<g id="shape18" transform="translate(594.283,-424.99)" class="piste-10">
 			
 			
-			<path d="M0 481.46 C4.72 494.66 -3.98 498.94 11.62 501.79 C26.7 504.56 35.47 505.24 45.37 505.01 C50.41 504.92 54.22        505.35 57.2 506.13 C70.3 509.58 67.22 519.73 81.52 520.46 C104.4 521.66 92.77 542.81 118.42 548.14 C147.37        554.06 145.05 567.56 164.1 566.21 C179.7 565.09 189 586.24 214.12 586.69 C233.02 586.99 226.8 571.01 240.82        574.39 C254.18 577.61 250.27 566.89 252.3 564.41" class="st6" />
+			<path d="M0 481.46 C4.72 494.66 -3.98 498.94 11.62 501.79 C26.7 504.56 35.47 505.24 45.37 505.01 C50.41 504.92 54.22        505.35 57.2 506.13 C70.3 509.58 67.22 519.73 81.52 520.46 C104.4 521.66 92.77 542.81 118.42 548.14 C147.37        554.06 145.05 567.56 164.1 566.21 C179.7 565.09 189 586.24 214.12 586.69 C233.02 586.99 226.8 571.01 240.82        574.39 C254.18 577.61 250.27 566.89 252.3 564.41" class="st5" />
 		</g>
 		<g id="shape81" transform="translate(726.582,-446.965)" class="piste-10">
 			
 			
 			<g id="shape368">
 				
-				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.07 569.59 C14.1 569.59 18.15 573.41 18.15 578.14 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape369" transform="translate(3,-4.2)">
 				
-				<path d="M4.12 577.99 L2.63 577.99 C2.55 578.66 2.25 579.11 1.72 579.41 C1.2 579.64 0.6 579.79 0 579.71 L0 581.06         L2.25 581.06 L2.25 586.69 L4.12 586.69 L4.12 577.99 Z" class="st17" />
+				<path d="M4.12 577.99 L2.63 577.99 C2.55 578.66 2.25 579.11 1.72 579.41 C1.2 579.64 0.6 579.79 0 579.71 L0 581.06         L2.25 581.06 L2.25 586.69 L4.12 586.69 L4.12 577.99 Z" class="st16" />
 			</g>
 			<g id="shape370" transform="translate(8.25,-4.05)">
 				
-				<path d="M1.88 582.11 C1.88 581.81 1.88 581.44 1.95 580.99 C1.95 580.46 2.1 580.09 2.33 579.71 C2.55 579.34 2.85         579.19 3.37 579.11 C3.83 579.19 4.2 579.34 4.43 579.71 C4.65 580.09 4.8 580.46 4.8 580.99 C4.88 581.44         4.88 581.81 4.88 582.11 C4.88 582.49 4.88 582.94 4.8 583.39 C4.8 583.84 4.65 584.29 4.43 584.66 C4.2         585.04 3.83 585.19 3.37 585.26 C2.85 585.19 2.55 585.04 2.33 584.66 C2.1 584.29 1.95 583.84 1.95 583.39         C1.88 582.94 1.88 582.49 1.88 582.11 ZM0 582.11 C-0 583.31 0.15 584.21 0.45 584.89 C0.75 585.49 1.2         586.01 1.73 586.24 C2.18 586.54 2.78 586.69 3.38 586.69 C3.98 586.69 4.58 586.54 5.03 586.24 C5.55 586.01         6 585.49 6.3 584.89 C6.6 584.21 6.75 583.31 6.75 582.11 C6.75 581.06 6.6 580.16 6.3 579.49 C6 578.81         5.55 578.36 5.03 578.06 C4.58 577.84 3.98 577.69 3.38 577.69 C2.78 577.69 2.18 577.84 1.73 578.06 C1.2         578.36 0.75 578.81 0.45 579.49 C0.15 580.16 -0 581.06 0 582.11 Z" class="st17" />
+				<path d="M1.88 582.11 C1.88 581.81 1.88 581.44 1.95 580.99 C1.95 580.46 2.1 580.09 2.33 579.71 C2.55 579.34 2.85         579.19 3.37 579.11 C3.83 579.19 4.2 579.34 4.43 579.71 C4.65 580.09 4.8 580.46 4.8 580.99 C4.88 581.44         4.88 581.81 4.88 582.11 C4.88 582.49 4.88 582.94 4.8 583.39 C4.8 583.84 4.65 584.29 4.43 584.66 C4.2         585.04 3.83 585.19 3.37 585.26 C2.85 585.19 2.55 585.04 2.33 584.66 C2.1 584.29 1.95 583.84 1.95 583.39         C1.88 582.94 1.88 582.49 1.88 582.11 ZM0 582.11 C-0 583.31 0.15 584.21 0.45 584.89 C0.75 585.49 1.2         586.01 1.73 586.24 C2.18 586.54 2.78 586.69 3.38 586.69 C3.98 586.69 4.58 586.54 5.03 586.24 C5.55 586.01         6 585.49 6.3 584.89 C6.6 584.21 6.75 583.31 6.75 582.11 C6.75 581.06 6.6 580.16 6.3 579.49 C6 578.81         5.55 578.36 5.03 578.06 C4.58 577.84 3.98 577.69 3.38 577.69 C2.78 577.69 2.18 577.84 1.73 578.06 C1.2         578.36 0.75 578.81 0.45 579.49 C0.15 580.16 -0 581.06 0 582.11 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape83" transform="translate(598.425,-500.4)" class="piste-10">
@@ -891,49 +897,49 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape435">
 				
-				<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape437" transform="translate(8.175,-4.05)">
 				
-				<path d="M1.88 582.19 C1.88 581.89 1.88 581.44 1.95 580.99 C2.03 580.54 2.1 580.09 2.33 579.71 C2.55 579.34 2.93         579.19 3.37 579.19 C3.9 579.19 4.28 579.34 4.43 579.71 C4.65 580.09 4.8 580.54 4.88 580.99 C4.88 581.44         4.95 581.89 4.88 582.19 C4.95 582.49 4.88 582.94 4.88 583.39 C4.8 583.91 4.65 584.29 4.43 584.66 C4.27         585.04 3.9 585.26 3.37 585.26 C2.93 585.26 2.55 585.04 2.33 584.66 C2.1 584.29 2.03 583.91 1.95 583.39         C1.88 582.94 1.88 582.49 1.88 582.19 ZM0 582.19 C0.08 583.31 0.22 584.21 0.53 584.89 C0.82 585.56 1.2         586.01 1.73 586.31 C2.25 586.61 2.78 586.69 3.38 586.69 C3.98 586.69 4.58 586.61 5.1 586.31 C5.55 586.01         6 585.56 6.3 584.89 C6.6 584.21 6.75 583.31 6.75 582.19 C6.75 581.06 6.6 580.16 6.3 579.49 C6 578.89         5.55 578.36 5.1 578.14 C4.58 577.84 3.98 577.69 3.38 577.69 C2.78 577.69 2.25 577.84 1.73 578.14 C1.2         578.36 0.82 578.89 0.53 579.49 C0.23 580.16 0.08 581.06 0 582.19 Z" class="st17" />
+				<path d="M1.88 582.19 C1.88 581.89 1.88 581.44 1.95 580.99 C2.03 580.54 2.1 580.09 2.33 579.71 C2.55 579.34 2.93         579.19 3.37 579.19 C3.9 579.19 4.28 579.34 4.43 579.71 C4.65 580.09 4.8 580.54 4.88 580.99 C4.88 581.44         4.95 581.89 4.88 582.19 C4.95 582.49 4.88 582.94 4.88 583.39 C4.8 583.91 4.65 584.29 4.43 584.66 C4.27         585.04 3.9 585.26 3.37 585.26 C2.93 585.26 2.55 585.04 2.33 584.66 C2.1 584.29 2.03 583.91 1.95 583.39         C1.88 582.94 1.88 582.49 1.88 582.19 ZM0 582.19 C0.08 583.31 0.22 584.21 0.53 584.89 C0.82 585.56 1.2         586.01 1.73 586.31 C2.25 586.61 2.78 586.69 3.38 586.69 C3.98 586.69 4.58 586.61 5.1 586.31 C5.55 586.01         6 585.56 6.3 584.89 C6.6 584.21 6.75 583.31 6.75 582.19 C6.75 581.06 6.6 580.16 6.3 579.49 C6 578.89         5.55 578.36 5.1 578.14 C4.58 577.84 3.98 577.69 3.38 577.69 C2.78 577.69 2.25 577.84 1.73 578.14 C1.2         578.36 0.82 578.89 0.53 579.49 C0.23 580.16 0.08 581.06 0 582.19 Z" class="st16" />
 			</g>
 			<g id="shape436" transform="translate(2.925,-4.2)">
 				
-				<path d="M4.12 578.06 L2.7 578.06 C2.55 578.66 2.25 579.11 1.72 579.41 C1.27 579.64 0.67 579.79 0 579.79 L0 581.06         L2.32 581.06 L2.32 586.69 L4.13 586.69 L4.12 578.06 Z" class="st17" />
+				<path d="M4.12 578.06 L2.7 578.06 C2.55 578.66 2.25 579.11 1.72 579.41 C1.27 579.64 0.67 579.79 0 579.79 L0 581.06         L2.32 581.06 L2.32 586.69 L4.13 586.69 L4.12 578.06 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape98" transform="translate(37.5865,579.282) rotate(-126.009)">
 			
-			<path d="M-0 586.69 C0.02 586.69 0.04 586.69 0.06 586.69" class="st6" />
+			<path d="M-0 586.69 C0.02 586.69 0.04 586.69 0.06 586.69" class="st5" />
 		</g>
 		<g id="shape111" transform="translate(397.797,-342.405) rotate(-18.3876)">
 			
-			<path d="M0 586.69 C0.06 586.69 0.12 586.69 0.18 586.69" class="st6" />
+			<path d="M0 586.69 C0.06 586.69 0.12 586.69 0.18 586.69" class="st5" />
 		</g>
 		<g id="shape112" transform="translate(-44.9714,418.246) rotate(-108.265)">
 			
-			<path d="M0 586.69 C0.02 586.69 0.04 586.69 0.06 586.69" class="st6" />
+			<path d="M0 586.69 C0.02 586.69 0.04 586.69 0.06 586.69" class="st5" />
 		</g>
 		<g id="shape24" transform="translate(264.507,-180.121)" class="piste-3a">
 			
 			
-			<path d="M360.9 362.97 C368.25 373.39 364.35 376.32 354.23 383.29 C345.88 388.12 335.09 392.39 318.36 394.45 C314.48        394.93 310.28 395.29 305.71 395.51 C303.06 395.63 300.28 395.71 297.38 395.74 C282.37 395.82 262.57 394.39        248.17 405.34 C244.67 408.08 245.16 411.02 247.63 414.44" class="st6" />
-			<path d="M247.67 414.48 C249.76 417.36 253.26 420.57 256.96 424.25 C265.1 432.37 274.21 442.81 271.42 457.17 C268.95        467.97 268.95 469.47 255.38 482.74 C242.18 495.94 235.43 491.82 224.4 502.92 C216.3 510.94 198.68 517.92        178.5 520.62 C140.85 528.42 146.55 542.22 107.7 548.67 C85.95 553.17 87.6 562.17 73.05 568.62 C61.2 573.49        53.1 577.47 34.05 585.19 L24.44 586.68 L15.56 585.61 L7.42 581.96 L0 575.74" class="st6" />
+			<path d="M360.9 362.97 C368.25 373.39 364.35 376.32 354.23 383.29 C345.88 388.12 335.09 392.39 318.36 394.45 C314.48        394.93 310.28 395.29 305.71 395.51 C303.06 395.63 300.28 395.71 297.38 395.74 C282.37 395.82 262.57 394.39        248.17 405.34 C244.67 408.08 245.16 411.02 247.63 414.44" class="st5" />
+			<path d="M247.67 414.48 C249.76 417.36 253.26 420.57 256.96 424.25 C265.1 432.37 274.21 442.81 271.42 457.17 C268.95        467.97 268.95 469.47 255.38 482.74 C242.18 495.94 235.43 491.82 224.4 502.92 C216.3 510.94 198.68 517.92        178.5 520.62 C140.85 528.42 146.55 542.22 107.7 548.67 C85.95 553.17 87.6 562.17 73.05 568.62 C61.2 573.49        53.1 577.47 34.05 585.19 L24.44 586.68 L15.56 585.61 L7.42 581.96 L0 575.74" class="st5" />
 		</g>
 		<g id="shape20" transform="translate(540.6,-364.5)" class="piste-3a">
 			
 			
 			<g id="shape378">
 				
-				<path d="M0 578.51 C-0 573.94 3.9 570.26 8.7 570.26 C13.5 570.26 17.4 573.94 17.4 578.51 C17.4 583.01 13.5 586.69         8.7 586.69 C3.9 586.69 0 583.01 0 578.51 Z" class="st16" />
+				<path d="M0 578.51 C-0 573.94 3.9 570.26 8.7 570.26 C13.5 570.26 17.4 573.94 17.4 578.51 C17.4 583.01 13.5 586.69         8.7 586.69 C3.9 586.69 0 583.01 0 578.51 Z" class="st15" />
 			</g>
 			<g id="shape379" transform="translate(2.1,-4.2)">
 				
-				<path d="M2.62 582.79 C2.92 582.79 3.22 582.79 3.53 582.79 C3.82 582.86 4.12 582.94 4.35 583.16 C4.57 583.31 4.65         583.61 4.65 583.99 C4.65 584.44 4.5 584.74 4.28 584.96 C3.98 585.19 3.6 585.34 3.23 585.34 C2.7 585.34         2.32 585.11 2.1 584.81 C1.8 584.51 1.73 584.14 1.65 583.69 L0 583.69 C-0 584.66 0.3 585.41 0.83 585.94         C1.42 586.46 2.25 586.69 3.23 586.69 C3.82 586.69 4.35 586.61 4.88 586.39 C5.33 586.16 5.78 585.86 6.08         585.49 C6.38 585.04 6.53 584.59 6.53 583.99 C6.53 583.54 6.38 583.09 6.08 582.79 C5.85 582.41 5.48 582.19         4.95 582.11 L4.95 582.04 C5.4 581.96 5.7 581.74 5.85 581.44 C6.08 581.14 6.23 580.76 6.23 580.39 C6.15         579.86 6 579.49 5.7 579.11 C5.48 578.74 5.1 578.51 4.65 578.36 C4.2 578.14 3.75 578.06 3.23 578.06 C2.33         578.06 1.58 578.36 1.05 578.89 C0.53 579.41 0.23 580.09 0.23 580.91 L1.88 580.91 C1.88 580.54 2.03 580.16         2.25 579.86 C2.48 579.64 2.78 579.49 3.23 579.49 C3.6 579.49 3.9 579.56 4.13 579.71 C4.35 579.94 4.5         580.24 4.5 580.54 C4.5 580.84 4.35 581.14 4.2 581.29 C3.98 581.44 3.75 581.51 3.45 581.59 C3.15 581.59         2.85 581.59 2.63 581.59 L2.62 582.79 Z" class="st17" />
+				<path d="M2.62 582.79 C2.92 582.79 3.22 582.79 3.53 582.79 C3.82 582.86 4.12 582.94 4.35 583.16 C4.57 583.31 4.65         583.61 4.65 583.99 C4.65 584.44 4.5 584.74 4.28 584.96 C3.98 585.19 3.6 585.34 3.23 585.34 C2.7 585.34         2.32 585.11 2.1 584.81 C1.8 584.51 1.73 584.14 1.65 583.69 L0 583.69 C-0 584.66 0.3 585.41 0.83 585.94         C1.42 586.46 2.25 586.69 3.23 586.69 C3.82 586.69 4.35 586.61 4.88 586.39 C5.33 586.16 5.78 585.86 6.08         585.49 C6.38 585.04 6.53 584.59 6.53 583.99 C6.53 583.54 6.38 583.09 6.08 582.79 C5.85 582.41 5.48 582.19         4.95 582.11 L4.95 582.04 C5.4 581.96 5.7 581.74 5.85 581.44 C6.08 581.14 6.23 580.76 6.23 580.39 C6.15         579.86 6 579.49 5.7 579.11 C5.48 578.74 5.1 578.51 4.65 578.36 C4.2 578.14 3.75 578.06 3.23 578.06 C2.33         578.06 1.58 578.36 1.05 578.89 C0.53 579.41 0.23 580.09 0.23 580.91 L1.88 580.91 C1.88 580.54 2.03 580.16         2.25 579.86 C2.48 579.64 2.78 579.49 3.23 579.49 C3.6 579.49 3.9 579.56 4.13 579.71 C4.35 579.94 4.5         580.24 4.5 580.54 C4.5 580.84 4.35 581.14 4.2 581.29 C3.98 581.44 3.75 581.51 3.45 581.59 C3.15 581.59         2.85 581.59 2.63 581.59 L2.62 582.79 Z" class="st16" />
 			</g>
 			<g id="shape380" transform="translate(9.3,-4.2)">
 				
-				<path d="M1.95 582.26 C2.02 581.96 2.1 581.74 2.32 581.59 C2.55 581.44 2.77 581.36 3.15 581.36 C3.45 581.36 3.75         581.44 3.97 581.51 C4.2 581.59 4.27 581.81 4.27 582.19 C4.27 582.49 4.05 582.71 3.67 582.79 C3.22 582.86         2.77 582.94 2.17 583.01 C1.8 583.01 1.42 583.16 1.12 583.24 C0.75 583.39 0.53 583.54 0.3 583.84 C0.07         584.06 0 584.44 0 584.89 C0 585.49 0.22 585.94 0.6 586.24 C1.05 586.54 1.57 586.69 2.17 586.69 C2.55         586.69 3 586.69 3.38 586.54 C3.75 586.39 4.05 586.24 4.35 585.94 C4.35 586.09 4.42 586.16 4.42 586.24         C4.42 586.31 4.5 586.46 4.5 586.54 L6.3 586.54 C6.22 586.39 6.15 586.24 6.15 586.01 C6.07 585.71 6.07         585.49 6.07 585.19 L6.07 581.96 C6.07 581.51 5.92 581.14 5.62 580.91 C5.32 580.61 4.95 580.46 4.57 580.39         C4.12 580.31 3.67 580.24 3.22 580.24 C2.7 580.24 2.25 580.31 1.8 580.39 C1.35 580.54 0.97 580.76 0.67         581.06 C0.37 581.36 0.22 581.74 0.15 582.26 L1.95 582.26 ZM4.27 584.14 C4.27 584.29 4.27 584.51 4.2         584.66 C4.2 584.89 4.05 585.11 3.82 585.26 C3.6 585.49 3.3 585.56 2.85 585.56 C2.55 585.56 2.32 585.56         2.1 585.41 C1.87 585.34 1.72 585.11 1.72 584.81 C1.72 584.51 1.87 584.29 2.1 584.14 C2.25 584.06 2.55         583.91 2.77 583.91 C3.07 583.84 3.37 583.84 3.67 583.76 C3.9 583.76 4.12 583.69 4.27 583.54 L4.27 584.14         Z" class="st17" />
+				<path d="M1.95 582.26 C2.02 581.96 2.1 581.74 2.32 581.59 C2.55 581.44 2.77 581.36 3.15 581.36 C3.45 581.36 3.75         581.44 3.97 581.51 C4.2 581.59 4.27 581.81 4.27 582.19 C4.27 582.49 4.05 582.71 3.67 582.79 C3.22 582.86         2.77 582.94 2.17 583.01 C1.8 583.01 1.42 583.16 1.12 583.24 C0.75 583.39 0.53 583.54 0.3 583.84 C0.07         584.06 0 584.44 0 584.89 C0 585.49 0.22 585.94 0.6 586.24 C1.05 586.54 1.57 586.69 2.17 586.69 C2.55         586.69 3 586.69 3.38 586.54 C3.75 586.39 4.05 586.24 4.35 585.94 C4.35 586.09 4.42 586.16 4.42 586.24         C4.42 586.31 4.5 586.46 4.5 586.54 L6.3 586.54 C6.22 586.39 6.15 586.24 6.15 586.01 C6.07 585.71 6.07         585.49 6.07 585.19 L6.07 581.96 C6.07 581.51 5.92 581.14 5.62 580.91 C5.32 580.61 4.95 580.46 4.57 580.39         C4.12 580.31 3.67 580.24 3.22 580.24 C2.7 580.24 2.25 580.31 1.8 580.39 C1.35 580.54 0.97 580.76 0.67         581.06 C0.37 581.36 0.22 581.74 0.15 582.26 L1.95 582.26 ZM4.27 584.14 C4.27 584.29 4.27 584.51 4.2         584.66 C4.2 584.89 4.05 585.11 3.82 585.26 C3.6 585.49 3.3 585.56 2.85 585.56 C2.55 585.56 2.32 585.56         2.1 585.41 C1.87 585.34 1.72 585.11 1.72 584.81 C1.72 584.51 1.87 584.29 2.1 584.14 C2.25 584.06 2.55         583.91 2.77 583.91 C3.07 583.84 3.37 583.84 3.67 583.76 C3.9 583.76 4.12 583.69 4.27 583.54 L4.27 584.14         Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape41" transform="translate(364.5,-211.5)" class="piste-3a">
@@ -941,54 +947,54 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape42">
 				
-				<path d="M0 578.51 C-0 573.94 3.9 570.26 8.7 570.26 C13.5 570.26 17.4 573.94 17.4 578.51 C17.4 583.01 13.5 586.69         8.7 586.69 C3.9 586.69 0 583.01 0 578.51 Z" class="st16" />
+				<path d="M0 578.51 C-0 573.94 3.9 570.26 8.7 570.26 C13.5 570.26 17.4 573.94 17.4 578.51 C17.4 583.01 13.5 586.69         8.7 586.69 C3.9 586.69 0 583.01 0 578.51 Z" class="st15" />
 			</g>
 			<g id="shape65" transform="translate(2.1,-4.2)">
 				
-				<path d="M2.62 582.79 C2.92 582.79 3.22 582.79 3.53 582.79 C3.82 582.86 4.12 582.94 4.35 583.16 C4.57 583.31 4.65         583.61 4.65 583.99 C4.65 584.44 4.5 584.74 4.28 584.96 C3.98 585.19 3.6 585.34 3.23 585.34 C2.7 585.34         2.32 585.11 2.1 584.81 C1.8 584.51 1.73 584.14 1.65 583.69 L0 583.69 C-0 584.66 0.3 585.41 0.83 585.94         C1.42 586.46 2.25 586.69 3.23 586.69 C3.82 586.69 4.35 586.61 4.88 586.39 C5.33 586.16 5.78 585.86 6.08         585.49 C6.38 585.04 6.53 584.59 6.53 583.99 C6.53 583.54 6.38 583.09 6.08 582.79 C5.85 582.41 5.48 582.19         4.95 582.11 L4.95 582.04 C5.4 581.96 5.7 581.74 5.85 581.44 C6.08 581.14 6.23 580.76 6.23 580.39 C6.15         579.86 6 579.49 5.7 579.11 C5.48 578.74 5.1 578.51 4.65 578.36 C4.2 578.14 3.75 578.06 3.23 578.06 C2.33         578.06 1.58 578.36 1.05 578.89 C0.53 579.41 0.23 580.09 0.23 580.91 L1.88 580.91 C1.88 580.54 2.03 580.16         2.25 579.86 C2.48 579.64 2.78 579.49 3.23 579.49 C3.6 579.49 3.9 579.56 4.13 579.71 C4.35 579.94 4.5         580.24 4.5 580.54 C4.5 580.84 4.35 581.14 4.2 581.29 C3.98 581.44 3.75 581.51 3.45 581.59 C3.15 581.59         2.85 581.59 2.63 581.59 L2.62 582.79 Z" class="st17" />
+				<path d="M2.62 582.79 C2.92 582.79 3.22 582.79 3.53 582.79 C3.82 582.86 4.12 582.94 4.35 583.16 C4.57 583.31 4.65         583.61 4.65 583.99 C4.65 584.44 4.5 584.74 4.28 584.96 C3.98 585.19 3.6 585.34 3.23 585.34 C2.7 585.34         2.32 585.11 2.1 584.81 C1.8 584.51 1.73 584.14 1.65 583.69 L0 583.69 C-0 584.66 0.3 585.41 0.83 585.94         C1.42 586.46 2.25 586.69 3.23 586.69 C3.82 586.69 4.35 586.61 4.88 586.39 C5.33 586.16 5.78 585.86 6.08         585.49 C6.38 585.04 6.53 584.59 6.53 583.99 C6.53 583.54 6.38 583.09 6.08 582.79 C5.85 582.41 5.48 582.19         4.95 582.11 L4.95 582.04 C5.4 581.96 5.7 581.74 5.85 581.44 C6.08 581.14 6.23 580.76 6.23 580.39 C6.15         579.86 6 579.49 5.7 579.11 C5.48 578.74 5.1 578.51 4.65 578.36 C4.2 578.14 3.75 578.06 3.23 578.06 C2.33         578.06 1.58 578.36 1.05 578.89 C0.53 579.41 0.23 580.09 0.23 580.91 L1.88 580.91 C1.88 580.54 2.03 580.16         2.25 579.86 C2.48 579.64 2.78 579.49 3.23 579.49 C3.6 579.49 3.9 579.56 4.13 579.71 C4.35 579.94 4.5         580.24 4.5 580.54 C4.5 580.84 4.35 581.14 4.2 581.29 C3.98 581.44 3.75 581.51 3.45 581.59 C3.15 581.59         2.85 581.59 2.63 581.59 L2.62 582.79 Z" class="st16" />
 			</g>
 			<g id="shape75" transform="translate(9.3,-4.2)">
 				
-				<path d="M1.95 582.26 C2.02 581.96 2.1 581.74 2.32 581.59 C2.55 581.44 2.77 581.36 3.15 581.36 C3.45 581.36 3.75         581.44 3.97 581.51 C4.2 581.59 4.27 581.81 4.27 582.19 C4.27 582.49 4.05 582.71 3.67 582.79 C3.22 582.86         2.77 582.94 2.17 583.01 C1.8 583.01 1.42 583.16 1.12 583.24 C0.75 583.39 0.53 583.54 0.3 583.84 C0.07         584.06 0 584.44 0 584.89 C0 585.49 0.22 585.94 0.6 586.24 C1.05 586.54 1.57 586.69 2.17 586.69 C2.55         586.69 3 586.69 3.38 586.54 C3.75 586.39 4.05 586.24 4.35 585.94 C4.35 586.09 4.42 586.16 4.42 586.24         C4.42 586.31 4.5 586.46 4.5 586.54 L6.3 586.54 C6.22 586.39 6.15 586.24 6.15 586.01 C6.07 585.71 6.07         585.49 6.07 585.19 L6.07 581.96 C6.07 581.51 5.92 581.14 5.62 580.91 C5.32 580.61 4.95 580.46 4.57 580.39         C4.12 580.31 3.67 580.24 3.22 580.24 C2.7 580.24 2.25 580.31 1.8 580.39 C1.35 580.54 0.97 580.76 0.67         581.06 C0.37 581.36 0.22 581.74 0.15 582.26 L1.95 582.26 ZM4.27 584.14 C4.27 584.29 4.27 584.51 4.2         584.66 C4.2 584.89 4.05 585.11 3.82 585.26 C3.6 585.49 3.3 585.56 2.85 585.56 C2.55 585.56 2.32 585.56         2.1 585.41 C1.87 585.34 1.72 585.11 1.72 584.81 C1.72 584.51 1.87 584.29 2.1 584.14 C2.25 584.06 2.55         583.91 2.77 583.91 C3.07 583.84 3.37 583.84 3.67 583.76 C3.9 583.76 4.12 583.69 4.27 583.54 L4.27 584.14         Z" class="st17" />
+				<path d="M1.95 582.26 C2.02 581.96 2.1 581.74 2.32 581.59 C2.55 581.44 2.77 581.36 3.15 581.36 C3.45 581.36 3.75         581.44 3.97 581.51 C4.2 581.59 4.27 581.81 4.27 582.19 C4.27 582.49 4.05 582.71 3.67 582.79 C3.22 582.86         2.77 582.94 2.17 583.01 C1.8 583.01 1.42 583.16 1.12 583.24 C0.75 583.39 0.53 583.54 0.3 583.84 C0.07         584.06 0 584.44 0 584.89 C0 585.49 0.22 585.94 0.6 586.24 C1.05 586.54 1.57 586.69 2.17 586.69 C2.55         586.69 3 586.69 3.38 586.54 C3.75 586.39 4.05 586.24 4.35 585.94 C4.35 586.09 4.42 586.16 4.42 586.24         C4.42 586.31 4.5 586.46 4.5 586.54 L6.3 586.54 C6.22 586.39 6.15 586.24 6.15 586.01 C6.07 585.71 6.07         585.49 6.07 585.19 L6.07 581.96 C6.07 581.51 5.92 581.14 5.62 580.91 C5.32 580.61 4.95 580.46 4.57 580.39         C4.12 580.31 3.67 580.24 3.22 580.24 C2.7 580.24 2.25 580.31 1.8 580.39 C1.35 580.54 0.97 580.76 0.67         581.06 C0.37 581.36 0.22 581.74 0.15 582.26 L1.95 582.26 ZM4.27 584.14 C4.27 584.29 4.27 584.51 4.2         584.66 C4.2 584.89 4.05 585.11 3.82 585.26 C3.6 585.49 3.3 585.56 2.85 585.56 C2.55 585.56 2.32 585.56         2.1 585.41 C1.87 585.34 1.72 585.11 1.72 584.81 C1.72 584.51 1.87 584.29 2.1 584.14 C2.25 584.06 2.55         583.91 2.77 583.91 C3.07 583.84 3.37 583.84 3.67 583.76 C3.9 583.76 4.12 583.69 4.27 583.54 L4.27 584.14         Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape84" transform="translate(511.978,-352.374)" class="piste-3a">
 			
 			
-			<path d="M70.89 566.7 C47.38 574.55 97.22 571.54 92.2 580 C89.42 583.76 74.71 584.55 61.91 584.5 C51.23 584.46 41.88        583.82 41.88 583.82 C29.91 583.44 20.67 582.96 13.95 582.84 C3.42 582.65 -0.92 583.34 0.16 586.69" class="st6" />
+			<path d="M70.89 566.7 C47.38 574.55 97.22 571.54 92.2 580 C89.42 583.76 74.71 584.55 61.91 584.5 C51.23 584.46 41.88        583.82 41.88 583.82 C29.91 583.44 20.67 582.96 13.95 582.84 C3.42 582.65 -0.92 583.34 0.16 586.69" class="st5" />
 		</g>
 		<g id="shape5" transform="translate(490.616,-124.54)" class="piste-9">
 			
 			
-			<path d="M3.09 488.59 C-5.98 500.96 8.04 498.49 5.72 512.21 C3.84 528.04 31.14 528.49 35.04 541.99 C36.32 549.86 46.14        549.86 51.17 559.99 C56.12 568.99 84.32 578.89 85.22 586.69" class="st6" />
+			<path d="M3.09 488.59 C-5.98 500.96 8.04 498.49 5.72 512.21 C3.84 528.04 31.14 528.49 35.04 541.99 C36.32 549.86 46.14        549.86 51.17 559.99 C56.12 568.99 84.32 578.89 85.22 586.69" class="st5" />
 		</g>
 		<g id="shape86" transform="translate(487.257,-189.415)" class="piste-9">
 			
 			
 			<g id="shape406">
 				
-				<path d="M0 578.14 C0 573.49 4.05 569.66 9 569.66 C14.03 569.66 18.07 573.49 18.07 578.14 C18.07 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C0 573.49 4.05 569.66 9 569.66 C14.03 569.66 18.07 573.49 18.07 578.14 C18.07 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape407" transform="translate(5.7,-4.05)">
 				
-				<path d="M3.23 582.41 C2.78 582.34 2.4 582.19 2.18 581.89 C1.95 581.51 1.8 581.14 1.8 580.76 C1.8 580.31 1.95 580.01         2.18 579.64 C2.4 579.34 2.78 579.19 3.23 579.19 C3.68 579.19 4.05 579.34 4.35 579.64 C4.58 580.01 4.73         580.39 4.73 580.76 C4.73 581.21 4.58 581.59 4.35 581.89 C4.13 582.19 3.75 582.34 3.23 582.41 ZM0.15         584.29 C0.23 585.11 0.53 585.71 1.13 586.09 C1.65 586.54 2.32 586.69 3.08 586.69 C3.98 586.69 4.65 586.46         5.17 586.01 C5.7 585.56 6.08 584.96 6.38 584.29 C6.6 583.61 6.68 582.94 6.68 582.19 C6.75 581.44 6.6         580.76 6.38 580.09 C6.22 579.41 5.85 578.81 5.33 578.36 C4.8 577.99 4.12 577.76 3.15 577.69 C2.55 577.76         1.95 577.84 1.5 578.14 C1.05 578.44 0.67 578.81 0.37 579.26 C0.07 579.79 0 580.31 0 580.91 C-0 581.21         0 581.59 0.15 581.89 C0.23 582.26 0.45 582.56 0.68 582.79 C0.98 583.09 1.28 583.31 1.65 583.46 C2.02         583.61 2.4 583.69 2.78 583.69 C3.23 583.69 3.6 583.61 3.98 583.46 C4.28 583.31 4.58 583.09 4.88 582.71         L4.88 582.79 C4.88 583.09 4.8 583.46 4.73 583.84 C4.58 584.29 4.43 584.66 4.2 584.96 C3.9 585.26 3.6         585.41 3.15 585.41 C2.78 585.41 2.55 585.26 2.32 585.11 C2.1 584.89 1.95 584.59 1.88 584.29 L0.15 584.29         Z" class="st17" />
+				<path d="M3.23 582.41 C2.78 582.34 2.4 582.19 2.18 581.89 C1.95 581.51 1.8 581.14 1.8 580.76 C1.8 580.31 1.95 580.01         2.18 579.64 C2.4 579.34 2.78 579.19 3.23 579.19 C3.68 579.19 4.05 579.34 4.35 579.64 C4.58 580.01 4.73         580.39 4.73 580.76 C4.73 581.21 4.58 581.59 4.35 581.89 C4.13 582.19 3.75 582.34 3.23 582.41 ZM0.15         584.29 C0.23 585.11 0.53 585.71 1.13 586.09 C1.65 586.54 2.32 586.69 3.08 586.69 C3.98 586.69 4.65 586.46         5.17 586.01 C5.7 585.56 6.08 584.96 6.38 584.29 C6.6 583.61 6.68 582.94 6.68 582.19 C6.75 581.44 6.6         580.76 6.38 580.09 C6.22 579.41 5.85 578.81 5.33 578.36 C4.8 577.99 4.12 577.76 3.15 577.69 C2.55 577.76         1.95 577.84 1.5 578.14 C1.05 578.44 0.67 578.81 0.37 579.26 C0.07 579.79 0 580.31 0 580.91 C-0 581.21         0 581.59 0.15 581.89 C0.23 582.26 0.45 582.56 0.68 582.79 C0.98 583.09 1.28 583.31 1.65 583.46 C2.02         583.61 2.4 583.69 2.78 583.69 C3.23 583.69 3.6 583.61 3.98 583.46 C4.28 583.31 4.58 583.09 4.88 582.71         L4.88 582.79 C4.88 583.09 4.8 583.46 4.73 583.84 C4.58 584.29 4.43 584.66 4.2 584.96 C3.9 585.26 3.6         585.41 3.15 585.41 C2.78 585.41 2.55 585.26 2.32 585.11 C2.1 584.89 1.95 584.59 1.88 584.29 L0.15 584.29         Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape39" transform="translate(603.197,-46.3151)" class="piste-6">
 			
 			
-			<path d="M54.54 560.66 C32.79 556.44 35.36 558.26 21.79 565.29 C18.74 566.86 14.89 568.7 9.76 570.79 C-4.34 574.69 0.99        586.69 0.99 586.69" class="st6" />
+			<path d="M54.54 560.66 C32.79 556.44 35.36 558.26 21.79 565.29 C18.74 566.86 14.89 568.7 9.76 570.79 C-4.34 574.69 0.99        586.69 0.99 586.69" class="st5" />
 		</g>
 		<g id="shape69" transform="translate(628.182,-64.9901)" class="piste-6">
 			
 			
 			<g id="shape419">
 				
-				<path d="M0 578.21 C0 573.49 4.05 569.66 9.07 569.66 C14.1 569.66 18.15 573.49 18.15 578.21 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 -0 582.86 0 578.21 Z" class="st16" />
+				<path d="M0 578.21 C0 573.49 4.05 569.66 9.07 569.66 C14.1 569.66 18.15 573.49 18.15 578.21 C18.15 582.86 14.1 586.69         9.07 586.69 C4.05 586.69 -0 582.86 0 578.21 Z" class="st15" />
 			</g>
 			<g id="shape420" transform="translate(5.7,-3.975)">
 				
-				<path d="M3.45 581.96 C3.97 582.04 4.27 582.19 4.57 582.49 C4.8 582.86 4.87 583.24 4.87 583.61 C4.87 584.06 4.72         584.36 4.5 584.74 C4.27 585.04 3.9 585.19 3.45 585.19 C3 585.19 2.62 585.04 2.4 584.74 C2.1 584.36 2.02         584.06 2.02 583.61 C2.02 583.16 2.1 582.79 2.4 582.49 C2.62 582.19 3 582.04 3.45 581.96 ZM6.6 580.09         C6.45 579.26 6.15 578.74 5.62 578.29 C5.1 577.84 4.42 577.69 3.6 577.69 C2.77 577.69 2.02 577.91 1.5         578.36 C0.98 578.81 0.6 579.41 0.38 580.09 C0.15 580.76 0 581.44 0 582.19 C0 582.94 0.08 583.61 0.3         584.29 C0.52 584.96 0.9 585.56 1.35 586.01 C1.87 586.39 2.63 586.61 3.52 586.69 C4.2 586.69 4.72 586.54         5.25 586.24 C5.7 585.94 6.07 585.56 6.37 585.11 C6.6 584.66 6.75 584.06 6.75 583.46 C6.75 583.16 6.67         582.79 6.6 582.49 C6.45 582.11 6.3 581.81 6 581.59 C5.77 581.29 5.47 581.06 5.1 580.91 C4.72 580.76         4.35 580.69 3.9 580.69 C3.45 580.69 3.07 580.76 2.77 580.91 C2.4 581.06 2.1 581.29 1.87 581.66 L1.8         581.59 C1.87 581.29 1.87 580.91 2.02 580.54 C2.1 580.09 2.32 579.71 2.55 579.41 C2.77 579.19 3.15 578.96         3.6 578.96 C3.9 578.96 4.2 579.11 4.42 579.34 C4.65 579.49 4.72 579.79 4.8 580.09 L6.6 580.09 Z" class="st17" />
+				<path d="M3.45 581.96 C3.97 582.04 4.27 582.19 4.57 582.49 C4.8 582.86 4.87 583.24 4.87 583.61 C4.87 584.06 4.72         584.36 4.5 584.74 C4.27 585.04 3.9 585.19 3.45 585.19 C3 585.19 2.62 585.04 2.4 584.74 C2.1 584.36 2.02         584.06 2.02 583.61 C2.02 583.16 2.1 582.79 2.4 582.49 C2.62 582.19 3 582.04 3.45 581.96 ZM6.6 580.09         C6.45 579.26 6.15 578.74 5.62 578.29 C5.1 577.84 4.42 577.69 3.6 577.69 C2.77 577.69 2.02 577.91 1.5         578.36 C0.98 578.81 0.6 579.41 0.38 580.09 C0.15 580.76 0 581.44 0 582.19 C0 582.94 0.08 583.61 0.3         584.29 C0.52 584.96 0.9 585.56 1.35 586.01 C1.87 586.39 2.63 586.61 3.52 586.69 C4.2 586.69 4.72 586.54         5.25 586.24 C5.7 585.94 6.07 585.56 6.37 585.11 C6.6 584.66 6.75 584.06 6.75 583.46 C6.75 583.16 6.67         582.79 6.6 582.49 C6.45 582.11 6.3 581.81 6 581.59 C5.77 581.29 5.47 581.06 5.1 580.91 C4.72 580.76         4.35 580.69 3.9 580.69 C3.45 580.69 3.07 580.76 2.77 580.91 C2.4 581.06 2.1 581.29 1.87 581.66 L1.8         581.59 C1.87 581.29 1.87 580.91 2.02 580.54 C2.1 580.09 2.32 579.71 2.55 579.41 C2.77 579.19 3.15 578.96         3.6 578.96 C3.9 578.96 4.2 579.11 4.42 579.34 C4.65 579.49 4.72 579.79 4.8 580.09 L6.6 580.09 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape87" transform="translate(689.982,-489.265)" class="piste-11">
@@ -996,15 +1002,15 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape371">
 				
-				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.08 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03         586.69 9.08 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st18" />
+				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.08 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03         586.69 9.08 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st17" />
 			</g>
 			<g id="shape372" transform="translate(3.525,-4.2)">
 				
-				<path d="M4.12 577.99 L2.7 577.99 C2.55 578.66 2.25 579.11 1.72 579.34 C1.27 579.64 0.67 579.71 0 579.71 L0 581.06         L2.32 581.06 L2.32 586.69 L4.12 586.69 L4.12 577.99 Z" class="st17" />
+				<path d="M4.12 577.99 L2.7 577.99 C2.55 578.66 2.25 579.11 1.72 579.34 C1.27 579.64 0.67 579.71 0 579.71 L0 581.06         L2.32 581.06 L2.32 586.69 L4.12 586.69 L4.12 577.99 Z" class="st16" />
 			</g>
 			<g id="shape373" transform="translate(9.525,-4.2)">
 				
-				<path d="M4.12 577.99 L2.7 577.99 C2.55 578.66 2.25 579.11 1.72 579.34 C1.2 579.64 0.68 579.71 0 579.71 L0 581.06         L2.33 581.06 L2.33 586.69 L4.12 586.69 L4.12 577.99 Z" class="st17" />
+				<path d="M4.12 577.99 L2.7 577.99 C2.55 578.66 2.25 579.11 1.72 579.34 C1.2 579.64 0.68 579.71 0 579.71 L0 581.06         L2.33 581.06 L2.33 586.69 L4.12 586.69 L4.12 577.99 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape77" transform="translate(503.682,-148.765)" class="piste-4">
@@ -1012,11 +1018,11 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape410">
 				
-				<path d="M0 578.14 C-0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.07 573.41 18.07 578.14 C18.07 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st18" />
+				<path d="M0 578.14 C-0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.07 573.41 18.07 578.14 C18.07 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st17" />
 			</g>
 			<g id="shape411" transform="translate(5.625,-4.2)">
 				
-				<path d="M3.82 583.24 L1.43 583.24 L3.82 580.24 L3.82 583.24 ZM3.82 586.69 L5.62 586.69 L5.62 584.66 L6.82 584.66         L6.82 583.24 L5.62 583.24 L5.62 577.99 L3.97 577.99 L0 583.09 L0 584.66 L3.82 584.66 L3.82 586.69 Z" class="st17" />
+				<path d="M3.82 583.24 L1.43 583.24 L3.82 580.24 L3.82 583.24 ZM3.82 586.69 L5.62 586.69 L5.62 584.66 L6.82 584.66         L6.82 583.24 L5.62 583.24 L5.62 577.99 L3.97 577.99 L0 583.09 L0 584.66 L3.82 584.66 L3.82 586.69 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape88" transform="translate(447.357,-205.315)" class="piste-3">
@@ -1024,11 +1030,11 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape404">
 				
-				<path d="M0 578.14 C-0 573.49 4.05 569.66 9.08 569.66 C14.1 569.66 18.15 573.49 18.15 578.14 C18.15 582.86 14.1 586.69         9.08 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st18" />
+				<path d="M0 578.14 C-0 573.49 4.05 569.66 9.08 569.66 C14.1 569.66 18.15 573.49 18.15 578.14 C18.15 582.86 14.1 586.69         9.08 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st17" />
 			</g>
 			<g id="shape405" transform="translate(5.625,-4.05)">
 				
-				<path d="M2.78 582.64 C3.07 582.64 3.45 582.64 3.75 582.64 C4.05 582.71 4.35 582.79 4.57 583.01 C4.8 583.16 4.87         583.46 4.95 583.91 C4.87 584.36 4.73 584.66 4.5 584.89 C4.2 585.11 3.82 585.26 3.45 585.26 C2.85 585.26         2.48 585.11 2.25 584.74 C1.95 584.44 1.8 584.06 1.8 583.54 L0 583.54 C0 584.59 0.37 585.34 0.97 585.86         C1.57 586.46 2.4 586.69 3.45 586.69 C4.05 586.69 4.65 586.61 5.1 586.39 C5.62 586.16 6.07 585.86 6.37         585.41 C6.68 584.96 6.82 584.51 6.82 583.84 C6.82 583.39 6.68 582.94 6.45 582.64 C6.15 582.26 5.7 582.04         5.25 581.89 C5.62 581.74 6 581.51 6.22 581.21 C6.37 580.91 6.52 580.54 6.52 580.09 C6.52 579.56 6.37         579.19 6.07 578.81 C5.7 578.44 5.32 578.21 4.87 577.99 C4.42 577.84 3.9 577.69 3.45 577.69 C2.47 577.76         1.72 577.99 1.12 578.51 C0.6 579.11 0.3 579.79 0.22 580.69 L2.02 580.69 C2.02 580.24 2.17 579.86 2.4         579.64 C2.62 579.34 3 579.19 3.45 579.19 C3.82 579.19 4.12 579.26 4.35 579.49 C4.57 579.64 4.72 579.94         4.72 580.31 C4.72 580.61 4.65 580.91 4.42 581.06 C4.2 581.21 3.97 581.29 3.67 581.36 C3.37 581.44 3.07         581.44 2.77 581.36 L2.78 582.64 Z" class="st17" />
+				<path d="M2.78 582.64 C3.07 582.64 3.45 582.64 3.75 582.64 C4.05 582.71 4.35 582.79 4.57 583.01 C4.8 583.16 4.87         583.46 4.95 583.91 C4.87 584.36 4.73 584.66 4.5 584.89 C4.2 585.11 3.82 585.26 3.45 585.26 C2.85 585.26         2.48 585.11 2.25 584.74 C1.95 584.44 1.8 584.06 1.8 583.54 L0 583.54 C0 584.59 0.37 585.34 0.97 585.86         C1.57 586.46 2.4 586.69 3.45 586.69 C4.05 586.69 4.65 586.61 5.1 586.39 C5.62 586.16 6.07 585.86 6.37         585.41 C6.68 584.96 6.82 584.51 6.82 583.84 C6.82 583.39 6.68 582.94 6.45 582.64 C6.15 582.26 5.7 582.04         5.25 581.89 C5.62 581.74 6 581.51 6.22 581.21 C6.37 580.91 6.52 580.54 6.52 580.09 C6.52 579.56 6.37         579.19 6.07 578.81 C5.7 578.44 5.32 578.21 4.87 577.99 C4.42 577.84 3.9 577.69 3.45 577.69 C2.47 577.76         1.72 577.99 1.12 578.51 C0.6 579.11 0.3 579.79 0.22 580.69 L2.02 580.69 C2.02 580.24 2.17 579.86 2.4         579.64 C2.62 579.34 3 579.19 3.45 579.19 C3.82 579.19 4.12 579.26 4.35 579.49 C4.57 579.64 4.72 579.94         4.72 580.31 C4.72 580.61 4.65 580.91 4.42 581.06 C4.2 581.21 3.97 581.29 3.67 581.36 C3.37 581.44 3.07         581.44 2.77 581.36 L2.78 582.64 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape89" transform="translate(595.932,-306.715)" class="piste-3">
@@ -1036,11 +1042,11 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape381">
 				
-				<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st18" />
+				<path d="M0 578.14 C0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st17" />
 			</g>
 			<g id="shape382" transform="translate(5.325,-3.675)">
 				
-				<path d="M3 582.26 C3.3 582.26 3.68 582.26 4.05 582.26 C4.35 582.34 4.65 582.41 4.95 582.64 C5.18 582.86 5.25 583.16         5.33 583.61 C5.25 584.06 5.1 584.44 4.8 584.74 C4.5 584.96 4.13 585.11 3.68 585.11 C3.08 585.11 2.63         584.96 2.4 584.59 C2.1 584.21 1.95 583.76 1.88 583.24 L0 583.24 C0 584.36 0.3 585.19 0.97 585.79 C1.65         586.39 2.55 586.69 3.67 586.69 C4.35 586.69 4.95 586.61 5.55 586.31 C6.08 586.09 6.52 585.71 6.9 585.26         C7.2 584.81 7.42 584.29 7.42 583.61 C7.42 583.09 7.27 582.64 6.98 582.26 C6.6 581.81 6.22 581.59 5.62         581.44 C6.08 581.29 6.45 581.06 6.68 580.69 C6.9 580.39 7.05 579.94 7.05 579.49 C7.05 578.96 6.83 578.44         6.52 578.06 C6.22 577.69 5.77 577.39 5.25 577.16 C4.72 577.01 4.2 576.86 3.67 576.86 C2.62 576.94 1.8         577.24 1.2 577.84 C0.6 578.36 0.3 579.19 0.22 580.16 L2.17 580.16 C2.17 579.64 2.25 579.26 2.55 578.96         C2.77 578.66 3.22 578.51 3.67 578.44 C4.05 578.44 4.43 578.59 4.65 578.81 C4.95 579.04 5.1 579.34 5.1         579.71 C5.1 580.09 4.95 580.31 4.73 580.54 C4.5 580.69 4.27 580.84 3.9 580.84 C3.6 580.91 3.3 580.91         3 580.91 L3 582.26 Z" class="st17" />
+				<path d="M3 582.26 C3.3 582.26 3.68 582.26 4.05 582.26 C4.35 582.34 4.65 582.41 4.95 582.64 C5.18 582.86 5.25 583.16         5.33 583.61 C5.25 584.06 5.1 584.44 4.8 584.74 C4.5 584.96 4.13 585.11 3.68 585.11 C3.08 585.11 2.63         584.96 2.4 584.59 C2.1 584.21 1.95 583.76 1.88 583.24 L0 583.24 C0 584.36 0.3 585.19 0.97 585.79 C1.65         586.39 2.55 586.69 3.67 586.69 C4.35 586.69 4.95 586.61 5.55 586.31 C6.08 586.09 6.52 585.71 6.9 585.26         C7.2 584.81 7.42 584.29 7.42 583.61 C7.42 583.09 7.27 582.64 6.98 582.26 C6.6 581.81 6.22 581.59 5.62         581.44 C6.08 581.29 6.45 581.06 6.68 580.69 C6.9 580.39 7.05 579.94 7.05 579.49 C7.05 578.96 6.83 578.44         6.52 578.06 C6.22 577.69 5.77 577.39 5.25 577.16 C4.72 577.01 4.2 576.86 3.67 576.86 C2.62 576.94 1.8         577.24 1.2 577.84 C0.6 578.36 0.3 579.19 0.22 580.16 L2.17 580.16 C2.17 579.64 2.25 579.26 2.55 578.96         C2.77 578.66 3.22 578.51 3.67 578.44 C4.05 578.44 4.43 578.59 4.65 578.81 C4.95 579.04 5.1 579.34 5.1         579.71 C5.1 580.09 4.95 580.31 4.73 580.54 C4.5 580.69 4.27 580.84 3.9 580.84 C3.6 580.91 3.3 580.91         3 580.91 L3 582.26 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape90" transform="translate(542.757,-200.365)" class="piste-8">
@@ -1048,11 +1054,11 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape399">
 				
-				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.07 569.59 C14.03 569.59 18.07 573.41 18.07 578.14 C18.07 582.86 14.03         586.69 9.07 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st16" />
+				<path d="M0 578.14 C-0 573.41 4.05 569.59 9.07 569.59 C14.03 569.59 18.07 573.41 18.07 578.14 C18.07 582.86 14.03         586.69 9.07 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st15" />
 			</g>
 			<g id="shape400" transform="translate(5.625,-4.05)">
 				
-				<path d="M2.02 580.16 C2.02 579.79 2.18 579.49 2.48 579.34 C2.7 579.11 3.08 578.96 3.45 578.96 C3.83 578.96 4.12         579.04 4.28 579.19 C4.5 579.34 4.65 579.49 4.73 579.71 C4.8 579.86 4.8 580.01 4.8 580.16 C4.8 580.54         4.65 580.84 4.43 581.06 C4.13 581.21 3.83 581.29 3.45 581.36 C3.08 581.36 2.7 581.21 2.48 581.06 C2.18         580.84 2.03 580.54 2.03 580.16 ZM0.38 580.01 C0.38 580.46 0.45 580.84 0.68 581.14 C0.9 581.44 1.28 581.66         1.73 581.81 C1.13 581.96 0.75 582.19 0.45 582.56 C0.15 582.94 -0 583.39 0 583.99 C-0 584.59 0.15 585.11         0.45 585.49 C0.82 585.86 1.2 586.16 1.8 586.39 C2.25 586.54 2.85 586.69 3.45 586.69 C4.05 586.69 4.58         586.54 5.1 586.39 C5.63 586.16 6.08 585.86 6.38 585.49 C6.68 585.04 6.9 584.59 6.9 583.91 C6.9 583.39         6.75 582.94 6.45 582.56 C6.15 582.19 5.7 581.96 5.18 581.81 C5.63 581.66 5.93 581.44 6.15 581.14 C6.38         580.76 6.53 580.39 6.53 580.01 C6.53 579.71 6.45 579.34 6.23 579.04 C6 578.66 5.7 578.36 5.25 578.06         C4.8 577.84 4.2 577.69 3.45 577.69 C2.93 577.69 2.48 577.76 1.95 577.91 C1.5 578.14 1.13 578.36 0.83         578.74 C0.53 579.04 0.38 579.49 0.38 580.01 ZM1.8 583.84 C1.88 583.46 2.02 583.09 2.33 582.86 C2.63         582.64 3 582.49 3.45 582.49 C3.9 582.49 4.28 582.64 4.58 582.86 C4.88 583.16 5.03 583.46 5.03 583.91         C5.03 584.29 4.88 584.66 4.58 584.96 C4.28 585.19 3.9 585.34 3.45 585.34 C3 585.34 2.63 585.19 2.33         584.96 C2.03 584.66 1.88 584.29 1.8 583.84 Z" class="st17" />
+				<path d="M2.02 580.16 C2.02 579.79 2.18 579.49 2.48 579.34 C2.7 579.11 3.08 578.96 3.45 578.96 C3.83 578.96 4.12         579.04 4.28 579.19 C4.5 579.34 4.65 579.49 4.73 579.71 C4.8 579.86 4.8 580.01 4.8 580.16 C4.8 580.54         4.65 580.84 4.43 581.06 C4.13 581.21 3.83 581.29 3.45 581.36 C3.08 581.36 2.7 581.21 2.48 581.06 C2.18         580.84 2.03 580.54 2.03 580.16 ZM0.38 580.01 C0.38 580.46 0.45 580.84 0.68 581.14 C0.9 581.44 1.28 581.66         1.73 581.81 C1.13 581.96 0.75 582.19 0.45 582.56 C0.15 582.94 -0 583.39 0 583.99 C-0 584.59 0.15 585.11         0.45 585.49 C0.82 585.86 1.2 586.16 1.8 586.39 C2.25 586.54 2.85 586.69 3.45 586.69 C4.05 586.69 4.58         586.54 5.1 586.39 C5.63 586.16 6.08 585.86 6.38 585.49 C6.68 585.04 6.9 584.59 6.9 583.91 C6.9 583.39         6.75 582.94 6.45 582.56 C6.15 582.19 5.7 581.96 5.18 581.81 C5.63 581.66 5.93 581.44 6.15 581.14 C6.38         580.76 6.53 580.39 6.53 580.01 C6.53 579.71 6.45 579.34 6.23 579.04 C6 578.66 5.7 578.36 5.25 578.06         C4.8 577.84 4.2 577.69 3.45 577.69 C2.93 577.69 2.48 577.76 1.95 577.91 C1.5 578.14 1.13 578.36 0.83         578.74 C0.53 579.04 0.38 579.49 0.38 580.01 ZM1.8 583.84 C1.88 583.46 2.02 583.09 2.33 582.86 C2.63         582.64 3 582.49 3.45 582.49 C3.9 582.49 4.28 582.64 4.58 582.86 C4.88 583.16 5.03 583.46 5.03 583.91         C5.03 584.29 4.88 584.66 4.58 584.96 C4.28 585.19 3.9 585.34 3.45 585.34 C3 585.34 2.63 585.19 2.33         584.96 C2.03 584.66 1.88 584.29 1.8 583.84 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape92" transform="translate(663.732,-241.165)" class="piste-1b">
@@ -1060,15 +1066,15 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape392">
 				
-				<path d="M0 578.14 C0 573.41 4.05 569.59 9.08 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03         586.69 9.08 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st18" />
+				<path d="M0 578.14 C0 573.41 4.05 569.59 9.08 569.59 C14.03 569.59 18.08 573.41 18.08 578.14 C18.08 582.86 14.03         586.69 9.08 586.69 C4.05 586.69 0 582.86 0 578.14 Z" class="st17" />
 			</g>
 			<g id="shape393" transform="translate(2.775,-4.2)">
 				
-				<path d="M4.2 577.99 L2.7 577.99 C2.55 578.66 2.25 579.11 1.72 579.34 C1.28 579.64 0.68 579.71 0 579.71 L0 581.06         L2.33 581.06 L2.33 586.69 L4.2 586.69 L4.2 577.99 Z" class="st17" />
+				<path d="M4.2 577.99 L2.7 577.99 C2.55 578.66 2.25 579.11 1.72 579.34 C1.28 579.64 0.68 579.71 0 579.71 L0 581.06         L2.33 581.06 L2.33 586.69 L4.2 586.69 L4.2 577.99 Z" class="st16" />
 			</g>
 			<g id="shape394" transform="translate(8.475,-4.05)">
 				
-				<path d="M5.03 583.31 C5.03 583.84 4.88 584.36 4.65 584.74 C4.35 585.11 3.98 585.34 3.38 585.34 C2.85 585.34 2.48         585.11 2.18 584.74 C1.95 584.36 1.8 583.84 1.8 583.31 C1.8 582.79 1.95 582.26 2.18 581.89 C2.48 581.51         2.85 581.29 3.38 581.29 C3.98 581.29 4.35 581.51 4.65 581.89 C4.88 582.26 5.03 582.79 5.03 583.31 ZM0         586.54 L1.8 586.54 L1.8 585.71 C2.03 586.01 2.33 586.31 2.7 586.46 C3.08 586.61 3.53 586.69 4.05 586.69         C4.5 586.69 4.95 586.54 5.4 586.31 C5.78 586.09 6.15 585.71 6.45 585.19 C6.68 584.74 6.83 584.06 6.83         583.31 C6.83 582.49 6.68 581.89 6.45 581.36 C6.15 580.91 5.78 580.54 5.4 580.31 C4.95 580.09 4.5 579.94         4.05 579.94 C3.6 579.94 3.23 580.01 2.85 580.16 C2.48 580.31 2.18 580.54 1.95 580.91 L1.88 580.91 L1.88         577.69 L0 577.69 L0 586.54 Z" class="st17" />
+				<path d="M5.03 583.31 C5.03 583.84 4.88 584.36 4.65 584.74 C4.35 585.11 3.98 585.34 3.38 585.34 C2.85 585.34 2.48         585.11 2.18 584.74 C1.95 584.36 1.8 583.84 1.8 583.31 C1.8 582.79 1.95 582.26 2.18 581.89 C2.48 581.51         2.85 581.29 3.38 581.29 C3.98 581.29 4.35 581.51 4.65 581.89 C4.88 582.26 5.03 582.79 5.03 583.31 ZM0         586.54 L1.8 586.54 L1.8 585.71 C2.03 586.01 2.33 586.31 2.7 586.46 C3.08 586.61 3.53 586.69 4.05 586.69         C4.5 586.69 4.95 586.54 5.4 586.31 C5.78 586.09 6.15 585.71 6.45 585.19 C6.68 584.74 6.83 584.06 6.83         583.31 C6.83 582.49 6.68 581.89 6.45 581.36 C6.15 580.91 5.78 580.54 5.4 580.31 C4.95 580.09 4.5 579.94         4.05 579.94 C3.6 579.94 3.23 580.01 2.85 580.16 C2.48 580.31 2.18 580.54 1.95 580.91 L1.88 580.91 L1.88         577.69 L0 577.69 L0 586.54 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape95" transform="translate(503.682,-92.5901)" class="piste-1b">
@@ -1076,32 +1082,39 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
 			
 			<g id="shape389">
 				
-				<path d="M0 578.14 C-0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.07 573.41 18.07 578.14 C18.07 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st18" />
+				<path d="M0 578.14 C-0 573.41 4.05 569.59 9 569.59 C14.03 569.59 18.07 573.41 18.07 578.14 C18.07 582.86 14.03 586.69         9 586.69 C4.05 586.69 -0 582.86 0 578.14 Z" class="st17" />
 			</g>
 			<g id="shape391" transform="translate(8.475,-4.05)">
 				
-				<path d="M4.95 583.31 C4.95 583.84 4.88 584.36 4.58 584.74 C4.35 585.11 3.98 585.34 3.38 585.34 C2.85 585.34 2.47         585.11 2.17 584.74 C1.95 584.36 1.8 583.84 1.8 583.31 C1.8 582.79 1.95 582.26 2.17 581.89 C2.47 581.51         2.85 581.29 3.38 581.29 C3.97 581.29 4.35 581.51 4.58 581.89 C4.88 582.26 4.95 582.79 4.95 583.31 ZM0         586.54 L1.8 586.54 L1.8 585.71 C2.02 586.01 2.33 586.31 2.7 586.46 C3.08 586.61 3.53 586.69 4.05 586.69         C4.5 586.69 4.95 586.54 5.4 586.31 C5.77 586.09 6.15 585.71 6.45 585.19 C6.67 584.74 6.82 584.06 6.82         583.31 C6.82 582.49 6.67 581.89 6.45 581.36 C6.15 580.91 5.77 580.54 5.4 580.31 C4.95 580.09 4.5 579.94         4.05 579.94 C3.6 579.94 3.23 580.01 2.85 580.16 C2.47 580.31 2.1 580.54 1.88 580.91 L1.88 577.69 L0         577.69 L0 586.54 Z" class="st17" />
+				<path d="M4.95 583.31 C4.95 583.84 4.88 584.36 4.58 584.74 C4.35 585.11 3.98 585.34 3.38 585.34 C2.85 585.34 2.47         585.11 2.17 584.74 C1.95 584.36 1.8 583.84 1.8 583.31 C1.8 582.79 1.95 582.26 2.17 581.89 C2.47 581.51         2.85 581.29 3.38 581.29 C3.97 581.29 4.35 581.51 4.58 581.89 C4.88 582.26 4.95 582.79 4.95 583.31 ZM0         586.54 L1.8 586.54 L1.8 585.71 C2.02 586.01 2.33 586.31 2.7 586.46 C3.08 586.61 3.53 586.69 4.05 586.69         C4.5 586.69 4.95 586.54 5.4 586.31 C5.77 586.09 6.15 585.71 6.45 585.19 C6.67 584.74 6.82 584.06 6.82         583.31 C6.82 582.49 6.67 581.89 6.45 581.36 C6.15 580.91 5.77 580.54 5.4 580.31 C4.95 580.09 4.5 579.94         4.05 579.94 C3.6 579.94 3.23 580.01 2.85 580.16 C2.47 580.31 2.1 580.54 1.88 580.91 L1.88 577.69 L0         577.69 L0 586.54 Z" class="st16" />
 			</g>
 			<g id="shape390" transform="translate(2.775,-4.2)">
 				
-				<path d="M4.12 577.99 L2.7 577.99 C2.55 578.66 2.25 579.11 1.72 579.34 C1.2 579.64 0.68 579.71 0 579.71 L0 581.06         L2.25 581.06 L2.25 586.69 L4.13 586.69 L4.12 577.99 Z" class="st17" />
+				<path d="M4.12 577.99 L2.7 577.99 C2.55 578.66 2.25 579.11 1.72 579.34 C1.2 579.64 0.68 579.71 0 579.71 L0 581.06         L2.25 581.06 L2.25 586.69 L4.13 586.69 L4.12 577.99 Z" class="st16" />
 			</g>
 		</g>
 		<g id="shape34" transform="translate(559.547,-193.922)" class="lift-E">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape61" transform="translate(574.594,-122.906)" class="lift-F">
 			
 			
-			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st14" />
+			<ellipse cx="1.82813" cy="584.859" rx="1.82813" ry="1.82813" class="st13" />
 		</g>
 		<g id="shape35" transform="translate(449.186,-60.8651)" class="piste-1b">
 			
 			
-			<path d="M29.52 568.01 C26.22 571.31 18.72 574.31 7.02 577.16 C7.02 577.16 -1.08 578.51 0.12 586.69" class="st6" />
+			<path d="M29.52 568.01 C26.22 571.31 18.72 574.31 7.02 577.16 C7.02 577.16 -1.08 578.51 0.12 586.69" class="st5" />
 		</g>
+		<g id="shape113" transform="translate(660.135,-276.236)">
+			
+			<desc>font-weight</desc>
+			
+			
+			<rect x="0" y="564.284" width="67.9804" height="22.4037" class="st1" />
+			<text x="5.36" y="579.09" class="st18">font-weight</text>		</g>
 	</g></g></svg>
     </div>
 </body>
