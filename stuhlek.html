@@ -38,7 +38,7 @@ $.get("https://cors-anywhere.herokuapp.com/www.stuhleck.at/html/D/lifte.asp", fu
     for (var i = 0; i < rows.length; ++i) {
         var src  = $(rows[i]).find("td:nth(0) img").attr("src");
         var lift = $(rows[i]).find("td:nth(1)").text();
-        var name = $(rows[i]).find("td:nth(2)").text();s
+        var name = $(rows[i]).find("td:nth(2)").text();
         if (!lift || !name)
             continue;
         
