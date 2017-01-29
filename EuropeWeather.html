@@ -39,7 +39,7 @@ $(document).ready(function () {
 
         var props = diagramData[item].Props;
         
-        $.get("http://api.openweathermap.org/data/2.5/weather?q="+props.Capital+"&units=metric&APPID=447ae6275c1ab55c0bc290f632532130", function(data) {
+        $.get("https://api.openweathermap.org/data/2.5/weather?q="+props.Capital+"&units=metric&APPID=447ae6275c1ab55c0bc290f632532130", function(data) {
             
             $("#" + item).tooltip({
                 container: "body",
