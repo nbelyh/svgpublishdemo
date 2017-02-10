@@ -6,29 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link href="vp/bootstrap.min.css" rel="stylesheet" />
-    <link href="vp/vp-style.min.css" rel="stylesheet" />
-
     <script src="vp/jquery.min.js"></script>
+
+    <link href="vp/bootstrap.min.css" rel="stylesheet" />
     <script src="vp/bootstrap.min.js"></script>
+
+    <link href="vp/bootstrap-switch.min.css" rel="stylesheet" />
+    <script src="vp/bootstrap-switch.min.js"></script>
+
+    <link href="vp/vp-style.min.css" rel="stylesheet" />
     <script src="vp/vp-script.min.js"></script>
 
     
 
-    <script>
-        $(document).ready(function () {
-            $("div.svg").panzoom({
-                svg: $("div.svg > svg").get(0),
-                viewBox: "0 0 720 360"
-            }).removeClass("appear");
-
-            ;
-        });
-
-        window.svgpublish = {"diagramData":{"shape96":{"Props":{"Department":"Main Department","Telephone":"+10028712876","Name":"Jossef Goldberg","Title":"President & CEO","E-Mail":"Email"},"ConnectedTo":["shape106","shape116","shape126","shape136","shape146"],"Comment":""},"shape106":{"Props":{"Department":"Department","Telephone":"Telephone","Name":"Suzan Fine","Title":"Executive Assistant","E-Mail":"Email"},"ConnectedFrom":["shape96"],"Comment":""},"shape116":{"Props":{"Department":"Department","Telephone":"Telephone","Name":"Laura Jennings","Title":"CFO","E-Mail":"Email"},"ConnectedFrom":["shape96"],"Comment":""},"shape126":{"DefaultLink":1,"Links":[{"PageId":4,"SubAddress":"Sales  Marketing"}],"Props":{"Department":"Department","Telephone":"Telephone","Name":"Thom McCann","Title":"Senior VP Sales & Marketing","E-Mail":"Email"},"ConnectedFrom":["shape96"],"Comment":"Go To the \"Sales & Marketing\" page"},"shape136":{"DefaultLink":1,"Links":[{"PageId":5,"SubAddress":"Research  Development"}],"Props":{"Department":"Department","Telephone":"Telephone","Name":"Ashley Larsen","Title":"Senior VP Research & Development","E-Mail":"Email"},"ConnectedFrom":["shape96"],"Comment":""},"shape146":{"Props":{"Department":"Department","Telephone":"Telephone","Name":"Clair Hector","Title":"COO","E-Mail":"Email"},"ConnectedFrom":["shape96"],"Comment":""}},"pageData":{"CurrentPage":{"Name":"Executive Staff","Id":0},"Pages":[{"Name":"Executive Staff","Id":0},{"Name":"Sales & Marketing","Id":4},{"Name":"Research & Development","Id":5}]},"enableProps":true,"enableLinks":true,"enablePages":true,"enableSidebar":true,"enableTooltips":true,"enableSelection":true};
-    </script>
+<script>
+    window.svgpublish = {"shapes":{"shape96":{"Props":{"Department":"Main Department","Telephone":"+10028712876","Name":"Jossef Goldberg","Title":"President & CEO","E-Mail":"Email"},"ConnectedTo":["shape106","shape116","shape126","shape136","shape146"],"Comment":"","Layers":[]},"shape106":{"Props":{"Department":"Department","Telephone":"Telephone","Name":"Suzan Fine","Title":"Executive Assistant","E-Mail":"Email"},"ConnectedFrom":["shape96"],"Comment":"","Layers":[]},"shape116":{"Props":{"Department":"Department","Telephone":"Telephone","Name":"Laura Jennings","Title":"CFO","E-Mail":"Email"},"ConnectedFrom":["shape96"],"Comment":"","Layers":[]},"shape126":{"DefaultLink":1,"Links":[{"PageId":4,"SubAddress":"Sales & Marketing","Address":"","Description":""}],"Props":{"Department":"Department","Telephone":"Telephone","Name":"Thom McCann","Title":"Senior VP Sales & Marketing","E-Mail":"Email"},"ConnectedFrom":["shape96"],"Comment":"Go To the \"Sales & Marketing\" page","Layers":[]},"shape136":{"DefaultLink":1,"Links":[{"PageId":5,"SubAddress":"Research & Development","Address":"","Description":""}],"Props":{"Department":"Department","Telephone":"Telephone","Name":"Ashley Larsen","Title":"Senior VP Research & Development","E-Mail":"Email"},"ConnectedFrom":["shape96"],"Comment":"","Layers":[]},"shape146":{"Props":{"Department":"Department","Telephone":"Telephone","Name":"Clair Hector","Title":"COO","E-Mail":"Email"},"ConnectedFrom":["shape96"],"Comment":"","Layers":[]}},"pages":[{"Name":"Executive Staff","Id":0},{"Name":"Sales & Marketing","Id":4},{"Name":"Research & Development","Id":5}],"currentPageId":0,"layers":[{"Name":"Hidden","Index":1}],"enableProps":true,"enableLinks":true,"enablePages":true,"enableSidebar":true,"enableTooltips":true,"enableSelection":true,"enableLayers":false};
+    $(document).ready(function () { $("div.svg").panzoom({ svg: $("div.svg > svg").get(0), viewBox: "0 0 720 360" }).removeClass("appear"); });
+</script>
 </head>
 <body>
+
 
     <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <defs>
@@ -75,7 +72,7 @@
                 <h3 id="panel-caption">OrgChart.html</h3>
             </div>
 
-            <div id="shape-pages" class="panel panel-default">
+            <div id="shape-pages" class="panel panel-default" style="display: none">
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapsePages">
@@ -89,7 +86,21 @@
                 </div>
             </div>
 
-            <div id="shape-links" class="panel panel-default">
+            <div id="shape-layers" class="panel panel-default" style="display: none">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseLayers">
+                            <svg class="icon-file"><use xlink:href="#icon-file"></use></svg> Layers
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseLayers" class="panel-collapse collapse in">
+                    <div id="panel-layers" class="panel-body">
+                    </div>
+                </div>
+            </div>
+
+            <div id="shape-links" class="panel panel-default" style="display: none">
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseLinks">
@@ -103,7 +114,7 @@
                 </div>
             </div>
 
-            <div id="shape-props" class="panel panel-default">
+            <div id="shape-props" class="panel panel-default" style="display: none">
                 <div class="panel-heading">
                     <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseProps">
@@ -124,8 +135,8 @@
         <svg class="icon-bars"><use xlink:href="#icon-bars"></use></svg>
     </div>
 
-    <div id="svg" class="svg appear">
-        <svg width="100%" height="100%" xml:space="preserve" color-interpolation-filters="sRGB" class="st28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
+<div id="svg" class="svg appear">
+    <svg width="100%" height="100%" xml:space="preserve" color-interpolation-filters="sRGB" class="st28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
 	
 
 	<style type="text/css">
@@ -587,6 +598,10 @@
 			<text x="43.56" y="350.7" class="st27">Executive Staff</text>		</g>
 	</g>
 </svg>
-    </div>
+</div>
+
+<script type="text/javascript">
+    (function (diagram) {  })(window.svgpublish);
+</script>
 </body>
 </html>
