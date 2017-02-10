@@ -471,22 +471,32 @@
 
 <script type="text/javascript">
     (function (diagram) { 
+// function to convert temperature in celcius to a color
 function getColor(t) {
     var hue = 30 + 240 * (30 - t) / 60;
     return 'hsl(' + [hue, '70%', '50%'] + ')';
 }
 
+// for each excported shape
 $.each(diagram.shapes, function (shapeid, shape) {
 
+    // get it by id using jQuery
     var $shape = $("#" + shapeid);
 
+    // get shape properties from the exported data
     var props = shape.Props;
     
+    // this is simple hilighting of shape on hover, just set opacity to 0.7
     $shape.on('mouseover', function () { $(this).css('opacity', 0.7); });
     $shape.on('mouseout', function () { $(this).css('opacity', 1); });
 
+    // call the weather service, passing the capital (from shape data) and get the results
     $.get('http://api.openweathermap.org/data/2.5/weather?q=' + props.Capital + '&units=metric&APPID=447ae6275c1ab55c0bc290f632532130', function(data) {
         
+        // set shape color in accordance to the current temperature (data.main.temp is returned from the service)
+        $shape.find("path").css("fill", getColor(data.main.temp));
+        
+        // build a tooltip (here we use standard bootstrap tooltip)
         $shape.tooltip({
             container: "body",
             html: true,
@@ -496,7 +506,6 @@ $.each(diagram.shapes, function (shapeid, shape) {
                 "Temperature: <b>" + data.main.temp + "</b>"
         });
     
-        $shape.find("path").css("fill", getColor(data.main.temp));
     });
 
 });
