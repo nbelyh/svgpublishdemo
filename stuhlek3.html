@@ -1050,13 +1050,13 @@ $.get("https://crossorigin.me/http://www.stuhleck.at/html/D/schneebericht.asp", 
         
         var ja = src && src.indexOf("offen") >= 0;
         if (ja) {
-            //d3.selectAll(".piste-"+piste).classed("lift-on", true);
+            d3.selectAll(".piste-"+piste).classed("lift-on", true);
             $piste.append($("<tr class='on'><td>" + piste + "</td><td>"+name+"</td><td>ON</td></tr>"));
         }
         
         var nein = src && src.indexOf("geschlossen") >= 0;
         if (nein) {
-            //d3.selectAll(".piste-"+piste).classed("lift-off", true);
+            d3.selectAll(".piste-"+piste).classed("lift-off", true);
             $piste.append($("<tr class='off'><td>" + piste + "</td><td>"+name+"</td><td>OFF</td></tr>"));
         }
 
