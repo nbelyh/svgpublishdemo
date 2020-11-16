@@ -1,0 +1,424 @@
+﻿<!DOCTYPE html>
+<html class="vp">
+<head>
+  <meta charset="utf-8">
+  <title>Engineering Flowchart</title>
+  <meta name="description" content="The diagram illustrates support for metadata information in SvgPublish 1.3. Also, it contains tiny javascripts to manipulate shapes exported Visio shapes using D3.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta property="og:title" content="Engineering Flowchart" />
+  <meta property="og:description" content="The diagram illustrates support for metadata information in SvgPublish 1.3. Also, it contains tiny javascripts to manipulate shapes exported Visio shapes using D3.">
+  <meta property="og:image" content="EngineeringProblem.png">
+
+  <script src="vp/jquery-3.1.1.min.js"></script>
+  <link href="vp/bootstrap-3.3.7.min.css" rel="stylesheet" />
+  <script src="vp/bootstrap-3.3.7.min.js"></script>
+  <script src="vp/d3-4.5.0.min.js"></script>
+  <link href="vp/vp-style-1.3.0.min.css" rel="stylesheet" />
+  <script>
+        window.svgpublish = {"shapes":{"shape1":{"ShapeId":"shape1","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape2"],"Layers":[1],"Text":"Engineering Flowchart","MasterName":"Start/End"},"shape3":{"ShapeId":"shape3","Layers":[2],"Text":"","MasterName":"Dynamic connector"},"shape2":{"ShapeId":"shape2","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape4","shape6"],"ConnectedFrom":["shape1"],"Layers":[1],"Text":"Does it move?","MasterName":"Decision"},"shape5":{"ShapeId":"shape5","Layers":[2],"Text":"","MasterName":"Dynamic connector"},"shape4":{"ShapeId":"shape4","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape8","shape14"],"ConnectedFrom":["shape2"],"Layers":[1],"Text":"Should it?","MasterName":"Decision"},"shape7":{"ShapeId":"shape7","Layers":[2],"Text":"","MasterName":"Dynamic connector"},"shape6":{"ShapeId":"shape6","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedTo":["shape8","shape12"],"ConnectedFrom":["shape2"],"Layers":[1],"Text":"Should it?","MasterName":"Decision"},"shape9":{"ShapeId":"shape9","Layers":[2],"Text":"","MasterName":"Dynamic connector"},"shape8":{"ShapeId":"shape8","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedFrom":["shape4","shape6"],"Layers":[1],"Text":"No problem","MasterName":"Start/End"},"shape11":{"ShapeId":"shape11","Layers":[2],"Text":"","MasterName":"Dynamic connector"},"shape13":{"ShapeId":"shape13","Layers":[2],"Text":"","MasterName":"Dynamic connector"},"shape12":{"ShapeId":"shape12","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedFrom":["shape6"],"Layers":[1],"Text":"Use WD-40","MasterName":"Start/End"},"shape15":{"ShapeId":"shape15","Layers":[2],"Text":"","MasterName":"Dynamic connector"},"shape14":{"ShapeId":"shape14","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"ConnectedFrom":["shape4"],"Layers":[1],"Text":"Use duct tape","MasterName":"Start/End"},"shape59":{"ShapeId":"shape59","Text":"WD-40"},"it-moves-no":{"ShapeId":"it-moves-no","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"Layers":[1],"Text":"NO","MasterName":"Start/End"},"it-moves-yes":{"ShapeId":"it-moves-yes","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"Layers":[1],"Text":"YES","MasterName":"Start/End"},"it-moves-no-should-no":{"ShapeId":"it-moves-no-should-no","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"Layers":[1],"Text":"NO","MasterName":"Start/End"},"it-moves-yes-should-yes":{"ShapeId":"it-moves-yes-should-yes","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"Layers":[1],"Text":"YES","MasterName":"Start/End"},"it-moves-yes-should-no":{"ShapeId":"it-moves-yes-should-no","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"Layers":[1],"Text":"NO","MasterName":"Start/End"},"it-moves-no-should-yes":{"ShapeId":"it-moves-no-should-yes","Props":{"Cost":null,"Process Number":null,"Owner":null,"Function":"","Start Date":null,"End Date":null,"Status":""},"Layers":[1],"Text":"YES","MasterName":"Start/End"}},"pages":[{"Name":"Page-1","Id":0,"FileName":"EngineeringProblem.html"}],"currentPage":{"Name":"Page-1","Id":0,"FileName":"EngineeringProblem.html"},"currentPageShape":{},"layers":[{"Name":"Flowchart","Index":1,"Visible":true},{"Name":"Connector","Index":2,"Visible":true}],"enableProps":false,"twoFingersTouch":false,"enableLinks":false,"enablePages":false,"enablePageLookup":false,"enablePageSort":false,"enableLayerLookup":false,"enableLayerSort":false,"enableZoomCtrl":false,"enableZoomShift":false,"enableSearch":false,"enableMultiPageSearch":false,"enableSidebar":false,"enableTooltips":false,"enableSelection":false,"enableHover":false,"enableLayers":false,"enableFollowHyperlinks":false,"openHyperlinksInNewWindow":false,"transformVisioFileLinks":false,"keepRelativeLinks":false,"rightSidebar":false,"alwaysHideSidebar":false,"enableSidbarTitle":false,"enableSidebarMarkdown":false,"enableTooltipMarkdown":false,"enableD3":true,"tooltipPlacement":"","popoverPlacement":"","enablePopovers":false,"enablePopoverMarkdown":false,"tooltipTrigger":"","tooltipOutsideClick":false,"tooltipUseMousePosition":false,"tooltipKeepOnHover":false,"tooltipTimeout":false,"tooltipTimeoutShow":"","tooltipTimeoutHide":"","popoverTrigger":"","popoverTimeout":false,"popoverOutsideClick":false,"popoverKeepOnHover":false,"popoverTimeoutShow":"","popoverTimeoutHide":"","popoverUseMousePosition":false,"enableContainerTip":false,"enablePropertySearch":false,"viewBox":"0 0 524.409 391.181"}
+        $(document).ready(function () { $("div.svg").panzoom({ svg: $("div.svg > svg").get(0), viewBox: "0 0 524.409 391.181" }).removeClass("appear"); });
+  </script>
+  <script src="vp/vp-script-1.3.0.min.js"></script>
+  <style>
+  .button {
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  
+  <div id="body-html"></div>
+  <div id="svg" class="svg appear">
+    <svg width="100%" height="100%" xml:space="preserve" color-interpolation-filters="sRGB" class="st27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
+	
+
+	<style type="text/css">
+	.st1 {visibility:visible;}
+	.st2 {fill:#4472c4;fill-opacity:0.25;filter:url(#filter_2);stroke:#4472c4;stroke-opacity:0.25;}
+	.st3 {fill:url(#grad0-7);stroke:#2f528f;stroke-width:0.75;}
+	.st4 {fill:#feffff;font-family:Calibri;font-size:0.666664em;}
+	.st5 {font-size:1em;}
+	.st6 {marker-end:url(#mrkr4-15);stroke:#45b664;stroke-linecap:round;stroke-linejoin:round;stroke-width:1;}
+	.st7 {fill:#45b664;fill-opacity:1;stroke:#45b664;stroke-opacity:1;stroke-width:0.28409090909091;}
+	.st8 {fill:#70ad47;fill-opacity:0.25;filter:url(#filter_2);stroke:#70ad47;stroke-opacity:0.25;}
+	.st9 {fill:#61973d;stroke:#507e32;stroke-width:0.75;}
+	.st10 {fill:url(#grad0-93);stroke:#545454;stroke-linecap:butt;stroke-width:0.75;}
+	.st11 {fill:url(#grad4-97);stroke:#545454;stroke-linecap:butt;stroke-width:0.75;}
+	.st12 {fill:url(#grad0-101);stroke:#545454;stroke-linecap:butt;stroke-width:0.75;}
+	.st13 {fill:url(#grad0-105);stroke:#545454;stroke-linecap:butt;stroke-width:0.75;}
+	.st14 {fill:none;}
+	.st15 {stroke:#000000;stroke-linecap:butt;stroke-opacity:0.14;stroke-width:0.75;}
+	.st16 {fill:#0000cc;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;}
+	.st17 {fill:#ffff00;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;}
+	.st18 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;}
+	.st19 {fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;}
+	.st20 {fill:#ff0000;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;}
+	.st21 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;}
+	.st22 {fill:#000000;font-family:Bauhaus 93;font-size:0.666664em;font-weight:bold;}
+	.st23 {fill:#ef7d31;fill-opacity:0.22;filter:url(#filter_2);stroke:#ef7d31;stroke-opacity:0.22;}
+	.st24 {fill:#ef7d31;stroke:#c8c8c8;stroke-width:0.25;}
+	.st25 {fill:#45b664;fill-opacity:0.25;filter:url(#filter_2);stroke:#45b664;stroke-opacity:0.25;}
+	.st26 {fill:url(#grad0-139);stroke:#308547;stroke-width:0.75;}
+	.st27 {fill:none;fill-rule:evenodd;font-size:12px;overflow:hidden;stroke-linecap:square;stroke-miterlimit:3;}
+</style>
+
+	<defs id="Patterns_And_Gradients">
+		<linearGradient id="grad0-7" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(250 0.5 0.5)">
+			<stop offset="0" stop-color="#3a63ac" stop-opacity="1" />
+			<stop offset="0.48" stop-color="#3a63ac" stop-opacity="1" />
+			<stop offset="0.82" stop-color="#4472c4" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="grad0-93" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-67.742922233409 0.5 0.5)">
+			<stop offset="0" stop-color="#727272" stop-opacity="1" />
+			<stop offset="1" stop-color="#e9e9e9" stop-opacity="1" />
+		</linearGradient>
+		<radialGradient id="grad4-97" cx="0.5" cy="0" r="1.1">
+			<stop offset="0" stop-color="#ffffff" stop-opacity="1" />
+			<stop offset="1" stop-color="#848484" stop-opacity="1" />
+		</radialGradient>
+		<linearGradient id="grad0-101" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-68.842334790186 0.5 0.5)">
+			<stop offset="0" stop-color="#727272" stop-opacity="1" />
+			<stop offset="1" stop-color="#b4b4b4" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="grad0-105" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(121.81242471038 0.5 0.5)">
+			<stop offset="0" stop-color="#727272" stop-opacity="1" />
+			<stop offset="1" stop-color="#b4b4b4" stop-opacity="1" />
+		</linearGradient>
+		<linearGradient id="grad0-139" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(250 0.5 0.5)">
+			<stop offset="0" stop-color="#3b9f57" stop-opacity="1" />
+			<stop offset="0.48" stop-color="#3b9f57" stop-opacity="1" />
+			<stop offset="0.82" stop-color="#45b664" stop-opacity="1" />
+		</linearGradient>
+	</defs>
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none" />
+		</g>
+		<marker style="overflow:visible" id="mrkr4-15" class="st7" refX="-7.04" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-3.52,-3.52) " />
+		</marker>
+	</defs>
+	<defs id="Filters">
+		<filter id="filter_2">
+			<feGaussianBlur stdDeviation="2" />
+		</filter>
+	</defs>
+	<g id="viewport">
+		
+		
+		
+		
+		
+		<g id="shape1" transform="translate(220.394,-328.819)" class="start/end">
+			
+			<desc>Engineering Flowchart</desc>
+			
+			
+			
+			
+			<g id="shadow1-2" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M17.01 391.18 L53.86 391.18 A17.0079 17.0079 -180 0 0 53.86 357.17 L17.01 357.17 A17.0079 17.0079 -180 1         0 17.01 391.18 Z" class="st2" />
+			</g>
+			<path d="M17.01 391.18 L53.86 391.18 A17.0079 17.0079 -180 0 0 53.86 357.17 L17.01 357.17 A17.0079 17.0079 -180 1 0 17.01        391.18 Z" class="st3" />
+			<text x="16.2" y="371.77" class="st4">Engineering <tspan x="19.27" dy="1.2em" class="st5">Flowchart</tspan></text>		</g>
+		<g id="shape3" transform="translate(248.74,-328.819)" class="dynamic-connector">
+			
+			<path d="M7.09 391.18 L7.09 426.66" class="st6" />
+		</g>
+		<g id="shape2" transform="translate(220.394,-243.78)" class="decision">
+			
+			<desc>Does it move?</desc>
+			
+			
+			
+			
+			<g id="shadow2-17" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M0 369.92 L35.43 348.66 L70.87 369.92 L35.43 391.18 L0 369.92 Z" class="st2" />
+			</g>
+			<path d="M0 369.92 L35.43 348.66 L70.87 369.92 L35.43 391.18 L0 369.92 Z" class="st3" />
+			<text x="12.29" y="372.32" class="st4">Does it move?</text>		</g>
+		<g id="shape5" transform="translate(291.26,-265.039)" class="hide it-moves-yes">
+			
+			
+			<path d="M0 391.18 L65.91 391.18 L65.91 442.25" class="st6" />
+		</g>
+		<g id="shape4" transform="translate(321.732,-164.409)" class="hide it-moves-yes">
+			
+			<desc>Should it?</desc>
+			
+			
+			
+			
+			<g id="shadow4-29" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M0 369.92 L35.43 348.66 L70.87 369.92 L35.43 391.18 L0 369.92 Z" class="st2" />
+			</g>
+			<path d="M0 369.92 L35.43 348.66 L70.87 369.92 L35.43 391.18 L0 369.92 Z" class="st3" />
+			<text x="19.25" y="372.32" class="st4">Should it?</text>		</g>
+		<g id="shape7" transform="translate(220.394,-265.039)" class="hide it-moves-no">
+			
+			
+			<path d="M0 391.18 L-71.48 391.18 L-71.48 442.25" class="st6" />
+		</g>
+		<g id="shape6" transform="translate(113.477,-164.409)" class="hide it-moves-no">
+			
+			<desc>Should it?</desc>
+			
+			
+			
+			
+			<g id="shadow6-41" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M0 369.92 L35.43 348.66 L70.87 369.92 L35.43 391.18 L0 369.92 Z" class="st2" />
+			</g>
+			<path d="M0 369.92 L35.43 348.66 L70.87 369.92 L35.43 391.18 L0 369.92 Z" class="st3" />
+			<text x="19.25" y="372.32" class="st4">Should it?</text>		</g>
+		<g id="shape9" transform="translate(321.732,-185.669)" class="hide it-moves-yes-should-yes">
+			
+			
+			<path d="M0 391.18 L-63.78 391.18 L-63.78 471.42" class="st6" />
+		</g>
+		<g id="shape8" transform="translate(222.52,-70.0456)" class="hide it-moves-yes-should-yes it-moves-no-should-no">
+			
+			<desc>No problem</desc>
+			
+			
+			
+			
+			<g id="shadow8-53" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M14.17 391.18 L56.69 391.18 A14.1732 14.1732 -180 0 0 56.69 362.83 L14.17 362.83 A14.1732 14.1732 -180 1         0 14.17 391.18 Z" class="st8" />
+			</g>
+			<path d="M14.17 391.18 L56.69 391.18 A14.1732 14.1732 -180 0 0 56.69 362.83 L14.17 362.83 A14.1732 14.1732 -180 1 0 14.17        391.18 Z" class="st9" />
+			<text x="16.03" y="379.41" class="st4">No problem</text>		</g>
+		<g id="shape11" transform="translate(184.343,-185.669)" class="hide it-moves-no-should-no">
+			
+			
+			<path d="M0 391.18 L73.61 391.18 L73.61 471.42" class="st6" />
+		</g>
+		<g id="shape13" transform="translate(113.477,-185.669)" class="hide it-moves-no-should-yes">
+			
+			
+			<path d="M0 391.18 L-49.7 391.18 L-49.7 471.42" class="st6" />
+		</g>
+		<g id="shape12" transform="translate(28.3465,-70.0456)" class="hide it-moves-no-should-yes">
+			
+			<desc>Use WD-40</desc>
+			
+			
+			
+			
+			<g id="shadow12-69" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M14.17 391.18 L56.69 391.18 A14.1732 14.1732 -180 0 0 56.69 362.83 L14.17 362.83 A14.1732 14.1732 -180 1         0 14.17 391.18 Z" class="st8" />
+			</g>
+			<path d="M14.17 391.18 L56.69 391.18 A14.1732 14.1732 -180 0 0 56.69 362.83 L14.17 362.83 A14.1732 14.1732 -180 1 0 14.17        391.18 Z" class="st9" />
+			<text x="17.11" y="379.41" class="st4">Use <tspan class="st5">WD</tspan><tspan class="st5">-</tspan><tspan class="st5">40</tspan></text>		</g>
+		<g id="shape15" transform="translate(392.598,-185.669)" class="hide it-moves-yes-should-no">
+			
+			
+			<path d="M0 391.18 L63.78 391.18 L63.78 471.42" class="st6" />
+		</g>
+		<g id="shape14" transform="translate(420.945,-70.0456)" class="hide it-moves-yes-should-no">
+			
+			<desc>Use duct tape</desc>
+			
+			
+			
+			
+			<g id="shadow14-83" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M14.17 391.18 L56.69 391.18 A14.1732 14.1732 -180 0 0 56.69 362.83 L14.17 362.83 A14.1732 14.1732 -180 1         0 14.17 391.18 Z" class="st8" />
+			</g>
+			<path d="M14.17 391.18 L56.69 391.18 A14.1732 14.1732 -180 0 0 56.69 362.83 L14.17 362.83 A14.1732 14.1732 -180 1 0 14.17        391.18 Z" class="st9" />
+			<text x="12.92" y="379.41" class="st4">Use d<tspan class="st5">uct tape</tspan></text>		</g>
+		<g id="shape16" transform="translate(358.491,-53.7623)" class="hide it-moves-yes-should-no">
+			
+			
+			<g id="shape17" transform="translate(0,-8.21677)">
+				
+				<path d="M34.18 346.66 L25.84 344.75 C25.84 344.75 9.53 343.81 5.21 364.02 C0 388.39 27.88 391.18 27.86 391.18 C12.65         377.59 10.16 363.55 34.18 346.66 Z" class="st10" />
+			</g>
+			<g id="shape18" transform="translate(11.1943,-6.71761)">
+				
+				<path d="M21.15 345.11 C11.77 345.16 3.44 355.8 1.8 364.44 C0 373.89 2.66 387.68 15.77 389.68 C25.56 391.18 32.17         384.22 35.83 376.38 C40.28 366.85 38.8 349.64 24.64 345.59 C23.47 345.25 22.3 345.1 21.15 345.11 ZM18.81         356.77 C21.74 360.83 22.12 363.69 21.38 367.04 C20.45 371.25 19.15 374.31 13.18 376.95 C8.55 373.76         10.88 366.16 11.26 364.78 C11.75 362.98 13.9 357.95 18.81 356.77 Z" class="st11" />
+			</g>
+			<g id="shape19" transform="translate(24.3695,-15.6678)">
+				
+				<path d="M0 385.9 C6.46 391.18 12.56 386.67 14.54 382.07 C17 376.37 17.05 362.58 5.64 365.72 C7.27 369.08 9.67 371.89         7.55 377.56 C6.23 381.15 3.73 384.11 0 385.9 Z" class="st12" />
+			</g>
+			<g id="shape20" transform="translate(5.38297,-49.97)">
+				
+				<path d="M0 390.39 C5.38 387.69 14.44 386.63 20.45 386.5 L26.96 388.36 C21.43 389.23 16.29 389.51 10.22 391.18 C8.53         389.99 6.42 389.94 0 390.39 Z" class="st13" />
+			</g>
+			<g id="shape21" transform="translate(151.744,13.8841) rotate(22.2696)">
+				
+				<path d="M25.19 356.77 C29.73 360.28 31.09 367.92 28.26 373.52 C25.35 379.26 19.04 380.99 14.41 377.4 C9.66 373.72         8.24 365.74 11.2 359.88 C14.24 353.88 20.84 352.08 25.68 355.83 C30.63 359.67 32.12 368.01 29.02 374.13         C25.85 380.39 18.96 382.26 13.92 378.35 C8.76 374.33 7.21 365.64 10.44 359.27 C13.75 352.76 20.92 350.8         26.17 354.89 C31.54 359.06 33.15 368.11 29.78 374.73 C26.34 381.51 18.88 383.54 13.43 379.29 C7.85 374.95         6.18 365.54 9.68 358.66 C13.26 351.63 21 349.53 26.66 353.94 C32.45 358.45 34.18 368.21 30.54 375.34         C26.83 382.63 18.81 384.81 12.93 380.23 C6.94 375.56 5.15 365.45 8.92 358.05 C12.76 350.51 21.07 348.26         27.15 353 C33.35 357.84 35.21 368.3 31.31 375.95 C27.33 383.75 18.73 386.08 12.44 381.17 C6.03 376.17         4.12 365.35 8.16 357.45 C12.27 349.39 21.15 346.98 27.65 352.06 C34.26 357.23 36.24 368.4 32.07 376.56         C27.82 384.88 18.65 387.36 11.95 382.12 C5.13 376.78 3.09 365.26 7.39 356.84 C11.78 348.27 21.23 345.71         28.14 351.12 C35.17 356.62 37.27 368.49 32.83 377.17 C28.31 386 18.58 388.63 11.46 383.06 C4.22 377.39         2.06 365.16 6.63 356.23 C11.28 347.14 21.31 344.43 28.63 350.17 C36.08 356.01 38.3 368.59 33.59 377.78         C28.81 387.12 18.5 389.91 10.97 384 C3.31 378 1.03 365.07 5.87 355.62 C10.79 346.02 21.38 343.16 29.12         349.23 C36.98 355.4 39.33 368.68 34.35 378.39 C29.3 388.24 18.42 391.18 10.47 384.94 C2.41 378.61 0         364.97 5.11 355.01 C10.29 344.9 21.46 341.88 29.61 348.29 C37.89 354.79 40.36 368.78 35.11 379 C33.22         382.69 30.45 385.65 27.22 387.44 L25.19 356.77 Z" class="st14" />
+				<path d="M25.19 356.77 C29.73 360.28 31.09 367.92 28.26 373.52 C25.35 379.26 19.04 380.99 14.41 377.4 C9.66 373.72         8.24 365.74 11.2 359.88 C14.24 353.88 20.84 352.08 25.68 355.83 C30.63 359.67 32.12 368.01 29.02 374.13         C25.85 380.39 18.96 382.26 13.92 378.35 C8.76 374.33 7.21 365.64 10.44 359.27 C13.75 352.76 20.92 350.8         26.17 354.89 C31.54 359.06 33.15 368.11 29.78 374.73 C26.34 381.51 18.88 383.54 13.43 379.29 C7.85 374.95         6.18 365.54 9.68 358.66 C13.26 351.63 21 349.53 26.66 353.94 C32.45 358.45 34.18 368.21 30.54 375.34         C26.83 382.63 18.81 384.81 12.93 380.23 C6.94 375.56 5.15 365.45 8.92 358.05 C12.76 350.51 21.07 348.26         27.15 353 C33.35 357.84 35.21 368.3 31.31 375.95 C27.33 383.75 18.73 386.08 12.44 381.17 C6.03 376.17         4.12 365.35 8.16 357.45 C12.27 349.39 21.15 346.98 27.65 352.06 C34.26 357.23 36.24 368.4 32.07 376.56         C27.82 384.88 18.65 387.36 11.95 382.12 C5.13 376.78 3.09 365.26 7.39 356.84 C11.78 348.27 21.23 345.71         28.14 351.12 C35.17 356.62 37.27 368.49 32.83 377.17 C28.31 386 18.58 388.63 11.46 383.06 C4.22 377.39         2.06 365.16 6.63 356.23 C11.28 347.14 21.31 344.43 28.63 350.17 C36.08 356.01 38.3 368.59 33.59 377.78         C28.81 387.12 18.5 389.91 10.97 384 C3.31 378 1.03 365.07 5.87 355.62 C10.79 346.02 21.38 343.16 29.12         349.23 C36.98 355.4 39.33 368.68 34.35 378.39 C29.3 388.24 18.42 391.18 10.47 384.94 C2.41 378.61 0         364.97 5.11 355.01 C10.29 344.9 21.46 341.88 29.61 348.29 C37.89 354.79 40.36 368.78 35.11 379 C33.22         382.69 30.45 385.65 27.22 387.44" class="st15" />
+			</g>
+		</g>
+		<g id="shape50" transform="translate(113.477,-41.2562)" class="hide it-moves-no-should-yes">
+			
+			
+			<g id="shape51">
+				
+				<path d="M35.37 385.29 A17.7165 6.42224 0 0 1 0.06 385.29 L0 385.29 L0 339.8 L35.42 340.41 L35.43 385.29 L35.37 385.29         Z" class="st16" />
+			</g>
+			<g id="shape52" transform="translate(0,-31.8898)">
+				
+				<path d="M35.43 380.3 L35.43 380.3 L35.43 379.98 L35.43 359.29 L0 359.29 L0 379.98 L0 380.3 L0.01 380.3 A17.7165         11.2045 -180 0 0 35.43 380.3 Z" class="st17" />
+			</g>
+			<g id="shape53" transform="translate(2.9976E-14,-58.4646)">
+				
+				<g id="shape54">
+					
+					<ellipse cx="17.7165" cy="385.866" rx="17.7165" ry="5.31496" class="st18" />
+				</g>
+				<g id="shape55" transform="translate(11.5157,-4.42913)">
+					
+					<path d="M12.38 389.48 A6.20079 1.86024 0 0 1 0.02 389.48 L0 389.48 L0 380.79 L12.4 380.81 L12.4 389.32 L12.4          389.48 L12.38 389.48 Z" class="st19" />
+				</g>
+				<g id="shape56" transform="translate(7.08661,-6.51969)">
+					
+					<g id="shape57">
+						
+						<path d="M21.22 388.26 A10.6299 3.18898 0 0 1 0.04 388.26 L0 388.26 L0 373.37 L21.26 373.4 L21.26 387.99           L21.26 388.26 L21.22 388.26 Z" class="st20" />
+					</g>
+					<g id="shape58" transform="translate(0,-14.563)">
+						
+						<ellipse cx="10.6299" cy="387.992" rx="10.6299" ry="3.18898" class="st20" />
+					</g>
+				</g>
+			</g>
+			<g id="shape59" transform="translate(1.99311,-42.5197)">
+				
+				<desc>WD-40</desc>
+				
+				
+				<rect x="0" y="380.551" width="31.4469" height="10.6299" class="st21" />
+				<text x="4.1" y="388.27" class="st22">WD-40</text>			</g>
+		</g>
+		<g id="it-moves-no" transform="translate(182.126,-243.78)" class="button">
+			
+			<desc>NO</desc>
+			
+			
+			
+			
+			<g id="shadow60-128" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M7.09 391.18 L28.35 391.18 A7.08661 7.08661 -180 0 0 28.35 377.01 L7.09 377.01 A7.08661 7.08661 -180 1 0         7.09 391.18 Z" class="st23" />
+			</g>
+			<path d="M7.09 391.18 L28.35 391.18 A7.08661 7.08661 -180 0 0 28.35 377.01 L7.09 377.01 A7.08661 7.08661 -180 1 0 7.09        391.18 Z" class="st24" />
+			<text x="12.49" y="386.49" class="st4">NO</text>		</g>
+		<g id="it-moves-yes" transform="translate(288.425,-243.78)" class="button">
+			
+			<desc>YES</desc>
+			
+			
+			
+			
+			<g id="shadow61-134" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M7.09 391.18 L28.35 391.18 A7.08661 7.08661 -180 0 0 28.35 377.01 L7.09 377.01 A7.08661 7.08661 -180 1 0         7.09 391.18 Z" class="st25" />
+			</g>
+			<path d="M7.09 391.18 L28.35 391.18 A7.08661 7.08661 -180 0 0 28.35 377.01 L7.09 377.01 A7.08661 7.08661 -180 1 0 7.09        391.18 Z" class="st26" />
+			<text x="11.98" y="386.49" class="st4">YES</text>		</g>
+		<g id="it-moves-no-should-no" transform="translate(182.126,-164.409)" class="button hide it-moves-no">
+			
+			<desc>NO</desc>
+			
+			
+			
+			
+			<g id="shadow65-142" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M7.09 391.18 L28.35 391.18 A7.08661 7.08661 -180 0 0 28.35 377.01 L7.09 377.01 A7.08661 7.08661 -180 1 0         7.09 391.18 Z" class="st23" />
+			</g>
+			<path d="M7.09 391.18 L28.35 391.18 A7.08661 7.08661 -180 0 0 28.35 377.01 L7.09 377.01 A7.08661 7.08661 -180 1 0 7.09        391.18 Z" class="st24" />
+			<text x="12.49" y="386.49" class="st4">NO</text>		</g>
+		<g id="it-moves-yes-should-yes" transform="translate(294.803,-164.409)" class="button hide it-moves-yes">
+			
+			<desc>YES</desc>
+			
+			
+			
+			
+			<g id="shadow66-148" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M7.09 391.18 L28.35 391.18 A7.08661 7.08661 -180 0 0 28.35 377.01 L7.09 377.01 A7.08661 7.08661 -180 1 0         7.09 391.18 Z" class="st25" />
+			</g>
+			<path d="M7.09 391.18 L28.35 391.18 A7.08661 7.08661 -180 0 0 28.35 377.01 L7.09 377.01 A7.08661 7.08661 -180 1 0 7.09        391.18 Z" class="st26" />
+			<text x="11.98" y="386.49" class="st4">YES</text>		</g>
+		<g id="it-moves-yes-should-no" transform="translate(382.586,-164.409)" class="button hide it-moves-yes">
+			
+			<desc>NO</desc>
+			
+			
+			
+			
+			<g id="shadow67-155" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M7.09 391.18 L28.35 391.18 A7.08661 7.08661 -180 0 0 28.35 377.01 L7.09 377.01 A7.08661 7.08661 -180 1 0         7.09 391.18 Z" class="st23" />
+			</g>
+			<path d="M7.09 391.18 L28.35 391.18 A7.08661 7.08661 -180 0 0 28.35 377.01 L7.09 377.01 A7.08661 7.08661 -180 1 0 7.09        391.18 Z" class="st24" />
+			<text x="12.49" y="386.49" class="st4">NO</text>		</g>
+		<g id="it-moves-no-should-yes" transform="translate(79.3701,-164.409)" class="button hide it-moves-no">
+			
+			<desc>YES</desc>
+			
+			
+			
+			
+			<g id="shadow68-161" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<path d="M7.09 391.18 L28.35 391.18 A7.08661 7.08661 -180 0 0 28.35 377.01 L7.09 377.01 A7.08661 7.08661 -180 1 0         7.09 391.18 Z" class="st25" />
+			</g>
+			<path d="M7.09 391.18 L28.35 391.18 A7.08661 7.08661 -180 0 0 28.35 377.01 L7.09 377.01 A7.08661 7.08661 -180 1 0 7.09        391.18 Z" class="st26" />
+			<text x="11.98" y="386.49" class="st4">YES</text>		</g>
+	</g>
+</svg>
+  </div>
+  
+  <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <filter id="hover">
+        <feMorphology result="offset" in="SourceGraphic" operator="dilate" radius="5"></feMorphology>
+        <feColorMatrix result="drop" in="offset" type="matrix" values="1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0.3 0"></feColorMatrix>
+        <feBlend in="SourceGraphic" in2="drop" mode="normal"></feBlend>
+      </filter>
+
+      <filter id="select">
+        <feMorphology result="offset" in="SourceGraphic" operator="dilate" radius="5"></feMorphology>
+        <feColorMatrix result="drop" in="offset" type="matrix" values="1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0.9 0"></feColorMatrix>
+        <feBlend in="SourceGraphic" in2="drop" mode="normal"></feBlend>
+      </filter>
+      <filter id="hyperlink">
+        <feMorphology result="offset" in="SourceGraphic" operator="dilate" radius="5"></feMorphology>
+        <feColorMatrix result="drop" in="offset" type="matrix" values="0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0.3 0"></feColorMatrix>
+        <feBlend in="SourceGraphic" in2="drop" mode="normal"></feBlend>
+      </filter>
+    </defs>
+  </svg>
+  <script type="text/javascript">(function (diagram) { 
+function showSelection(cls) {
+    d3.selectAll(cls).classed('hide', false).style('opacity', '0').transition().style('opacity', '1');
+}
+
+$('#it-moves-yes').on('click', function() {
+    showSelection('.it-moves-yes');
+}).tooltip( {title: 'if it moves, click YES', container: 'body' });
+
+$('#it-moves-no').on('click', function() {
+    showSelection('.it-moves-no');
+}).tooltip( {title: 'if it does not move, click NO', container: 'body' });
+
+$('#it-moves-no-should-yes').on('click', function() {
+    showSelection('.it-moves-no-should-yes');
+}).tooltip( {title: 'Well, it does not move. But should it move?', container: 'body' });
+
+$('#it-moves-yes-should-no').on('click', function() {
+    showSelection('.it-moves-yes-should-no');
+}).tooltip( {title: 'Well, it moves. But should it move?', container: 'body' });
+
+$('#it-moves-yes-should-yes').on('click', function() {
+    showSelection('.it-moves-yes-should-yes');
+}).tooltip( {title: 'Well, it moves. But should it move?', container: 'body' });;
+
+$('#it-moves-no-should-no').on('click', function() {
+    showSelection('.it-moves-no-should-no');
+}).tooltip( {title: 'Well, it does not move. But should it move?', container: 'body' });;
+ })(window.svgpublish);</script>
+</body>
+</html>
