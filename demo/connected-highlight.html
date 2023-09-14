@@ -1,127 +1,157 @@
 ﻿<!DOCTYPE html>
 <html class="vp">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <script src="vp/jquery-3.1.1.min.js"></script>
-  <link href="vp/bootstrap-3.3.7.min.css" rel="stylesheet" />
-  <script src="vp/bootstrap-3.3.7.min.js"></script>
-  <script src="vp/d3-4.5.0.min.js"></script>
-  <link href="vp/vp-style-1.3.0.min.css" rel="stylesheet" />
-  <script>
-        window.svgpublish = {"shapes":{"shape1":{"ShapeId":"shape1","ConnectedTo":["shape2"],"Text":"A"},"shape2":{"ShapeId":"shape2","ConnectedTo":["shape3","shape4"],"ConnectedFrom":["shape1"],"Text":"B"},"shape3":{"ShapeId":"shape3","ConnectedFrom":["shape2"],"Text":"C"},"shape4":{"ShapeId":"shape4","ConnectedFrom":["shape2"],"Text":"D"},"shape5":{"ShapeId":"shape5","Layers":[1],"Text":"","MasterName":"Dynamic connector"},"shape6":{"ShapeId":"shape6","Layers":[1],"Text":"","MasterName":"Dynamic connector"},"shape7":{"ShapeId":"shape7","Layers":[1],"Text":"","MasterName":"Dynamic connector"}},"pages":[{"Name":"Page-1","Id":0,"FileName":"connected-highlight.html"}],"currentPage":{"Name":"Page-1","Id":0,"FileName":"connected-highlight.html"},"currentPageShape":{},"layers":[{"Name":"Connector","Index":1,"Visible":true}],"enableProps":false,"twoFingersTouch":false,"enableLinks":false,"enablePages":false,"enablePageLookup":false,"enablePageSort":false,"enableLayerLookup":false,"enableLayerSort":false,"enableZoomCtrl":false,"enableZoomShift":false,"enableSearch":false,"enableMultiPageSearch":false,"enableSidebar":false,"enableTooltips":false,"enableSelection":false,"enableHover":false,"enableLayers":false,"enableFollowHyperlinks":false,"openHyperlinksInNewWindow":false,"transformVisioFileLinks":false,"keepRelativeLinks":false,"rightSidebar":false,"alwaysHideSidebar":false,"enableSidbarTitle":false,"enableSidebarMarkdown":false,"enableTooltipMarkdown":false,"enableD3":true,"tooltipPlacement":"","popoverPlacement":"","enablePopovers":false,"enablePopoverMarkdown":false,"tooltipTrigger":"","tooltipOutsideClick":false,"tooltipUseMousePosition":false,"tooltipKeepOnHover":false,"tooltipTimeout":false,"tooltipTimeoutShow":"","tooltipTimeoutHide":"","popoverTrigger":"","popoverTimeout":false,"popoverOutsideClick":false,"popoverKeepOnHover":false,"popoverTimeoutShow":"","popoverTimeoutHide":"","popoverUseMousePosition":false,"enableContainerTip":false,"enablePropertySearch":false,"viewBox":"0 0 595.276 841.89"}
-        $(document).ready(function () { $("div.svg").panzoom({ svg: $("div.svg > svg").get(0), viewBox: "0 0 595.276 841.89" }).removeClass("appear"); });
-  </script>
-  <script src="vp/vp-script-1.3.0.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/gh/nbelyh/svgpublish-releases@1.6/dist/bootstrap-3.3.7.min.css" rel="stylesheet" />
+    
+    <link href="https://cdn.jsdelivr.net/gh/nbelyh/svgpublish-releases@1.6/dist/bootstrap-switch-3.3.4.min.css" rel="stylesheet" />
+    
+    
+    <link href="https://cdn.jsdelivr.net/gh/nbelyh/svgpublish-releases@1.6/dist/vp-style-1.6.25609.min.css" rel="stylesheet" />
 </head>
 <body>
-  
-  <div id="body-html"></div>
-  <div id="svg" class="svg appear">
-    <svg width="100%" height="100%" xml:space="preserve" color-interpolation-filters="sRGB" class="st4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <div id="body-html"></div>
+    <div id="svg" class="svg appear">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" width="100%" height="100%" xml:space="preserve" color-interpolation-filters="sRGB" class="st5">
 	
 
 	<style type="text/css">
 	.st1 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75;}
 	.st2 {fill:#000000;font-family:Calibri;font-size:1.00001em;}
-	.st3 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25;}
-	.st4 {fill:none;fill-rule:evenodd;font-size:12px;overflow:hidden;stroke-linecap:square;stroke-miterlimit:3;}
+	.st3 {marker-end:url(#mrkr13-18);stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:3;}
+	.st4 {fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;stroke-width:0.54347826086957;}
+	.st5 {fill:none;fill-rule:evenodd;font-size:12px;overflow:hidden;stroke-linecap:square;stroke-miterlimit:3;}
 </style>
 
+	<defs id="Markers">
+		<g id="lend13">
+			<path d="M 3 1 L 0 0 L 3 -1 L 3 1 " style="stroke:none" />
+		</g>
+		<marker style="overflow:visible" id="mrkr13-18" class="st4" refX="-5.52" orient="auto" markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-1.84,-1.84) " />
+		</marker>
+	</defs>
 	<g id="viewport">
 		
 		
 		
-		<g id="shape1" transform="translate(85.0394,-680.315)">
+		<g id="shape1" transform="translate(85.0394,-325.984)">
 			
 			<desc>A</desc>
 			
 			
-			<rect x="0" y="771.024" width="113.386" height="70.8661" class="st1" />
-			<text x="53.22" y="810.06" class="st2">A</text>		</g>
-		<g id="shape2" transform="translate(212.598,-552.756)">
+			<rect x="0" y="358.583" width="113.386" height="70.8661" class="st1" />
+			<text x="53.22" y="397.62" class="st2">A</text>		</g>
+		<g id="shape2" transform="translate(212.598,-198.425)">
 			
 			<desc>B</desc>
 			
 			
-			<rect x="0" y="771.024" width="99.2126" height="70.8661" class="st1" />
-			<text x="46.34" y="810.06" class="st2">B</text>		</g>
-		<g id="shape3" transform="translate(56.6929,-396.85)">
-			
-			<desc>C</desc>
-			
-			
-			<rect x="0" y="785.197" width="113.386" height="56.6929" class="st1" />
-			<text x="53.49" y="817.14" class="st2">C</text>		</g>
-		<g id="shape4" transform="translate(340.157,-396.85)">
+			<rect x="0" y="358.583" width="99.2126" height="70.8661" class="st1" />
+			<text x="46.34" y="397.62" class="st2">B</text>		</g>
+		<g id="shape3" transform="translate(198.425,-60.2362)">
 			
 			<desc>D</desc>
 			
 			
-			<rect x="0" y="785.197" width="113.386" height="56.6929" class="st1" />
-			<text x="53" y="817.14" class="st2">D</text>		</g>
-		<g id="shape5" transform="translate(141.732,-680.315)" class="dynamic-connector">
+			<rect x="0" y="372.756" width="113.386" height="56.6929" class="st1" />
+			<text x="53" y="404.7" class="st2">D</text>		</g>
+		<g id="shape4" transform="translate(387.739,-206.524)">
 			
-			<path d="M0 841.89 L0 934.02 L70.87 934.02" class="st3" />
+			<desc>C</desc>
+			
+			
+			<rect x="0" y="372.756" width="113.386" height="56.6929" class="st1" />
+			<text x="53.49" y="404.7" class="st2">C</text>		</g>
+		<g id="shape5" transform="translate(141.732,-325.984)" class="dynamic-connector">
+			
+			<path d="M0 429.45 L0 521.57 L54.31 521.57" class="st3" />
 		</g>
-		<g id="shape6" transform="translate(262.205,-552.756)" class="dynamic-connector">
+		<g id="shape6" transform="translate(255.118,-198.425)" class="dynamic-connector">
 			
-			<path d="M0 841.89 L0 969.45 L-92.13 969.45" class="st3" />
+			<path d="M7.09 429.45 L7.09 494.38" class="st3" />
 		</g>
-		<g id="shape7" transform="translate(287.008,-552.756)" class="dynamic-connector">
+		<g id="shape7" transform="translate(311.811,-227.784)" class="dynamic-connector">
 			
-			<path d="M0 841.89 L0 955.28 L53.15 955.28" class="st3" />
+			<path d="M0 422.36 L59.37 422.36" class="st3" />
+		</g>
+		<g id="shape8" transform="translate(403.937,-64.2857)">
+			
+			<desc>E</desc>
+			
+			
+			<rect x="0" y="372.756" width="113.386" height="56.6929" class="st1" />
+			<text x="53.76" y="404.7" class="st2">E</text>		</g>
+		<g id="shape9" transform="translate(445.444,-206.524)" class="dynamic-connector">
+			
+			<path d="M7.09 429.45 L7.09 498.43" class="st3" />
 		</g>
 	</g>
 </svg>
-  </div>
-  
-  <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-      <filter id="hover">
-        <feMorphology result="offset" in="SourceGraphic" operator="dilate" radius="5"></feMorphology>
-        <feColorMatrix result="drop" in="offset" type="matrix" values="1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0.3 0"></feColorMatrix>
-        <feBlend in="SourceGraphic" in2="drop" mode="normal"></feBlend>
-      </filter>
-
-      <filter id="select">
-        <feMorphology result="offset" in="SourceGraphic" operator="dilate" radius="5"></feMorphology>
-        <feColorMatrix result="drop" in="offset" type="matrix" values="1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0.9 0"></feColorMatrix>
-        <feBlend in="SourceGraphic" in2="drop" mode="normal"></feBlend>
-      </filter>
-      <filter id="hyperlink">
-        <feMorphology result="offset" in="SourceGraphic" operator="dilate" radius="5"></feMorphology>
-        <feColorMatrix result="drop" in="offset" type="matrix" values="0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0.3 0"></feColorMatrix>
-        <feBlend in="SourceGraphic" in2="drop" mode="normal"></feBlend>
-      </filter>
-    </defs>
-  </svg>
-  <script type="text/javascript">(function (diagram) { d3
-.selectAll("[id]")
-.style("cursor", "pointer")
-.on('click', function() {
+    </div>
     
-    var id   = $(this).attr('id');
-    var data = diagram.shapes[id];
+    <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <filter id="hover">
+                <feMorphology operator="dilate" radius="4"></feMorphology>
+                <feColorMatrix type="matrix" values="
+                       0 0 0 0 1.00
+                       0 0 0 0 1.00
+                       0 0 0 0 0.00
+                       0 0 0 0.30 0" result="matrix" />
+                <feBlend in="SourceGraphic" in2="matrix" mode="normal" />
+            </filter>
 
-    if (!data)
-        return;
-
-    d3.selectAll("[id]").selectAll("rect, g").style("fill", null);
-
-    if (data.ConnectedTo) {
-        data.ConnectedTo.forEach( function(item) {
-            d3.select("#" + item).selectAll("rect, g").style("fill", "#Aff");
-        });
-    }
-    if (data.ConnectedFrom) {
-        data.ConnectedFrom.forEach( function(item) {
-            d3.select("#" + item).selectAll("rect, g").style("fill", "#fAf");
-        });
-    }
-    d3.select("#" + id).selectAll("rect, g").style("fill", "#ff0");
-}) })(window.svgpublish);</script>
+            <filter id="select">
+                <feMorphology operator="dilate" radius="4"></feMorphology>
+                <feColorMatrix type="matrix" values="
+                       0 0 0 0 1.00
+                       0 0 0 0 1.00
+                       0 0 0 0 0.00
+                       0 0 0 0.90 0" result="matrix" />
+                <feBlend in="SourceGraphic" in2="matrix" mode="normal" />
+            </filter>
+            <filter id="hyperlink">
+                <feMorphology operator="dilate" radius="4"></feMorphology>
+                <feColorMatrix type="matrix" values="
+                       0 0 0 0 0.00
+                       0 0 0 0 0.00
+                       0 0 0 0 1.00
+                       0 0 0 0.30 0" result="matrix" />
+                <feBlend in="SourceGraphic" in2="matrix" mode="normal" />
+            </filter>
+            <filter id="next">
+                <feMorphology operator="dilate" radius="4"></feMorphology>
+                <feColorMatrix type="matrix" values="
+                       0 0 0 0 1.00
+                       0 0 0 0 0.63
+                       0 0 0 0 1.00
+                       0 0 0 0.90 0" result="matrix" />
+                <feBlend in="SourceGraphic" in2="matrix" mode="normal" />
+            </filter>
+            <filter id="prev">
+                <feMorphology operator="dilate" radius="4"></feMorphology>
+                <feColorMatrix type="matrix" values="
+                       0 0 0 0 0.63
+                       0 0 0 0 1.00
+                       0 0 0 0 1.00
+                       0 0 0 0.90 0" result="matrix" />
+                <feBlend in="SourceGraphic" in2="matrix" mode="normal" />
+            </filter>
+        </defs>
+    </svg>
+    <script src="https://cdn.jsdelivr.net/gh/nbelyh/svgpublish-releases@1.6/dist/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/nbelyh/svgpublish-releases@1.6/dist/bootstrap-3.3.7.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/gh/nbelyh/svgpublish-releases@1.6/dist/bootstrap-switch-3.3.4.min.js"></script>
+    
+    
+    <script>window.svgpublish = {"shapes":{"shape1":{"ShapeId":"shape1","ConnectedTo":["shape2"],"Text":"A"},"shape2":{"ShapeId":"shape2","ConnectedTo":["shape3","shape4"],"ConnectedFrom":["shape1"],"Text":"B"},"shape3":{"ShapeId":"shape3","ConnectedFrom":["shape2"],"Text":"D"},"shape4":{"ShapeId":"shape4","ConnectedTo":["shape8"],"ConnectedFrom":["shape2"],"Text":"C"},"shape5":{"ShapeId":"shape5","Layers":[1],"Text":"","MasterName":"Dynamic connector"},"shape6":{"ShapeId":"shape6","Layers":[1],"Text":"","MasterName":"Dynamic connector"},"shape7":{"ShapeId":"shape7","Layers":[1],"Text":"","MasterName":"Dynamic connector"},"shape8":{"ShapeId":"shape8","ConnectedFrom":["shape4"],"Text":"E"},"shape9":{"ShapeId":"shape9","Layers":[1],"Text":"","MasterName":"Dynamic connector"}},"pages":[{"Name":"Page-1","Id":0,"FileName":"connected-highlight.html"}],"currentPage":{"Name":"Page-1","Id":0,"FileName":"connected-highlight.html"},"layers":[{"Name":"Connector","Index":1,"Visible":true}],"enableProps":false,"twoFingersTouch":false,"enableAutoFrameHeight":false,"enableLinks":false,"enablePages":false,"enablePageLookup":false,"enablePageSort":false,"enableZoomCtrl":false,"enableZoomShift":false,"enableSearch":false,"enableMultiPageSearch":false,"enableSidebar":false,"enableTooltips":false,"enableSelection":true,"enableHover":true,"enableLayers":false,"enableFollowHyperlinks":false,"openHyperlinksInNewWindow":false,"transformVisioFileLinks":false,"useReadablePageNames":false,"keepRelativeLinks":false,"rightSidebar":false,"alwaysHideSidebar":false,"showSidebarOnSelection":false,"enableSidbarTitle":false,"enableSidebarMarkdown":false,"enableTooltipMarkdown":false,"enableD3":false,"skipMinification":false,"enableBootstrapSwitch":true,"enableBootstrapSelect":false,"tooltipPlacement":"","popoverPlacement":"","enablePopovers":false,"enablePopoverMarkdown":false,"enableContentMarkdown":false,"tooltipTrigger":"","tooltipOutsideClick":false,"tooltipUseMousePosition":false,"tooltipKeepOnHover":false,"tooltipTimeout":false,"tooltipTimeoutShow":"","sidebarDefaultWidth":"","tooltipTimeoutHide":"","popoverTrigger":"","popoverTimeout":false,"popoverOutsideClick":false,"popoverKeepOnHover":false,"popoverTimeoutShow":"","popoverTimeoutHide":"","popoverUseMousePosition":false,"enableContainerTip":false,"enablePropertySearch":false,"enablePropertySearchFilter":false,"processNested":false,"processBackground":false,"viewBox":"0 0 595.276 429.449","layerView":{"enableLayerLookup":false,"enableLayerSort":false,"enableLayerToggles":true,"enableLayerShowAll":false},"selectionView":{"enableBoxSelection":false,"enableBlur":false,"blur":2,"enableDilate":true,"dilate":4,"mode":"normal","selectColor":"rgba(255, 255, 0, 0.90)","hoverColor":"rgba(255, 255, 0, 0.30)","hyperlinkColor":"rgba(0, 0, 255, 0.30)","enablePrevShapeColor":true,"prevShapeColor":"rgba(160, 255, 255, 0.90)","enableNextShapeColor":true,"nextShapeColor":"rgba(255, 160, 255, 0.90)"}}</script>
+    <script src="https://cdn.jsdelivr.net/gh/nbelyh/svgpublish-releases@1.6/dist/vp-script-1.6.25609.min.js"></script>
+    <script>$("div.svg").panzoom({ svg: $("div.svg > svg").get(0), viewBox: "0 0 595.276 429.449" }).removeClass("appear");</script>
 </body>
 </html>
